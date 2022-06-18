@@ -1,0 +1,104 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: sonarr
+  namespace: vpn
+spec:
+  chart:
+    spec:
+      chart: sonarr
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      version: 16.2.3
+  interval: 1m0s
+  values:
+    env:
+      TZ: UTC
+    image:
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/k8s-at-home/sonarr
+      tag: null
+    ingress:
+      main:
+        enabled: false
+    initContainers:
+      update-volume-permission:
+        command:
+        - sh
+        - -c
+        - chown -R 568:568 /config
+        image: busybox
+        securityContext:
+          runAsUser: 0
+        volumeMounts:
+        - mountPath: /config
+          name: config
+    metrics:
+      enabled: false
+      exporter:
+        env:
+          additionalMetrics: false
+          port: 9794
+          unknownQueueItems: false
+        image:
+          pullPolicy: IfNotPresent
+          repository: ghcr.io/onedr0p/exportarr
+          tag: v1.0.0
+      prometheusRule:
+        enabled: false
+        labels: {}
+        rules: []
+      serviceMonitor:
+        interval: 3m
+        labels: {}
+        scrapeTimeout: 1m
+    persistence:
+      config:
+        enabled: true
+        existingClaim: sonarr-config-pvc
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        type: custom
+        volumeSpec:
+          nfs:
+            path: /volume1/Media/downloads
+            server: 192.168.1.10
+      media:
+        enabled: true
+        mountPath: /tv
+        type: custom
+        volumeSpec:
+          nfs:
+            path: /volume1/Media/tv
+            server: 192.168.1.10
+    probes:
+      liveness:
+        custom: true
+        enabled: true
+        spec:
+          exec:
+            command:
+            - /usr/bin/env
+            - bash
+            - -c
+            - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
+              read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done <
+              /config/config.xml`
+          failureThreshold: 5
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+    service:
+      main:
+        ports:
+          http:
+            port: 8989
+            targetPort: 8989
+        type: NodePort
+

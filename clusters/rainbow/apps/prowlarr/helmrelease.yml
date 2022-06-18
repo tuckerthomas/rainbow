@@ -1,0 +1,51 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: prowlarr
+  namespace: vpn
+spec:
+  chart:
+    spec:
+      chart: prowlarr
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      version: 4.4.2
+  interval: 1m0s
+  values:
+    env:
+      TZ: UTC
+    image:
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/k8s-at-home/prowlarr
+      tag: null
+    ingress:
+      main:
+        enabled: false
+    initContainers:
+      update-volume-permission:
+        command:
+        - sh
+        - -c
+        - chown -R 568:568 /config
+        image: busybox
+        securityContext:
+          runAsUser: 0
+        volumeMounts:
+        - mountPath: /config
+          name: config
+    persistence:
+      config:
+        enabled: true
+        existingClaim: prowlarr-config-pvc
+    service:
+      main:
+        ports:
+          http:
+            port: 9696
+            targetPort: 9696
+        type: NodePort
+
