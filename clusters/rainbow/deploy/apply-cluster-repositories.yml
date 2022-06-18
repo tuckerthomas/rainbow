@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  dependsOn:
+    - name: apply-flux-system
   path: ./clusters/rainbow/sources
   prune: true
   wait: true
