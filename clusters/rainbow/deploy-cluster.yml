@@ -13,4 +13,4 @@ spec:
   wait: true
   sourceRef:
     kind: GitRepository
-    name: rainbow-flux
+    name: flux-system
