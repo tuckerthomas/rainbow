@@ -8,4 +8,3 @@ spec:
   interval: 30m
   url: https://k8s-at-home.com/charts
   timezone: 3m
-

@@ -1,0 +1,62 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: pod-gateway
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: "./clusters/rainbow/apps/vpn/pod-gateway"
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: rainbow-flux
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: prowlarr
+  namespace: flux-system
+spec:
+  interval: 5m
+  dependsOn:
+    - name: pod-gateway
+  path: "./clusters/rainbow/apps/prowlarr"
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: rainbow-flux
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: sonarr
+  namespace: flux-system
+spec:
+  interval: 5m
+  dependsOn:
+    - name: pod-gateway
+  path: "./clusters/rainbow/apps/sonarr"
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: rainbow-flux
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: transmission
+  namespace: flux-system
+spec:
+  interval: 5m
+  dependsOn:
+    - name: pod-gateway
+  path: "./clusters/rainbow/apps/transmission"
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: rainbow-flux
