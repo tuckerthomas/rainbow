@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 10m0s
   dependsOn:
-    - flux-system
+    - name: flux-system
   path: ./clusters/rainbow/deploy
   prune: true
   wait: true
