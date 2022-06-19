@@ -8,6 +8,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name: apply-cluster-repositories
+    - name: apply-cluster-namespaces
   path: ./clusters/rainbow/apps
   prune: true
   wait: true
