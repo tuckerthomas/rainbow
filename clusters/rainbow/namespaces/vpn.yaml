@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   name: vpn
   labels:
-    vpn-routed-gateway: "true"
+    routed-gateway: "true"
     istio-injection: "enabled"
 
 ---
