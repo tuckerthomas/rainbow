@@ -96,9 +96,10 @@ spec:
           timeoutSeconds: 10
     service:
       main:
-        ports:
-          http:
-            port: 8989
-            targetPort: 8989
-        type: NodePort
+        enabled: false
+        #ports:
+        #  http:
+        #    port: 8989
+        #    targetPort: 8989
+        #type: NodePort
 
