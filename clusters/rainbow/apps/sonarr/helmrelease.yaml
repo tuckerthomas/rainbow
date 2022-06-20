@@ -97,9 +97,8 @@ spec:
     service:
       main:
         enabled: false
-        #ports:
-        #  http:
-        #    port: 8989
-        #    targetPort: 8989
-        #type: NodePort
-
+        ports:
+          http:
+            port: 8989
+            targetPort: 8989
+        type: NodePort
