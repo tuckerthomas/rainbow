@@ -45,7 +45,7 @@ metadata:
   namespace: vpn
 spec:
   selector:
-    istio: ingressgateway # use Istio default gateway implementation
+    istio: gateway # istio gateway chart default value
   servers:
   - port:
       number: 80
