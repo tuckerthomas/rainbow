@@ -5,6 +5,7 @@ metadata:
   name: vpn
   labels:
     vpn-routed-gateway: "true"
+    istio-injection: "enabled"
 #
 #---
 #kind: NetworkPolicy
