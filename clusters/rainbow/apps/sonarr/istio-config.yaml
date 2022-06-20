@@ -13,7 +13,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "*"
+    - "*.tuckerthomas.local"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -22,13 +22,13 @@ metadata:
   namespace: vpn
 spec:
   hosts:
-  - "*"
+  - "sonarr.tuckerthomas.local"
   gateways:
   - sonarr-gateway
   http:
   - match:
     - uri:
-        prefix: /headers
+        prefix: /
     route:
     - destination:
         port:
