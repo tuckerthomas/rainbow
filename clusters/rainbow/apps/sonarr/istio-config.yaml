@@ -33,4 +33,4 @@ spec:
     - destination:
         port:
           number: 8989
-        host: sonarr
+        host: sonarr.vpn.svc.cluster.local
