@@ -2,6 +2,21 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
+  name: adguard-home
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: "./clusters/rainbow/apps/adguard-home"
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  timeout: 2m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
   name: pod-gateway
   namespace: flux-system
 spec:
