@@ -2,11 +2,11 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: sonarr
+  name: prowlarr
   namespace: vpn
 spec:
   hosts:
-  - "sonarr.tuckerthomas.local"
+  - "prowlarr.tuckerthomas.local"
   gateways:
   - vpn-gateway
   http:
@@ -16,5 +16,5 @@ spec:
     route:
     - destination:
         port:
-          number: 8989
-        host: sonarr.vpn.svc.cluster.local
+          number: 9696
+        host: prowlarr.vpn.svc.cluster.local
