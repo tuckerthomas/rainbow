@@ -45,6 +45,7 @@ metadata:
   namespace: vpn
 spec:
   selector:
+    app: istio-ingress
     istio: gateway # istio gateway chart default value
   servers:
   - port:
