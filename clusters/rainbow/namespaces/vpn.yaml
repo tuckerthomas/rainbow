@@ -6,33 +6,33 @@ metadata:
   labels:
     vpn-routed-gateway: "true"
     istio-injection: "enabled"
-#
-#---
-#kind: NetworkPolicy
-#apiVersion: networking.k8s.io/v1
-#metadata:
-#  name: vpn-networky-policy
-#  namespace: vpn
-#spec:
-#  podSelector: {}
-#  ingress:
-#  - from:
-#    # Only allow ingress from K8S
-#    - ipBlock:
-#        cidr: 10.0.0.0/8
-#  - from:
-#    # Allow ingress from local CIDR
-#    - ipBlock:
-#        cidr: 192.168.0.0/16
-#  egress:
-#  - to:
-#    # Only allow egress to K8S
-#    - ipBlock:
-#        cidr: 10.0.0.0/8
-#  - to:
-#    # Allow egress to local CIDR
-#    - ipBlock:
-#        cidr: 192.168.0.0/16
-#  policyTypes:
-#    - Ingress
-#    - Egress
+
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: vpn-networky-policy
+  namespace: vpn
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+        # Only allow ingress from K8S
+        - ipBlock:
+            cidr: 10.0.0.0/8
+    - from:
+        # Allow ingress from local CIDR
+        - ipBlock:
+            cidr: 192.168.0.0/16
+  egress:
+    - to:
+        # Only allow egress to K8S
+        - ipBlock:
+            cidr: 10.0.0.0/8
+    - to:
+        # Allow egress to local CIDR
+        - ipBlock:
+            cidr: 192.168.0.0/16
+  policyTypes:
+    - Ingress
+    - Egress
