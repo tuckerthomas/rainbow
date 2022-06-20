@@ -46,7 +46,7 @@ metadata:
 spec:
   selector:
     app: istio-ingress
-    istio: gateway # istio gateway chart default value
+    istio: ingress # istio gateway chart default value
   servers:
   - port:
       number: 80
