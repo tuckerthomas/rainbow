@@ -4,9 +4,9 @@ kind: Namespace
 metadata: 
   name: vpn
   labels: 
-    name: vpn
-    routed-gateway: true
-    istio-injection: enabled
+    - name: vpn
+    - routed-gateway: true
+    - istio-injection: enabled
 
 ---
 kind: NetworkPolicy
