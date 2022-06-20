@@ -71,6 +71,7 @@ spec:
     service:
       main:
         primary: true
+        type: NodePort
         ports:
           http:
             port: 3000
