@@ -4,6 +4,9 @@ kind: HelmRelease
 metadata:
   name: istio-ingress
   namespace: istio-ingress
+  labels:
+    app: "" # Unset default app selector label
+    istio: gateway # override default istio selector label
 spec:
   chart:
     spec:
