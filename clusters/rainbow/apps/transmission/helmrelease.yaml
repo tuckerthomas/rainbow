@@ -75,21 +75,21 @@ spec:
             targetPort: 9091
         type: NodePort
       utptcp:
-        enabled: false
+        enabled: true
         ports:
           utptcp:
             enabled: true
-            port: 51413
+            port: 55545
             protocol: TCP
-            targetPort: 51413
+            targetPort: 55545
         type: ClusterIP
       utpudp:
-        enabled: false
+        enabled: true
         ports:
           utpudp:
             enabled: true
-            port: 51413
+            port: 55545
             protocol: UDP
-            targetPort: 51413
+            targetPort: 55545
         type: ClusterIP
 
