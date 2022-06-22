@@ -16,6 +16,8 @@ spec:
       version: 8.3.1
   interval: 1m0s
   values:
+    hostname: transmission
+
     env:
       TRANSMISSION_DOWNLOAD_DIR: /downloads/complete
       TRANSMISSION_INCOMPLETE_DIR: /downloads/incomplete
@@ -36,15 +38,15 @@ spec:
     initContainers:
       update-volume-permission:
         command:
-        - sh
-        - -c
-        - chown -R 568:568 /config
+          - sh
+          - -c
+          - chown -R 568:568 /config
         image: busybox
         securityContext:
           runAsUser: 0
         volumeMounts:
-        - mountPath: /config
-          name: config
+          - mountPath: /config
+            name: config
     persistence:
       config:
         enabled: true
@@ -92,4 +94,3 @@ spec:
             protocol: UDP
             targetPort: 55545
         type: ClusterIP
-
