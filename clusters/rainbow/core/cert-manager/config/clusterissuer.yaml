@@ -5,7 +5,7 @@ metadata:
   name: letsencrypt-staging
 spec:
   acme:
-    email: acme@$tuckerthomas.com
+    email: acme@tuckerthomas.com
     preferredChain: ""
     privateKeySecretRef:
       name: letsencrypt-staging
@@ -17,7 +17,7 @@ spec:
             apiTokenSecretRef:
               key: api-token
               name: cloudflare-api-token-secret
-            email: acme@$tuckerthomas.com
+            email: acme@tuckerthomas.com
 
 #---
 #apiVersion: cert-manager.io/v1
