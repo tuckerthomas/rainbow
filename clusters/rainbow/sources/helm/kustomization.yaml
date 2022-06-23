@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - istio.yaml
+  - jetstack.yaml
   - k8s-at-home-charts.yaml
   - metallb.yaml
