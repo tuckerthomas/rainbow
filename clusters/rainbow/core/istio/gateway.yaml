@@ -36,6 +36,6 @@ spec:
       protocol: HTTPS
     tls:
       mode: SIMPLE
-      credentialName: vpn-apps-cert-staging
+      credentialName: vpn-apps-cert-prod
     hosts:
     - "*.tuckerthomas.com"
