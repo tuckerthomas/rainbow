@@ -6,9 +6,9 @@ metadata:
   namespace: vpn
 spec:
   hosts:
-  - "sonarr.tuckerthomas.local"
+  - "sonarr.tuckerthomas.com"
   gateways:
-  - vpn-gateway
+  - istio-ingress/vpn-gateway
   http:
   - match:
     - uri:

@@ -18,3 +18,24 @@ spec:
         namespace: flux-system
       version: 1.14.1
   interval: 1m0s
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: vpn-gateway
+  namespace: istio-ingress
+spec:
+  selector:
+    app: istio-ingress
+    istio: ingress # istio gateway chart default value
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: vpn-apps-cert-staging
+    hosts:
+    - "*.tuckerthomas.com"
