@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: cert-manager
-  namespace: kube-system
+  namespace: cert-manager
 spec:
   chart:
     spec:
@@ -15,8 +15,6 @@ spec:
         namespace: flux-system
       version: 1.8.2
   interval: 1m0s
-
-  install:
-    crds: CreateReplace
-  upgrade:
-    crds: CreateReplace
+  
+  values:
+    installCRDs: true
