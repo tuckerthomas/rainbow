@@ -38,4 +38,28 @@ spec:
       mode: SIMPLE
       credentialName: vpn-apps-cert-prod
     hosts:
+    - "adguard.tuckerthomas.com"
+    - "prowlarr.tuckerthomas.com"
+    - "sonarr.tuckerthomas.com"
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: default-gateway
+  namespace: istio-ingress
+spec:
+  selector:
+    app: istio-ingress
+    istio: ingress # istio gateway chart default value
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: default-apps-cert-prod
+    hosts:
     - "*.tuckerthomas.com"
+

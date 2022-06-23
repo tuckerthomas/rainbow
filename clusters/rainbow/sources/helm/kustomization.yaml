@@ -6,4 +6,5 @@ resources:
   - istio.yaml
   - jetstack.yaml
   - k8s-at-home-charts.yaml
+  - kiali.yaml
   - metallb.yaml
