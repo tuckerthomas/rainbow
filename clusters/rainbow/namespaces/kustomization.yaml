@@ -7,4 +7,5 @@ resources:
   - istio-system.yaml
   - kiali.yaml
   - pod-gateway.yaml
+  - system-monitoring.yaml
   - vpn.yaml

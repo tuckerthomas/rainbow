@@ -8,3 +8,4 @@ resources:
   - k8s-at-home-charts.yaml
   - kiali.yaml
   - metallb.yaml
+  - prometheus-community

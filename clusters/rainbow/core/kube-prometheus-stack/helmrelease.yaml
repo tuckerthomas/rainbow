@@ -1,0 +1,31 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: system-monitoring
+spec:
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: flux-system
+      version: 36.2.0
+  interval: 1m0s
+
+  install:
+    createNamespace: true
+    crds: CreateReplace
+    remediation: # perform remediation when helm install fails
+      retries: 5
+  upgrade:
+    crds: CreateReplace
+    remediation: # perform remediation when helm upgrade fails
+      retries: 5
+      remediateLastFailure: true # remediate the last failure, when no retries remain
+    cleanupOnFail: true
+
+  values:
