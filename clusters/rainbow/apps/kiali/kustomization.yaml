@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - helmrelease.yaml
   - istio-config.yaml
+  - kiali-cr.yaml
