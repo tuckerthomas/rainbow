@@ -3,7 +3,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: kiali
-  namespace: kiali
+  namespace: istio-system
 spec:
   hosts:
   - "kiali.tuckerthomas.com"
@@ -17,4 +17,4 @@ spec:
     - destination:
         port:
           number: 20001
-        host: kiali.default.svc.cluster.local
+        host: kiali.istio-system.svc.cluster.local
