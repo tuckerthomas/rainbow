@@ -7,4 +7,4 @@ spec:
   external_services:
     prometheus:
       # Prometheus service name is "metrics" and is in the "telemetry" namespace
-      url: "http://prometheus-operated.system-monitoring.cluster.local:9090/"
+      url: "http://prometheus-operated.system-monitoring.svc.cluster.local:9090/"
