@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: kiali-server
-  namespace: istio-system
+  name: kiali
+  namespace: kiali
 spec:
   chart:
     spec:
@@ -15,3 +15,7 @@ spec:
         namespace: flux-system
       version: 1.30.0
   interval: 1m0s
+  values:
+    cr:
+      create: true
+      namespace: istio-system
