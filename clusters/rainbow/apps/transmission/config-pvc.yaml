@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: transmission-config-pvc
+  name: transmission-config
   namespace: vpn
 spec:
   accessModes:
