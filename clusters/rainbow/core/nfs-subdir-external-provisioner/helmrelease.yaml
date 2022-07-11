@@ -20,6 +20,6 @@ spec:
       server: 192.168.1.60
       path: /volume1/rainbow
       mountOptions:
-        - nfsver=3
+        - nfsvers=4.1
     storageClass:
       name: nfs-pink
