@@ -8,4 +8,5 @@ resources:
   - k8s-at-home-charts.yaml
   - kiali.yaml
   - metallb.yaml
+  - nfs-subdir-external-provisioner.yaml
   - prometheus-community.yaml

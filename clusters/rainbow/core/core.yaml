@@ -61,3 +61,19 @@ spec:
     kind: GitRepository
     name: flux-system
   timeout: 2m
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: nfs-subdir-external-provisioner
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: "./clusters/rainbow/core/nfs-subdir-external-provisioner"
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  timeout: 2m
