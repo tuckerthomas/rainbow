@@ -3,6 +3,7 @@ kind: PersistentVolume
 metadata:
   name: pink
 spec:
+  storageClassName: pink-nfs
   capacity:
     storage: 10Gi
   accessModes:
