@@ -10,5 +10,5 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
-      storage: 500Mi
+      storage: 1Gi
   volumeName: pink
