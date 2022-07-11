@@ -57,7 +57,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: transmission-config-pvc
+        existingClaim: transmission-config
       downloads:
         enabled: true
         mountPath: /downloads

@@ -59,7 +59,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: sonarr-config-pvc
+        existingClaim: sonarr-config
       downloads:
         enabled: true
         mountPath: /downloads
