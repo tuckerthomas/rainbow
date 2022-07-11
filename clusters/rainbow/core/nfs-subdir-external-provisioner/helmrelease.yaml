@@ -23,3 +23,5 @@ spec:
         - nfsvers=4.1
     storageClass:
       name: nfs-pink
+      archiveOnDelete: "false"
+      pathPattern: ${.PVC.annotations.nfs.io/storage-path}
