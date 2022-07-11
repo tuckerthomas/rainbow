@@ -7,9 +7,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: ""
+  storageClassName: pink-nfs
   volumeMode: Filesystem
   resources:
     requests:
       storage: 1Gi
-  volumeName: pink
