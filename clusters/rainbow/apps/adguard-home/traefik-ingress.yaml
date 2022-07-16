@@ -11,6 +11,7 @@ spec:
   - match: Host(`adguard.tuckerthomas.com`)
     kind: Rule
     services:
-    - name: adguard-home
+    - kind: Service
+      name: adguard-home
       namespace: vpn
-      kind: TraefikService
+      port: 3000
