@@ -1,0 +1,21 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prowlarr
+  namespace: vpn
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`prowlarr.tuckerthomas.com`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: prowlarr
+      namespace: vpn
+      port: 9696
+  tls:
+    secretName: vpn-apps-cert-prod
+    domains:
+      - main: prowlarr.tuckerthomas.com

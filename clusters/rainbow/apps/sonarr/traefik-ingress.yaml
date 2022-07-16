@@ -1,0 +1,21 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: sonarr
+  namespace: vpn
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`sonarr.tuckerthomas.com`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: sonarr
+      namespace: vpn
+      port: 8989
+  tls:
+    secretName: vpn-apps-cert-prod
+    domains:
+      - main: sonarr.tuckerthomas.com
