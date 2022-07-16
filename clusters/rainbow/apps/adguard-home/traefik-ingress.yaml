@@ -6,7 +6,7 @@ metadata:
 
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
   - match: Host(`adguard.tuckerthomas.com`)
     kind: Rule
@@ -15,3 +15,7 @@ spec:
       name: adguard-home
       namespace: vpn
       port: 3000
+  tls:
+    secretName: vpn-apps-cert-prod
+    domains:
+      - main: adguard.tuckerthomas.com
