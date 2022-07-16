@@ -3,9 +3,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - cert-manager.yaml
-  - istio-ingress.yaml
-  - istio-system.yaml
   - kiali.yaml
   - pod-gateway.yaml
   - system-monitoring.yaml
+  - traefik.yaml
   - vpn.yaml
