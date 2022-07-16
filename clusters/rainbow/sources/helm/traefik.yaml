@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: istio
+  name: traefik
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://istio-release.storage.googleapis.com/charts
+  url: https://helm.traefik.io/traefik
   timeout: 3m
