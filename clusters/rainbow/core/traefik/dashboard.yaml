@@ -13,3 +13,4 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
+          namespace: traefik
