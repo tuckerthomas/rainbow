@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: adguard-home
+  namespace: vpn
+
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`adguard.tuckerthomas.com`)
+    kind: Rule
+    services:
+    - name: adguard-home
+      namespace: vpn
+      kind: TraefikService
