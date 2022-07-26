@@ -19,8 +19,8 @@ spec:
     hostname: transmission
 
     env:
-      TRANSMISSION_DOWNLOAD_DIR: /downloads/complete
-      TRANSMISSION_INCOMPLETE_DIR: /downloads/incomplete
+      TRANSMISSION_DOWNLOAD_DIR: /media/downloads/complete
+      TRANSMISSION_INCOMPLETE_DIR: /media/downloads/incomplete
       TRANSMISSION_INCOMPLETE_DIR_ENABLED: false
       TRANSMISSION_RPC_PASSWORD: password
       TRANSMISSION_RPC_USERNAME: admin
@@ -60,7 +60,7 @@ spec:
         existingClaim: transmission-config
       downloads:
         enabled: true
-        mountPath: /downloads
+        mountPath: /media/downloads
         type: custom
         volumeSpec:
           nfs:
