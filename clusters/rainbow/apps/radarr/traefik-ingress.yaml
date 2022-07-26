@@ -1,0 +1,21 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: radarr
+  namespace: vpn
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`radarr.tuckerthomas.com`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: radarr
+      namespace: vpn
+      port: 7878
+  tls:
+    secretName: vpn-apps-cert-prod
+    domains:
+      - main: radarr.tuckerthomas.com
