@@ -1,0 +1,7 @@
+
+
+
+1. helm chart values as dependencies: https://github.com/argoproj/argocd-example-apps/tree/master/helm-dependency
+2. Kustomizations and helm? not sure if needed tho https://github.com/argoproj/argocd-example-apps/tree/master/plugins/kustomized-helm
+3. https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/
+4. https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
