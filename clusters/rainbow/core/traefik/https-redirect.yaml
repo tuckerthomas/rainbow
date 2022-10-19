@@ -19,7 +19,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`*.tuckerthomas.com`)
+  - match: HostRegexp(`{subdomain:[a-z]+}.tuckerthomas.com`)
     kind: Rule
     services:
     - name: whoami
