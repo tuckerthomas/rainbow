@@ -15,9 +15,6 @@ spec:
       name: sonarr
       namespace: vpn
       port: 8989
-    middlewares:
-      - name: redirect-middleware
-        namespace: traefik
   tls:
     secretName: vpn-apps-cert-prod
     domains:

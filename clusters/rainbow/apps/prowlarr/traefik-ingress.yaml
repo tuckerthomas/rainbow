@@ -15,9 +15,6 @@ spec:
       name: prowlarr
       namespace: vpn
       port: 9696
-    middlewares:
-      - name: redirect-middleware
-        namespace: traefik
   tls:
     secretName: vpn-apps-cert-prod
     domains:

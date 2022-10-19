@@ -15,9 +15,6 @@ spec:
       name: radarr
       namespace: vpn
       port: 7878
-    middlewares:
-      - name: redirect-middleware
-        namespace: traefik
   tls:
     secretName: vpn-apps-cert-prod
     domains:
