@@ -15,6 +15,9 @@ spec:
       name: adguard-home
       namespace: vpn
       port: 3000
+    middlewares:
+      - name: redirect-middleware
+        namespace: traefik
   tls:
     secretName: vpn-apps-cert-prod
     domains:
