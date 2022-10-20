@@ -6,7 +6,6 @@ metadata:
 
 spec:
   entryPoints:
-    - web
     - websecure
   routes:
     - match: Host(`adguard.tuckerthomas.com`)
@@ -16,9 +15,6 @@ spec:
           name: adguard-home
           namespace: vpn
           port: 3000
-      middlewares:
-        - name: redirect-middleware
-
   tls:
     secretName: vpn-apps-cert-prod
     domains:

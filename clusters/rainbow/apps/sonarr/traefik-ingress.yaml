@@ -6,7 +6,6 @@ metadata:
 
 spec:
   entryPoints:
-    - web
     - websecure
   routes:
     - match: Host(`sonarr.tuckerthomas.com`)
@@ -16,8 +15,6 @@ spec:
           name: sonarr
           namespace: vpn
           port: 8989
-      middlewares:
-        - name: redirect-middleware
 
   tls:
     secretName: vpn-apps-cert-prod

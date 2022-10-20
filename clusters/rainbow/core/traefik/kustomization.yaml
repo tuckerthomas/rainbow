@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - dashboard.yaml
   - helmrelease.yaml
-  - https-redirect.yaml

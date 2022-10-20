@@ -6,7 +6,6 @@ metadata:
 
 spec:
   entryPoints:
-    - web
     - websecure
   routes:
     - match: Host(`radarr.tuckerthomas.com`)
@@ -16,8 +15,6 @@ spec:
           name: radarr
           namespace: vpn
           port: 7878
-      middlewares:
-        - name: redirect-middleware
 
   tls:
     secretName: vpn-apps-cert-prod
