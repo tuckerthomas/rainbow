@@ -18,7 +18,7 @@ spec:
           port: 3000
       middlewares:
         - name: redirect-middleware
-          namespace: traefik
+
   tls:
     secretName: vpn-apps-cert-prod
     domains:
