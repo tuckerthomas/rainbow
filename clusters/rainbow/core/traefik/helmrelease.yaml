@@ -19,4 +19,8 @@ spec:
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
+  
   values:
+    ports:
+      web:
+        redirectTo: websecure
