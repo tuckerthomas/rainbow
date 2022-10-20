@@ -6,15 +6,19 @@ metadata:
 
 spec:
   entryPoints:
+    - web
     - websecure
   routes:
-  - match: Host(`adguard.tuckerthomas.com`)
-    kind: Rule
-    services:
-    - kind: Service
-      name: adguard-home
-      namespace: vpn
-      port: 3000
+    - match: Host(`adguard.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: adguard-home
+          namespace: vpn
+          port: 3000
+      middlewares:
+        - name: redirect-middleware
+          namespace: traefik
   tls:
     secretName: vpn-apps-cert-prod
     domains:

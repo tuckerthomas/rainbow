@@ -7,23 +7,3 @@ spec:
   redirectScheme:
     scheme: https
     permanent: true
-
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: http-route
-  namespace: traefik
-
-spec:
-  entryPoints:
-    - web
-  routes:
-    - match: HostRegexp(`{subdomain:[a-z]+}.tuckerthomas.com`)
-      kind: Rule
-      services:
-        - name: whoami
-          port: 80
-      middlewares:
-        - name: redirect-middleware
-          namespace: traefik
