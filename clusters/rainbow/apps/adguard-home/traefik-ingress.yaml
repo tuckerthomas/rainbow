@@ -15,6 +15,10 @@ spec:
           name: adguard-home
           namespace: vpn
           port: 3000
+        - kind: Service
+          name: adguard-home
+          namespace: vpn
+          port: 443
   tls:
     secretName: vpn-apps-cert-prod
     domains:
