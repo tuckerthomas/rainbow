@@ -75,6 +75,10 @@ spec:
         ports:
           http:
             port: 3000
+      https:
+        enabled: true
+        type: NodePort
+        ports:
           https:
             port: 443
       dns-tcp:
