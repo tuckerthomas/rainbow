@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: adguard-home
-  namespace: vpn
+  namespace: apps
 spec:
   chart:
     spec:
@@ -48,7 +48,7 @@ spec:
       # -- image repository
       repository: adguard/adguardhome
       # -- image tag
-      tag: v0.106.3
+      tag: v0.107.16
       # -- image pull policy
       pullPolicy: IfNotPresent
 
