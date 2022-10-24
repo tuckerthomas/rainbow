@@ -79,12 +79,6 @@ spec:
           https:
             port: 443
             protocol: HTTPS
-      https:
-        enabled: true
-        type: NodePort
-        ports:
-          https:
-            port: 443
       dns-tcp:
         enabled: true
         annotations:
