@@ -74,7 +74,11 @@ spec:
         type: NodePort
         ports:
           http:
+            primary: true
             port: 3000
+          https:
+            port: 443
+            protocol: HTTPS
       https:
         enabled: true
         type: NodePort
