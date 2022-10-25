@@ -14,7 +14,7 @@ spec:
         - kind: Service
           name: adguard-home
           namespace: apps
-          port: 443
+          port: 3000
   tls:
     secretName: apps-cert-prod
     domains:
