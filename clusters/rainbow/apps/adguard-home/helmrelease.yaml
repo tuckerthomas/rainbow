@@ -76,10 +76,6 @@ spec:
           http:
             primary: true
             port: 3000
-          https:
-            enabled: true
-            port: 443
-            protocol: HTTPS
       dns-tcp:
         enabled: true
         annotations:
