@@ -126,7 +126,7 @@ spec:
         type: LoadBalancer
         loadBalancerIP: 192.168.1.91
         ports:
-          dns-over-tls:
+          dns-over-https:
             enabled: true
             port: 8443
             protocol: TCP
