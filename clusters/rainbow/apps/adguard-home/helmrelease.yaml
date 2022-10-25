@@ -115,19 +115,6 @@ spec:
             protocol: TCP
             targetPort: 853
         externalTrafficPolicy: Local
-      dns-over-https:
-        enabled: true
-        annotations:
-          metallb.universe.tf/allow-shared-ip: "adguard-dns"
-        type: LoadBalancer
-        loadBalancerIP: 192.168.1.91
-        ports:
-          dns-over-https:
-            enabled: true
-            port: 8443
-            protocol: HTTPS
-            targetPort: 8443
-        externalTrafficPolicy: Local
 
     # -- Configure persistence settings for the chart under this key.
     # @default -- See values.yaml
@@ -210,15 +197,15 @@ spec:
         resolve_clients: true
         local_ptr_upstreams: []
       tls:
-        enabled: false
-        server_name: ""
+        enabled: true
+        server_name: "adguard.tuckerthomas.com"
         force_https: false
         port_https: 443
         port_dns_over_tls: 853
         port_dns_over_quic: 784
         port_dnscrypt: 0
         dnscrypt_config_file: ""
-        allow_unencrypted_doh: false
+        allow_unencrypted_doh: true
         strict_sni_check: false
         certificate_chain: ""
         private_key: ""
