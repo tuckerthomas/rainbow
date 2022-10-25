@@ -129,7 +129,7 @@ spec:
           dns-over-https:
             enabled: true
             port: 8443
-            protocol: TCP
+            protocol: HTTPS
             targetPort: 8443
         externalTrafficPolicy: Local
 
