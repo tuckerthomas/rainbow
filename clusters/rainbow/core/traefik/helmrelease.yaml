@@ -24,3 +24,5 @@ spec:
     ports:
       web:
         redirectTo: websecure
+    nodeSelector:
+      ram: high
