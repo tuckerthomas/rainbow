@@ -231,7 +231,8 @@ spec:
         name: MalwareDomainList.com Hosts List
         id: 4
       whitelist_filters: []
-      user_rules: []
+      user_rules:
+        - 192.168.1.60 adguard.tuckerthomas.com sonarr.tuckerthomas.com radarr.tuckerthomas.com prowlarr.tuckerthomas.com traefik.tuckerthomas.com
       dhcp:
         enabled: false
         interface_name: ""
