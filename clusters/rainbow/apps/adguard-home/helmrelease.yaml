@@ -125,6 +125,12 @@ spec:
       data:
         enabled: false
         mountPath: /opt/adguardhome/work
+      tls-cert:
+        type: secret
+        enabled: true
+        secretName: apps-cert-prod
+        mountPath: /opt/adguardhome/tls
+        readOnly: true
 
     # config -- AdGuard Home configuration. For a full list of options see https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration.
     # @default -- See values.yaml
@@ -209,18 +215,18 @@ spec:
         strict_sni_check: false
         certificate_chain: ""
         private_key: ""
-        certificate_path: ""
-        private_key_path: ""
+        certificate_path: "/opt/adguardhome/tls/tls.crt"
+        private_key_path: "/opt/adguardhome/tls/tls.key"
       filters:
       - enabled: true
         url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
         name: AdGuard DNS filter
         id: 1
-      - enabled: false
+      - enabled: true
         url: https://adaway.org/hosts.txt
         name: AdAway
         id: 2
-      - enabled: false
+      - enabled: true
         url: https://www.malwaredomainlist.com/hostslist/hosts.txt
         name: MalwareDomainList.com Hosts List
         id: 4
