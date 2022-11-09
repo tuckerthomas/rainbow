@@ -128,7 +128,7 @@ spec:
       tls:
         type: secret
         enabled: true
-        secretName: apps-cert-prod
+        name: apps-cert-prod
         mountPath: /opt/adguardhome/tls
         readOnly: true
 
