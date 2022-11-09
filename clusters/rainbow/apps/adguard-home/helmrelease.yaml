@@ -125,7 +125,7 @@ spec:
       data:
         enabled: false
         mountPath: /opt/adguardhome/work
-      tls-cert:
+      tls:
         type: secret
         enabled: true
         secretName: apps-cert-prod
