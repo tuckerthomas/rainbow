@@ -2,20 +2,20 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: adguard-home
-  namespace: vpn
+  namespace: apps
 
 spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`adguard.tuckerthomas.com`)
-    kind: Rule
-    services:
-    - kind: Service
-      name: adguard-home
-      namespace: vpn
-      port: 3000
+    - match: Host(`adguard.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: adguard-home
+          namespace: apps
+          port: 3000
   tls:
-    secretName: vpn-apps-cert-prod
+    secretName: apps-cert-prod
     domains:
       - main: adguard.tuckerthomas.com

@@ -13,8 +13,12 @@ spec:
         kind: HelmRepository
         name: jetstack
         namespace: flux-system
-      version: 1.8.2
+      version: 1.10.0
   interval: 1m0s
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
   
   values:
     installCRDs: false

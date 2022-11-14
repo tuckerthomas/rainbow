@@ -8,13 +8,14 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`radarr.tuckerthomas.com`)
-    kind: Rule
-    services:
-    - kind: Service
-      name: radarr
-      namespace: vpn
-      port: 7878
+    - match: Host(`radarr.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: radarr
+          namespace: vpn
+          port: 7878
+
   tls:
     secretName: vpn-apps-cert-prod
     domains:

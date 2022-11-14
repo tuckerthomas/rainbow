@@ -8,13 +8,14 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`sonarr.tuckerthomas.com`)
-    kind: Rule
-    services:
-    - kind: Service
-      name: sonarr
-      namespace: vpn
-      port: 8989
+    - match: Host(`sonarr.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: sonarr
+          namespace: vpn
+          port: 8989
+
   tls:
     secretName: vpn-apps-cert-prod
     domains:

@@ -8,13 +8,14 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`prowlarr.tuckerthomas.com`)
-    kind: Rule
-    services:
-    - kind: Service
-      name: prowlarr
-      namespace: vpn
-      port: 9696
+    - match: Host(`prowlarr.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: prowlarr
+          namespace: vpn
+          port: 9696
+
   tls:
     secretName: vpn-apps-cert-prod
     domains:

@@ -17,7 +17,6 @@ spec:
     - server auth
     - client auth
   dnsNames:
-    - "adguard.tuckerthomas.com"
     - "prowlarr.tuckerthomas.com"
     - "radarr.tuckerthomas.com"
     - "sonarr.tuckerthomas.com"

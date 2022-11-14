@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: adguard-home
-  namespace: vpn
+  namespace: apps
 spec:
   chart:
     spec:
@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: k8s-at-home-charts
         namespace: flux-system
-      version: 5.3.2
+      version: 5.5.2
   interval: 1m0s
   values:
     controller:
@@ -40,7 +40,7 @@ spec:
             mountPath: /tmp/AdGuardHome.yaml
             subPath: AdGuardHome.yaml
           - name: config
-            mountPath: /opt/adguardhome/conf
+            mountPath: /opt/adguardhome/conf/AdGuardHome.yaml
         securityContext:
           runAsUser: 0
 
@@ -48,7 +48,7 @@ spec:
       # -- image repository
       repository: adguard/adguardhome
       # -- image tag
-      tag: v0.106.3
+      tag: v0.107.16
       # -- image pull policy
       pullPolicy: IfNotPresent
 
@@ -74,6 +74,7 @@ spec:
         type: NodePort
         ports:
           http:
+            primary: true
             port: 3000
       dns-tcp:
         enabled: true
@@ -101,6 +102,19 @@ spec:
             protocol: UDP
             targetPort: 53
         externalTrafficPolicy: Local
+      dns-over-tls:
+        enabled: true
+        annotations:
+          metallb.universe.tf/allow-shared-ip: "adguard-dns"
+        type: LoadBalancer
+        loadBalancerIP: 192.168.1.91
+        ports:
+          dns-over-tls:
+            enabled: true
+            port: 853
+            protocol: TCP
+            targetPort: 853
+        externalTrafficPolicy: Local
 
     # -- Configure persistence settings for the chart under this key.
     # @default -- See values.yaml
@@ -111,6 +125,12 @@ spec:
       data:
         enabled: false
         mountPath: /opt/adguardhome/work
+      tls:
+        type: secret
+        enabled: true
+        name: apps-cert-prod
+        mountPath: /opt/adguardhome/tls
+        readOnly: true
 
     # config -- AdGuard Home configuration. For a full list of options see https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration.
     # @default -- See values.yaml
@@ -183,35 +203,36 @@ spec:
         resolve_clients: true
         local_ptr_upstreams: []
       tls:
-        enabled: false
-        server_name: ""
+        enabled: true
+        server_name: "adguard.tuckerthomas.com"
         force_https: false
         port_https: 443
         port_dns_over_tls: 853
         port_dns_over_quic: 784
         port_dnscrypt: 0
         dnscrypt_config_file: ""
-        allow_unencrypted_doh: false
+        allow_unencrypted_doh: true
         strict_sni_check: false
         certificate_chain: ""
         private_key: ""
-        certificate_path: ""
-        private_key_path: ""
+        certificate_path: "/opt/adguardhome/tls/tls.crt"
+        private_key_path: "/opt/adguardhome/tls/tls.key"
       filters:
       - enabled: true
         url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
         name: AdGuard DNS filter
         id: 1
-      - enabled: false
+      - enabled: true
         url: https://adaway.org/hosts.txt
         name: AdAway
         id: 2
-      - enabled: false
+      - enabled: true
         url: https://www.malwaredomainlist.com/hostslist/hosts.txt
         name: MalwareDomainList.com Hosts List
         id: 4
       whitelist_filters: []
-      user_rules: []
+      user_rules:
+        - 192.168.1.60 adguard.tuckerthomas.com sonarr.tuckerthomas.com radarr.tuckerthomas.com prowlarr.tuckerthomas.com traefik.tuckerthomas.com
       dhcp:
         enabled: false
         interface_name: ""
