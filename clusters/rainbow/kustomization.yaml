@@ -7,5 +7,5 @@ metadata:
 
 resources:
   - apps
-  - core
+#  - core
   - namespaces
