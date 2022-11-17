@@ -11,7 +11,7 @@ spec:
 
   source:
     repoURL: https://k8s-at-home.com/charts
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
+    targetRevision: 5.5.2  # For Helm, this refers to the chart version.
 
     chart: adguard-home
     helm:
