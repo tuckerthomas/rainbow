@@ -6,4 +6,4 @@ metadata:
   namespace: argocd
 
 resources:
-  - clusters/rainbow/deploy/kustomization.yaml
+  - deploy
