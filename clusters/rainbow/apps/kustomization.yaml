@@ -10,4 +10,4 @@ resources:
   - radarr
   - sonarr
   - transmission
-  - vpn
+  - vpn/pod-gateway
