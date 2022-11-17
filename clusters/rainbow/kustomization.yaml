@@ -6,6 +6,6 @@ metadata:
   namespace: argocd
 
 resources:
-  - apps
+  - apps/apps.yaml
 #  - core
   - namespaces
