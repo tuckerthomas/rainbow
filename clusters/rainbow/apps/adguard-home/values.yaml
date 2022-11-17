@@ -207,7 +207,7 @@ config: |
     id: 4
   whitelist_filters: []
   user_rules:
-    - 192.168.1.60 adguard.tuckerthomas.com sonarr.tuckerthomas.com radarr.tuckert
+    - 192.168.1.60 adguard.tuckerthomas.com sonarr.tuckerthomas.com radarr.tuckerthomas.com prowlarr.tuckerthomas.com traefik.tuckerthomas.com argocd.tuckerthomas.com
   dhcp:
     enabled: false
     interface_name: ""
