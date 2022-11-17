@@ -5,9 +5,9 @@ metadata:
   namespace: argocd
 
 resources:
-  - adguard-home
-  - prowlarr
-  - radarr
-  - sonarr
-  - transmission
-  - vpn/pod-gateway
+  - adguard-home/adguard-home.yaml
+  - prowlarr/prowlarr.yaml
+  - radarr/radarr.yaml
+  - sonarr/sonarr.yaml
+  - transmission/transmission.yaml
+  - vpn/pod-gateway/pod-gateway.yaml
