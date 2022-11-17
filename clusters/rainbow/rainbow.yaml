@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: rainbow
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: http://192.168.1.60:4000/tuckerthomas/rainbow-flux
+    targetRevision: argo
+    path: clusters/rainbow
+
+  destination:
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
