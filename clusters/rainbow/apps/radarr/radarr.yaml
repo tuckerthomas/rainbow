@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: adguard-home
+  name: radarr
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
@@ -11,13 +11,13 @@ spec:
 
   source:
     repoURL: https://k8s-at-home.com/charts
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
+    targetRevision: 16.3.2
 
-    chart: adguard-home
+    chart: radarr
     helm:
       valueFiles:
       - values.yaml
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: apps
+    namespace: vpn

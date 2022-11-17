@@ -11,7 +11,7 @@ spec:
 
   source:
     repoURL: https://k8s-at-home.com/charts
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
+    targetRevision: 4.5.2
 
     chart: adguard-home
     helm:
@@ -20,4 +20,4 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: apps
+    namespace: vpn

@@ -1,0 +1,85 @@
+env:
+  TZ: UTC
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/onedr0p/radarr
+  tag: rolling
+ingress:
+  main:
+    enabled: false
+initContainers:
+  update-volume-permission:
+    command:
+    - sh
+    - -c
+    - chown -R 568:568 /config
+    image: busybox
+    securityContext:
+      runAsUser: 0
+    volumeMounts:
+    - mountPath: /config
+      name: config
+metrics:
+  enabled: false
+  exporter:
+    env:
+      additionalMetrics: false
+      port: 9794
+      unknownQueueItems: false
+    image:
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/onedr0p/exportarr
+      tag: v1.0.0
+  prometheusRule:
+    enabled: false
+    labels: {}
+    rules: []
+  serviceMonitor:
+    interval: 3m
+    labels: {}
+    scrapeTimeout: 1m
+persistence:
+  config:
+    enabled: true
+    existingClaim: radarr-config
+  downloads:
+    enabled: true
+    mountPath: /media
+    type: custom
+    volumeSpec:
+      nfs:
+        path: /volume1/Media
+        server: 192.168.1.10
+  media:
+    enabled: false
+    mountPath: /movies
+    type: custom
+    volumeSpec:
+      nfs:
+        path: /volume1/Media/movies
+        server: 192.168.1.10
+probes:
+  liveness:
+    custom: true
+    enabled: true
+    spec:
+      exec:
+        command:
+        - /usr/bin/env
+        - bash
+        - -c
+        - curl --fail localhost:7878/api/v3/system/status?apiKey=`IFS=\> && while
+          read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done <
+          /config/config.xml`
+      failureThreshold: 5
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 10
+service:
+  main:
+    ports:
+      http:
+        port: 7878
+        targetPort: 7878
+    type: NodePort
