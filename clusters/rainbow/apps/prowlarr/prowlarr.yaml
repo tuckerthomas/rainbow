@@ -9,15 +9,46 @@ metadata:
 spec:
   project: default
 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vpn
+
   source:
     repoURL: https://k8s-at-home.com/charts
     targetRevision: 4.5.2
 
     chart: prowlarr
     helm:
-      valueFiles:
-      - values.yaml
-
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: vpn
+      values: |
+        env:
+          TZ: UTC
+        image:
+          pullPolicy: IfNotPresent
+          repository: ghcr.io/onedr0p/prowlarr-nightly
+          tag: rolling
+        ingress:
+          main:
+            enabled: false
+        initContainers:
+          update-volume-permission:
+            command:
+            - sh
+            - -c
+            - chown -R 568:568 /config
+            image: busybox
+            securityContext:
+              runAsUser: 0
+            volumeMounts:
+            - mountPath: /config
+              name: config
+        persistence:
+          config:
+            enabled: true
+            existingClaim: prowlarr-config
+        service:
+          main:
+            ports:
+              http:
+                port: 9696
+                targetPort: 9696
+            type: NodePort
