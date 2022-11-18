@@ -9,6 +9,10 @@ metadata:
 spec:
   project: default
 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps
+
   source:
     repoURL: https://k8s-at-home.com/charts
     targetRevision: 5.5.2  # For Helm, this refers to the chart version.
@@ -251,7 +255,3 @@ spec:
           log_file: ""
           verbose: false
           schema_version: 10
-
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: apps
