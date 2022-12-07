@@ -22,6 +22,11 @@ spec:
       values: |
         env:
           TZ: UTC
+          SONARR__POSTGRES_HOST: 192.168.1.60
+          SONARR__POSTGRES_MAIN_DB: sonarr-main
+          SONARR__POSTGRES_LOG_DB: sonarr-log
+          SONARR__POSTGRES_PASSWORD: sonarr
+          SONARR__POSTGRES_USER: sonarr
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/onedr0p/sonarr
