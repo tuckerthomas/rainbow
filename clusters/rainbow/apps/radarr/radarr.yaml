@@ -25,7 +25,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/onedr0p/radarr
-          tag: rolling
+          tag: 4.2.4.6635
         ingress:
           main:
             enabled: false

@@ -9,6 +9,7 @@ metadata:
 spec:
   project: default
 
+  # TODO: Check if sonarr gets postgres support https://github.com/Sonarr/Sonarr/pull/4999
   destination:
     server: https://kubernetes.default.svc
     namespace: vpn
@@ -30,7 +31,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/onedr0p/sonarr
-          tag: rolling
+          tag: 3.0.9.1549
         ingress:
           main:
             enabled: false
