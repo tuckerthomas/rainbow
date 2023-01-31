@@ -23,15 +23,15 @@ spec:
       values: |
         env:
           TZ: UTC
-          SONARR__POSTGRES_HOST: 192.168.1.60
-          SONARR__POSTGRES_MAIN_DB: sonarr-main
-          SONARR__POSTGRES_LOG_DB: sonarr-log
-          SONARR__POSTGRES_PASSWORD: sonarr
-          SONARR__POSTGRES_USER: sonarr
+          #SONARR__POSTGRES_HOST: 192.168.1.60
+          #SONARR__POSTGRES_MAIN_DB: sonarr-main
+          #SONARR__POSTGRES_LOG_DB: sonarr-log
+          #SONARR__POSTGRES_PASSWORD: sonarr
+          #SONARR__POSTGRES_USER: sonarr
         image:
           pullPolicy: IfNotPresent
-          repository: ghcr.io/onedr0p/sonarr
-          tag: 3.0.9.1549
+          repository: ghcr.io/onedr0p/sonarr-develop
+          tag: 4.0.0.362
         ingress:
           main:
             enabled: false
@@ -86,24 +86,6 @@ spec:
               nfs:
                 path: /volume1/Media/tv
                 server: 192.168.1.10
-        probes:
-          liveness:
-            custom: true
-            enabled: true
-            spec:
-              exec:
-                command:
-                - /usr/bin/env
-                - bash
-                - -c
-                - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
-                  read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done <
-                  /config/config.xml`
-              failureThreshold: 5
-              initialDelaySeconds: 60
-              periodSeconds: 10
-              successThreshold: 1
-              timeoutSeconds: 10
         service:
           main:
             ports:
