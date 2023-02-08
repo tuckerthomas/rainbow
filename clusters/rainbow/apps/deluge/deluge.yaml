@@ -50,7 +50,6 @@ spec:
             enabled: true
             type: configMap
             name: deluge-core-config
-            readOnly: false
           config-extras:
             enabled: true
             existingClaim: deluge-config
@@ -61,7 +60,6 @@ spec:
             type: secret
             name: deluge-auth
             mountPath: /config/auth
-            readOnly: false
           downloads:
             enabled: true
             mountPath: /media/downloads
