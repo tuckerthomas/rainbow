@@ -1,0 +1,94 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: deluge
+  namespace: argocd
+  # Add this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vpn
+
+  source:
+    repoURL: https://k8s-at-home.com/charts
+    targetRevision: 5.4.2
+
+    chart: deluge
+    helm:
+      values: |
+        hostname: deluge
+        env:
+          PUID=568
+          PGID=568
+          DELUGE_LOGLEVEL=error #optional
+          TZ: UTC
+        image:
+          pullPolicy: IfNotPresent
+          repository: linuxserver/deluge
+          tag: 2.1.1
+        ingress:
+          main:
+            enabled: false
+        initContainers:
+          update-volume-permission:
+            command:
+              - sh
+              - -c
+              - chown -R 568:568 /config
+            image: busybox
+            securityContext:
+              runAsUser: 0
+            volumeMounts:
+              - mountPath: /config
+                name: config
+        persistence:
+          config:
+            enabled: true
+            existingClaim: transmission-config
+          downloads:
+            enabled: true
+            mountPath: /media/downloads
+            type: custom
+            volumeSpec:
+              nfs:
+                path: /volume1/Media/downloads
+                server: 192.168.1.10
+          watch:
+            enabled: false
+            mountPath: /watch
+        probes:
+          liveness:
+            spec:
+              timeoutSeconds: 30
+          readiness:
+            spec:
+              timeoutSeconds: 30
+        service:
+          main:
+            ports:
+              http:
+                port: 8112
+                targetPort: 8112
+            type: NodePort
+          utptcp:
+            enabled: true
+            ports:
+              utptcp:
+                enabled: true
+                port: 55545
+                protocol: TCP
+                targetPort: 55545
+            type: ClusterIP
+          utpudp:
+            enabled: true
+            ports:
+              utpudp:
+                enabled: true
+                port: 55545
+                protocol: UDP
+                targetPort: 55545
+            type: ClusterIP
