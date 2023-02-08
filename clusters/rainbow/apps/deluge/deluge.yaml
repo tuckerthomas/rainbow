@@ -89,7 +89,7 @@ spec:
               http:
                 port: 58846
                 targetPort: 58846
-            type: ClusterIP
+            type: NodePort
           utptcp:
             enabled: true
             ports:
