@@ -50,7 +50,7 @@ spec:
             enabled: true
             #existingClaim: deluge-config
             type: configMap
-            name: deluge-config
+            name: deluge-core-config
           auth:
             enabled: true
             type: secret
