@@ -9,6 +9,9 @@ metadata:
 spec:
   project: default
 
+  nodeSelector:
+    lan=1Gi
+
   destination:
     server: https://kubernetes.default.svc
     namespace: vpn
