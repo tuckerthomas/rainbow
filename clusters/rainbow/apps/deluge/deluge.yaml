@@ -52,6 +52,7 @@ spec:
             name: deluge-core-config
             mountPath: /config/core.conf
             subPath: core.conf
+            readOnly: false
           #config-extras:
           #  enabled: true
           #  existingClaim: deluge-config
