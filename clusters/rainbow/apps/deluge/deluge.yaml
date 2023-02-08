@@ -53,7 +53,6 @@ spec:
             enabled: true
             type: configMap
             name: deluge-core-config
-            defaultMode: 0755
             mountPath: /config/core.conf
             subPath: core.conf
           #config-extras:
@@ -65,7 +64,6 @@ spec:
             enabled: true
             type: secret
             name: deluge-auth
-            defaultMode: 0755
             mountPath: /config/auth
             subPath: auth
           downloads:
@@ -93,6 +91,12 @@ spec:
                 port: 58846
                 targetPort: 58846
             type: NodePort
+          web:
+            ports:
+              http:
+                port: 8112
+                targetPort: 8112
+            type: ClusterIP
           utptcp:
             enabled: true
             ports:
