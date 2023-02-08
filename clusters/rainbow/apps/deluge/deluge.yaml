@@ -22,10 +22,10 @@ spec:
       values: |
         hostname: deluge
         env:
-          PUID=568
-          PGID=568
-          DELUGE_LOGLEVEL=error
-          TZ=UTC
+          PUID: 568
+          PGID: 568
+          DELUG_LOGLEVEL: error
+          TZ: UTC
         image:
           pullPolicy: IfNotPresent
           repository: linuxserver/deluge
