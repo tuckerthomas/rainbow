@@ -48,7 +48,13 @@ spec:
         persistence:
           config:
             enabled: true
-            existingClaim: deluge-config
+            #existingClaim: deluge-config
+            type: configMap
+            name: deluge-config
+          config:
+            enabled: true
+            type: secret
+            name: deluge-auth
           downloads:
             enabled: true
             mountPath: /media/downloads
