@@ -56,11 +56,10 @@ spec:
             existingClaim: deluge-config
             mountPath: /config
             readOnly: false
-          auth:
+          config/auth:
             enabled: true
             type: secret
             name: deluge-auth
-            mountPath: /config/auth
           downloads:
             enabled: true
             mountPath: /media/downloads
