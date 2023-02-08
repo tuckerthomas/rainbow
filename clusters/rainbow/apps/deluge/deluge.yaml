@@ -48,9 +48,12 @@ spec:
         persistence:
           config:
             enabled: true
-            #existingClaim: deluge-config
             type: configMap
             name: deluge-core-config
+          config-extras:
+            enabled: true
+            existingClaim: deluge-config
+            mountPath: /config
           auth:
             enabled: true
             type: secret
@@ -80,6 +83,9 @@ spec:
               http:
                 port: 8112
                 targetPort: 8112
+              tcp:
+                port: 58846
+                targetPort: 58846
             type: NodePort
           utptcp:
             enabled: true
