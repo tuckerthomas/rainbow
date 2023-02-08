@@ -50,7 +50,7 @@ spec:
             enabled: true
             type: configMap
             name: deluge-core-config
-            defaultMode: 755
+            defaultMode: 0755
             mountPath: /config/core.conf
             subPath: core.conf
           #config-extras:
@@ -62,7 +62,7 @@ spec:
             enabled: true
             type: secret
             name: deluge-auth
-            defaultMode: 755
+            defaultMode: 0755
             mountPath: /config/auth
             subPath: auth
           downloads:
