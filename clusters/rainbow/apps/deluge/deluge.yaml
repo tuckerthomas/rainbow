@@ -9,9 +9,6 @@ metadata:
 spec:
   project: default
 
-  nodeSelector:
-    lan=1Gi
-
   destination:
     server: https://kubernetes.default.svc
     namespace: vpn
@@ -23,6 +20,9 @@ spec:
     chart: deluge
     helm:
       values: |
+        nodeSelector:
+          lan: 1Gi
+
         hostname: deluge
         env:
           PUID: 568
