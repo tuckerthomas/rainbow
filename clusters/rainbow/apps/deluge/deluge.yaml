@@ -91,6 +91,7 @@ spec:
                 targetPort: 58846
             type: NodePort
           web:
+            enabled: true
             ports:
               http:
                 port: 8112
