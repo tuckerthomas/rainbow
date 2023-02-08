@@ -94,7 +94,9 @@ spec:
             enabled: true
             ports:
               http:
+                enabled: true
                 port: 8112
+                protocol: http
                 targetPort: 8112
             type: ClusterIP
           utptcp:
