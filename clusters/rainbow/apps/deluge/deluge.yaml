@@ -87,9 +87,9 @@ spec:
           main:
             ports:
               http:
-                port: 8112
-                targetPort: 8112
-            type: NodePort
+                port: 58846
+                targetPort: 58846
+            type: ClusterIP
           utptcp:
             enabled: true
             ports:
