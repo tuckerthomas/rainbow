@@ -89,9 +89,6 @@ spec:
               http:
                 port: 8112
                 targetPort: 8112
-              tcp:
-                port: 58846
-                targetPort: 58846
             type: NodePort
           utptcp:
             enabled: true
