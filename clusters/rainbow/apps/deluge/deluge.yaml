@@ -60,8 +60,7 @@ spec:
             enabled: true
             type: secret
             name: deluge-auth
-            mountPath: /config
-            subPath: /config/auth
+            mountPath: /config/auth
           downloads:
             enabled: true
             mountPath: /media/downloads
