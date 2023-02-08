@@ -50,12 +50,12 @@ spec:
             enabled: true
             type: configMap
             name: deluge-core-config
+            mountPath: /config/core.conf
+          config-extras:
+            enabled: true
+            existingClaim: deluge-config
+            mountPath: /config
             readOnly: false
-          #config-extras:
-          #  enabled: true
-          #  existingClaim: deluge-config
-          #  mountPath: /config
-          #  readOnly: false
           auth:
             enabled: true
             type: secret
