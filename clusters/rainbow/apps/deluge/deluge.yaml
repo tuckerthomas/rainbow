@@ -93,7 +93,7 @@ spec:
           web:
             enabled: true
             ports:
-              http:
+              web:
                 enabled: true
                 port: 8112
                 protocol: TCP
