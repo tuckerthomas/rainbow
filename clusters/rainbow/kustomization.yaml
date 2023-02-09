@@ -7,5 +7,5 @@ metadata:
 
 resources:
   - apps/apps.yaml
-  - core/core.yaml
+  - core
   - namespaces
