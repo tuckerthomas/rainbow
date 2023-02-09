@@ -51,7 +51,7 @@ spec:
         persistence:
           config:
             enabled: true
-            type: configMap
+            type: secret
             name: deluge-core-config-sealed
             mountPath: /config/core.conf
             subPath: core.conf
