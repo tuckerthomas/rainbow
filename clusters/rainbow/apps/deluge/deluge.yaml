@@ -52,7 +52,7 @@ spec:
           config:
             enabled: true
             type: configMap
-            name: deluge-core-config
+            name: deluge-core-config-sealed
             mountPath: /config/core.conf
             subPath: core.conf
           config-extras:
@@ -62,7 +62,7 @@ spec:
           auth:
             enabled: true
             type: secret
-            name: deluge-auth
+            name: deluge-auth-sealed
             mountPath: /config/auth
             subPath: auth
           downloads:
