@@ -37,5 +37,5 @@ spec:
           cloudflare:
             apiTokenSecretRef:
               key: api-token
-              name: cloudflare-api-token-sealed
+              name: cloudflare-api-token
             email: acme@tuckerthomas.com
