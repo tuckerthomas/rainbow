@@ -5,3 +5,4 @@ resources:
   - certificates
   - config
   - cert-manager.yaml
+  - cloudflare-api-token-sealed.json
