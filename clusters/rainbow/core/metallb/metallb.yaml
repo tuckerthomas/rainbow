@@ -18,11 +18,3 @@ spec:
     targetRevision: 0.13.7
 
     chart: metallb
-    helm:
-      values: |
-        configInline:
-          address-pools:
-            - name: default
-              protocol: layer2
-              addresses:
-                - 192.168.1.90-192.168.1.100
