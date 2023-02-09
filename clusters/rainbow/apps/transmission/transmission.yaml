@@ -20,6 +20,9 @@ spec:
     chart: transmission
     helm:
       values: |
+        nodeSelector:
+          lan: 1Gi
+        
         hostname: transmission
         env:
           TRANSMISSION_DOWNLOAD_DIR: /media/downloads/complete

@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - certificates
   - config
-  - helmrelease.yaml
+  - cert-manager.yaml

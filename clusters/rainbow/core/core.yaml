@@ -1,79 +1,23 @@
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: cert-manager
-  namespace: flux-system
-spec:
-  interval: 5m
-  path: "./clusters/rainbow/core/cert-manager"
-  prune: true
-  wait: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  timeout: 2m
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 
-#---
-#apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-#kind: Kustomization
-#metadata:
-#  name: kube-prometheus-stack
-#  namespace: flux-system
-#spec:
-#  interval: 5m
-#  path: "./clusters/rainbow/core/kube-prometheus-stack"
-#  prune: true
-#  wait: true
-#  sourceRef:
-#    kind: GitRepository
-#    name: flux-system
-#  timeout: 2m
-
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
 metadata:
-  name: metallb
-  namespace: flux-system
-spec:
-  interval: 5m
-  path: "./clusters/rainbow/core/metallb"
-  prune: true
-  wait: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  timeout: 2m
+  name: apps
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
 
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: nfs-subdir-external-provisioner
-  namespace: flux-system
 spec:
-  interval: 5m
-  path: "./clusters/rainbow/core/nfs-subdir-external-provisioner"
-  prune: true
-  wait: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  timeout: 2m
+  project: default
 
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: traefik
-  namespace: flux-system
-spec:
-  interval: 5m
-  path: "./clusters/rainbow/core/traefik"
-  prune: true
-  wait: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  timeout: 2m
+  source:
+    repoURL: http://192.168.1.60:4000/tuckerthomas/rainbow-flux
+    targetRevision: argo
+    path: clusters/rainbow/core
+
+  destination:
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true

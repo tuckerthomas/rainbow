@@ -14,6 +14,9 @@ spec:
     targetRevision: argo
     path: clusters/rainbow
 
+    directory:
+      recurse: false
+
   destination:
     server: https://kubernetes.default.svc
 
@@ -21,3 +24,11 @@ spec:
     automated:
       prune: false
       selfHeal: true
+  
+  ### FOR MIGRATION FROM FLUX
+  # Ignore differences at the specified json pointers
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /metadata/labels

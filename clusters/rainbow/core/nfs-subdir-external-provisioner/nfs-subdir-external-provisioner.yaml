@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-subdir-external-provisioner
+  namespace: argocd
+  # Add this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+
+  source:
+    repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+    targetRevision: 4.0.17
+
+    chart: nfs-subdir-external-provisioner
+    helm:
+      values: |
+        nfs:
+          server: 192.168.1.10
+          path: /volume1/rainbow
+          mountOptions:
+            - nfsvers=4.1
+        storageClass:
+          name: nfs-pink
+          archiveOnDelete: "true"
+          pathPattern: ${.PVC.annotations.nfs.io/storage-path}
