@@ -62,7 +62,7 @@ spec:
             volumeMounts:
               - name: config
                 mountPath: /config
-              - name: config
+              - name: config-core
                 mountPath: /secrets/core.conf
                 subPath: core.conf
               - name: auth
