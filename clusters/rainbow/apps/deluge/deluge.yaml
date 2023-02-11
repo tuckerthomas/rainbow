@@ -90,7 +90,7 @@ spec:
           ltconfig:
             enabled: true
             type: secret
-            name: ltconfig.conf
+            name: deluge-ltconfig
             mountPath: /secrets/ltconfig.conf
             subPath: ltconfig.conf
           downloads:
