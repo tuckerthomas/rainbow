@@ -24,6 +24,8 @@ spec:
         image:
           repository: ghcr.io/angelnu/pod-gateway
           tag: v1.8.1
+        nodeSelector:
+          lan: 1Gi
         routed_namespaces:
           - vpn
         DNS: 10.64.0.1
