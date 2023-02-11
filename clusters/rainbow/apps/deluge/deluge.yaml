@@ -67,7 +67,7 @@ spec:
             name: deluge-core-config-sealed
             mountPath: /config/core.conf
             subPath: core.conf
-            defaultMode: 420
+            defaultMode: 0755
           config-extras:
             enabled: true
             existingClaim: deluge-config
@@ -78,7 +78,7 @@ spec:
             name: deluge-auth-sealed
             mountPath: /config/auth
             subPath: auth
-            defaultMode: 420
+            defaultMode: 0755
           downloads:
             enabled: true
             mountPath: /media/downloads
