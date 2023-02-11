@@ -78,19 +78,19 @@ spec:
           config-core:
             enabled: true
             type: secret
-            name: deluge-core-config-sealed
+            name: deluge-core-config
             mountPath: /secrets/core.conf
             subPath: core.conf
           auth:
             enabled: true
             type: secret
-            name: deluge-auth-sealed
+            name: deluge-auth
             mountPath: /secrets/auth
             subPath: auth
           ltconfig:
             enabled: true
             type: secret
-            name: ltconfig-sealed
+            name: ltconfig
             mountPath: /secrets/ltconfig.conf
             subPath: ltconfig.conf
           downloads:
