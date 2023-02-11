@@ -52,6 +52,8 @@ spec:
             command:
               - sh
               - -c
+              - cp /auth /config/auth
+              - cp /config.core /config/core.conf
               - chown -R 568:568 /config/core.conf
               - chown -R 568:568 /config/auth
             image: busybox
