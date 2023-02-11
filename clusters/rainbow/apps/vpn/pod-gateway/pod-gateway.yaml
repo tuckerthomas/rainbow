@@ -72,7 +72,7 @@ spec:
                 value: debug
             envFrom:
               - secretRef:
-                name: mullvad-secret
+                  name: mullvad-secret
             networkPolicy:
               egress:
                 - ports:
