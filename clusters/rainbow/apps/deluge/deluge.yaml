@@ -69,7 +69,7 @@ spec:
                 subPath: auth
               - name: ltconfig
                 mountPath: /secrets/ltconfig.conf
-                subPath:ltconfig.conf
+                subPath: ltconfig.conf
         persistence:
           config:
             enabled: true
