@@ -67,18 +67,18 @@ spec:
             securityContext:
               runAsUser: 0
             volumeMounts:
-              - mountPath: /secrets/core.conf
+              - name: config-cache
+                mountPath: /config
+              - name: config
+                mountPath: /secrets/core.conf
                 subPath: core.conf
-                name: config
-              - mountPath: /secrets/auth
+              - name: auth
+                mountPath: /secrets/auth
                 subPath: auth
-                name: auth
         volumes:
-          - name: pre-install
-            emptyDir: {}
-          - name: config
-            configMap:
-              name: bla
+          - name: config-cache
+            emptyDir:
+              sizeLimit: 100Mi
           - name: core.conf
             secret:
               name: deluge-core-config-sealed
