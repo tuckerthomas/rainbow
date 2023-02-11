@@ -37,7 +37,7 @@ spec:
           main:
             enabled: false
         initContainers:
-          - update-secret-permissions:
+          update-secret-permissions:
             command: ["/bin/sh"]
             args:
               - -c
@@ -53,6 +53,8 @@ spec:
                 echo "Updating file owner " &&
                 chown -R 568:568 /config/core.conf &&
                 chown -R 568:568 /config/auth &&
+                echo "Owning Downloads directory.." &&
+                chown -R 568:568 /config &&
                 echo "Secret permissions set"
             image: busybox
             securityContext:
@@ -66,17 +68,7 @@ spec:
               - name: auth
                 mountPath: /secrets/auth
                 subPath: auth
-          - update-volume-permission:
-            command: ["/bin/sh"]
-            args:
-              - -c
-              - chown -R 568:568 /config
-            image: busybox
-            securityContext:
-              runAsUser: 0
-            volumeMounts:
-              - name: config
-                mountPath: /config
+
         volumeMounts:
           - mountPath: /config
             name: config
