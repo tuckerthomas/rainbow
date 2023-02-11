@@ -53,6 +53,8 @@ spec:
             args:
               - -c
               - >-
+                rm /config/core.conf &&
+                rm /config/auth &&
                 echo "Copying secrets to correct locations" &&
                 cp /secrets/core.conf /config/core.conf &&
                 cp /secrets/auth /config/auth &&
