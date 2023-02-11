@@ -48,7 +48,7 @@ spec:
         #    volumeMounts:
         #      - mountPath: /config
         #        name: config
-          update-volume-permission:
+          update-secret-permissions:
             command:
               - sh
               - -c
@@ -59,8 +59,10 @@ spec:
               runAsUser: 0
             volumeMounts:
               - mountPath: /config/core.conf
+                subPath: core.conf
                 name: config
               - mountPath: /config/auth
+                subPath: auth
                 name: auth
         volumes:
           - name: pre-install
@@ -68,28 +70,34 @@ spec:
           - name: config
             configMap:
               name: bla
+          - name: core.conf
+            secret:
+              name: deluge-core-config-sealed
+          - name: auth
+            secret:
+              name: deluge-auth-sealed
         persistence:
           config:
+            enabled: true
+            existingClaim: deluge-config
+            mountPath: /config
+          config-core:
             enabled: true
             type: secret
             name: deluge-core-config-sealed
             mountPath: /config/core.conf
             subPath: core.conf
-            defaultMode: 0755
-          config-extras:
-            enabled: true
-            existingClaim: deluge-config
-            mountPath: /config
+            #defaultMode: 0755
           auth:
             enabled: true
             type: secret
             name: deluge-auth-sealed
             mountPath: /config/auth
             subPath: auth
-            defaultMode: 0755
+            #defaultMode: 0755
           downloads:
             enabled: true
-            mountPath: /media/downloads
+            mountPath: /downloads
             type: custom
             volumeSpec:
               nfs:
