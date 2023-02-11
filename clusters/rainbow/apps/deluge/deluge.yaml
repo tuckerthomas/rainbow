@@ -42,19 +42,18 @@ spec:
             args:
               - -c
               - >-
-                rm /config/core.conf &&
-                rm /config/auth &&
                 echo "Copying secrets to correct locations" &&
                 cp /secrets/core.conf /config/core.conf &&
                 cp /secrets/auth /config/auth &&
+                cp /secrets/ltconfig.conf /config/ltconfig.conf &&
                 echo "Updating Permissions on files" &&
                 chmod 750 /config/core.conf &&
                 chmod 750 /config/auth &&
+                chmod 750 /config/ltconfig.conf &&
                 echo "Updating file owner " &&
                 chown -R 568:568 /config/core.conf &&
                 chown -R 568:568 /config/auth &&
-                echo "Owning Downloads directory.." &&
-                chown -R 568:568 /config &&
+                chown -R 568:568 /config/ltconfig.conf &&
                 echo "Secret permissions set"
             image: busybox
             securityContext:
@@ -68,6 +67,9 @@ spec:
               - name: auth
                 mountPath: /secrets/auth
                 subPath: auth
+              - name: ltconfig
+                mountPath: /secrets/ltconfig.conf
+                subPath:ltconfig.conf
         persistence:
           config:
             enabled: true
@@ -85,6 +87,12 @@ spec:
             name: deluge-auth-sealed
             mountPath: /secrets/auth
             subPath: auth
+          ltconfig:
+            enabled: true
+            type: secret
+            name: ltconfig-sealed
+            mountPath: /secrets/ltconfig.conf
+            subPath: ltconfig.conf
           downloads:
             enabled: true
             mountPath: /downloads

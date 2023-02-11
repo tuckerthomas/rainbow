@@ -6,3 +6,4 @@ resources:
   - deluge-auth-sealed.json
   - deluge-core-config-sealed.json
   - deluge.yaml
+  - ltconfig-sealed.yaml
