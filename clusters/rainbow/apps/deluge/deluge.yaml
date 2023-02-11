@@ -87,14 +87,14 @@ spec:
             name: deluge-core-config-sealed
             mountPath: /config/core.conf
             subPath: core.conf
-            #defaultMode: 0755
+            defaultMode: 0755
           auth:
             enabled: true
             type: secret
             name: deluge-auth-sealed
             mountPath: /config/auth
             subPath: auth
-            #defaultMode: 0755
+            defaultMode: 0755
           downloads:
             enabled: true
             mountPath: /downloads
