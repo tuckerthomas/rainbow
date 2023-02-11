@@ -36,7 +36,7 @@ spec:
         ingress:
           main:
             enabled: false
-        initContainers:
+        #initContainers:
         #  update-volume-permission:
         #    command:
         #      - sh
@@ -52,37 +52,41 @@ spec:
             command:
               - sh
               - -c
-              - cp /auth /config/auth
-              - cp /config.core /config/core.conf
               - chown -R 568:568 /config/core.conf
               - chown -R 568:568 /config/auth
             image: busybox
             securityContext:
               runAsUser: 0
             volumeMounts:
-              - mountPath: /config 
+              - mountPath: /config/core.conf
                 name: config
+              - mountPath: /config/auth
+                name: auth
         volumes:
           - name: pre-install
             emptyDir: {}
           - name: config
             configMap:
               name: bla
-          - name: config-core
-            secret:
-              name: deluge-core-config-sealed
-            mountPath: /core.conf
-            subPath: core.conf
-          - name: auth
-            secret:
-              name: deluge-auth-sealed
-            mountPath: /auth
-            subPath: auth
         persistence:
           config:
             enabled: true
+            type: secret
+            name: deluge-core-config-sealed
+            mountPath: /config/core.conf
+            subPath: core.conf
+            defaultMode: 0755
+          config-extras:
+            enabled: true
             existingClaim: deluge-config
             mountPath: /config
+          auth:
+            enabled: true
+            type: secret
+            name: deluge-auth-sealed
+            mountPath: /config/auth
+            subPath: auth
+            defaultMode: 0755
           downloads:
             enabled: true
             mountPath: /media/downloads
