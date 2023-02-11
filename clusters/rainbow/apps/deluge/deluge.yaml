@@ -53,12 +53,12 @@ spec:
             args:
               - -c
               - >-
-                echo "Updating file owner " &&
-                chown -R 568:568 /config/core.conf &&
-                chown -R 568:568 /config/auth &&
                 echo "Updating Permissions on files" &&
                 chmod 750 /config/core.conf &&
                 chmod 750 /config/auth &&
+                echo "Updating file owner " &&
+                chown -R 568:568 /config/core.conf &&
+                chown -R 568:568 /config/auth &&
                 echo "Secret permissions set"
             image: busybox
             securityContext:
