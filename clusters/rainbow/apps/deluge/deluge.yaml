@@ -36,7 +36,7 @@ spec:
         ingress:
           main:
             enabled: false
-        #initContainers:
+        initContainers:
         #  update-volume-permission:
         #    command:
         #      - sh
@@ -48,18 +48,18 @@ spec:
         #    volumeMounts:
         #      - mountPath: /config
         #        name: config
-        #  update-volume-permission:
-        #    command:
-        #      - sh
-        #      - -c
-        #      - chown -R 568:568 /config/core.conf
-        #      - chown -R 568:568 /config/auth
-        #    image: busybox
-        #    securityContext:
-        #      runAsUser: 0
-        #    volumeMounts:
-        #      - mountPath: /config 
-        #        name: config
+          update-volume-permission:
+            command:
+              - sh
+              - -c
+              - chown -R 568:568 /config/core.conf
+              - chown -R 568:568 /config/auth
+            image: busybox
+            securityContext:
+              runAsUser: 0
+            volumeMounts:
+              - mountPath: /config 
+                name: config
         volumes:
           - name: pre-install
             emptyDir: {}
