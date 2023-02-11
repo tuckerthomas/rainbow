@@ -1,0 +1,21 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "ltconfig.conf",
+    "namespace": "argocd",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "ltconfig.conf",
+        "namespace": "argocd",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "ltconfig.conf": "AgCJAiBIOnJEMfZ3mLjYNN79bDYymRSuYHZ3UZFA+VI+bK11DLTXcuD+wVSo2E12s8mwV94UD7xUo1OAQZmPf+TicWSgwxtAcc3dppnLEKjPV8ToVtE0MFrTjQk7UhbaEuL/9Uf5PbH3y1UvFEerZ9MlTTctd4Hho0jgAbV8JDmyVSbnXyzrSap7fQqvBQs5Hsw6hVR2TR5HBRxX0OPM50t82y2pDqbd06PCSKjWVlQREYLnpkzddC99c8wAlIfYkD9QWMyEIOZhIOCxI0uhDIz7Qod9NJTq8EUGukKq8F1V2EXmEwAZkXkE8IMWKODXQZMymEYxoOFLBGVtMv/h1iO4KU+AvWv1tJZVsixr2Z3htyNj1RROEfOXDKry5y2Kv/4WldO4rtgg0uqbwJZUaZOraXyx92Fo0qD0uWNXCa0R06mz91ehXmzpEApYY9PwsFHl225z/cxy76bE+i9mn9+V+XcyVNAPiwWQ6EFjcm3WDcH24/8Qe46Iwu9Lb4Ot2+7rIDNf4VKNL93Suwq6FDyfDt5fbCLgFAamDnJL8xVzut/BW2e/oCnE3d+QiIjZxzX/38a3qQY8gk2sljCTj9/1lp3zuuz96DvOtdGlxfqSxpuMRAM7jxKNKjpaX7ByDJUuqVU3gogFWxJlUi/Fdfi6yZ1DVudWZ5u4mEnQa8qFqzdw9pOaRwptg9xycsOl2CU="
+    }
+  }
+}

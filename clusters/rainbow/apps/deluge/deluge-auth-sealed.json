@@ -1,0 +1,21 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "deluge-auth",
+    "namespace": "vpn",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "deluge-auth",
+        "namespace": "vpn",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "auth": "AgADY+xsLFC1PfLKTZOZqXWg3VRE2A0lOUSzkgno83+KtSkI5UEXjkQVqyA/qCSqmfidfckc8EYbHgnkSDjpaZlvXlGog8pE05rZddlFfcdmPLEyBps8ABOjJ+3J4TicSmEazdZlzomC3aejVPmUV8FIeLlzoiVEFqjno14TCnSQJM4Em+tEmexDJ8+oib68GT0qD7U9Qql5cGrD1lVrtlhXsJ6eh3AYljv8APOtbUtCjVZVSkEGPl83Ym8ZJUG5DKYi3dC/tKyCvJxoWaAJ9+8xzx1TCf4E0iTLFnxmln2k2adzZaD59cfdbbJY/22L0mADl5RxuuOfVJjokBdKrRGvv44osdaoqBYIgU9XA8VMtQjzyhCa18H6XJhuBPNIW3IgyoLq48X510RarhEU77Ep9q9gM1vLIicj7xnGQbkvveUsYAwFW83nZdIA8w447BV1Fj1kvV5xkpeNw2r4yB4CZjXFIot8pMzkT+M0y+P88wSvfp3ahh6P2PjuE8chBah6RFUD8jBFGQPzBBeDljnGtDX0UB1F6kkutTTjxKhoJVBVEuDO2ke0Lx8c/ohJq9HYtW2EplHpWPhl4+9Zw7AMSMOftVRe13X8O2HeTDrnrK+4boat1DUqp41TJuptmBhDj4Dz635y74i22mq7C7B1J7MeK0Vr9u5DLxG5vO4WBCk8z5t0v/nx8qPx+bspsw00UIUO7jZrmtuFvMbodbcdbl8nityvQVlukMSMd2WfSID+OY3lfOOL6AVR+0FNrxYLnm9GTQBL4wXi88qi1SBo60NFS8dT1u8Y6irWW82TyllhMQvP2f6cmNFTDyB5eAeERWYD7dsOnLrC"
+    }
+  }
+}
