@@ -53,6 +53,9 @@ spec:
             args:
               - -c
               - >-
+                echo "Copying secrets to correct locations" &&
+                cp /secrets/core.conf /config/core.conf &&
+                cp /secrets/auth /config/auth &&
                 echo "Updating Permissions on files" &&
                 chmod 750 /config/core.conf &&
                 chmod 750 /config/auth &&
@@ -64,10 +67,10 @@ spec:
             securityContext:
               runAsUser: 0
             volumeMounts:
-              - mountPath: /config/core.conf
+              - mountPath: /secrets/core.conf
                 subPath: core.conf
                 name: config
-              - mountPath: /config/auth
+              - mountPath: /secrets/auth
                 subPath: auth
                 name: auth
         volumes:
