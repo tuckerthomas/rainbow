@@ -60,25 +60,27 @@ spec:
         #    volumeMounts:
         #      - mountPath: /config 
         #        name: config
+        volumes:
+          - name: pre-install
+            emptyDir: {}
+          - name: config
+            configMap:
+              name: bla
+          - name: config-core
+            secret:
+              name: deluge-core-config-sealed
+            mountPath: /core.conf
+            subPath: core.conf
+          - name: auth
+            secret:
+              name: deluge-auth-sealed
+            mountPath: /auth
+            subPath: auth
         persistence:
           config:
             enabled: true
-            type: secret
-            name: deluge-core-config-sealed
-            mountPath: /config/core.conf
-            subPath: core.conf
-            defaultMode: 0755
-          config-extras:
-            enabled: true
             existingClaim: deluge-config
             mountPath: /config
-          auth:
-            enabled: true
-            type: secret
-            name: deluge-auth-sealed
-            mountPath: /config/auth
-            subPath: auth
-            defaultMode: 0755
           downloads:
             enabled: true
             mountPath: /media/downloads
