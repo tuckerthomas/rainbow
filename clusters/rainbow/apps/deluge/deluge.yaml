@@ -69,7 +69,7 @@ spec:
             securityContext:
               runAsUser: 0
             volumeMounts:
-              - name: config-core
+              - name: config
                 mountPath: /config
               - name: config
                 mountPath: /secrets/core.conf
