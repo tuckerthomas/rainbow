@@ -22,16 +22,13 @@ spec:
     helm:
       values: |
         env:
+          PUID: 568
+          PGID: 568
           TZ: UTC
-          #SONARR__POSTGRES_HOST: 192.168.1.60
-          #SONARR__POSTGRES_MAIN_DB: sonarr-main
-          #SONARR__POSTGRES_LOG_DB: sonarr-log
-          #SONARR__POSTGRES_PASSWORD: sonarr
-          #SONARR__POSTGRES_USER: sonarr
         image:
           pullPolicy: IfNotPresent
-          repository: ghcr.io/onedr0p/sonarr-develop
-          tag: 4.0.0.362
+          repository: ghcr.io/linuxserver/sonarr
+          tag: develop-version-4.0.0.380
         ingress:
           main:
             enabled: false
