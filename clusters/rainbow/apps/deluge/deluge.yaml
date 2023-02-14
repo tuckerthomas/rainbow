@@ -25,6 +25,8 @@ spec:
 
         hostname: deluge
         env:
+          PUID: 1038
+          PGID: 65538
           DELUG_LOGLEVEL: error
           TZ: UTC
         image:
