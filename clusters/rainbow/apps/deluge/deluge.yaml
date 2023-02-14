@@ -33,9 +33,6 @@ spec:
           pullPolicy: IfNotPresent
           repository: linuxserver/deluge
           tag: 2.1.1
-        securityContext:
-          runAsUser: 1038
-          runAsGroup: 65538
         ingress:
           main:
             enabled: false
