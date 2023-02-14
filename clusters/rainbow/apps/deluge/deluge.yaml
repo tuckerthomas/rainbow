@@ -25,14 +25,15 @@ spec:
 
         hostname: deluge
         env:
-          PUID: 568
-          PGID: 568
           DELUG_LOGLEVEL: error
           TZ: UTC
         image:
           pullPolicy: IfNotPresent
           repository: linuxserver/deluge
           tag: 2.1.1
+        securityContext:
+          runAsUser: 1038
+          runAsGroup: 65538
         ingress:
           main:
             enabled: false
@@ -51,9 +52,9 @@ spec:
                 chmod 750 /config/auth &&
                 chmod 750 /config/ltconfig.conf &&
                 echo "Updating file owner " &&
-                chown -R 568:568 /config/core.conf &&
-                chown -R 568:568 /config/auth &&
-                chown -R 568:568 /config/ltconfig.conf &&
+                chown -R 1038:65538 /config/core.conf &&
+                chown -R 1038:65538 /config/auth &&
+                chown -R 1038:65538 /config/ltconfig.conf &&
                 echo "Secret permissions set"
             image: busybox
             securityContext:

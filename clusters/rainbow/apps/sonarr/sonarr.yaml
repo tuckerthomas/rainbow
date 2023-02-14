@@ -22,13 +22,14 @@ spec:
     helm:
       values: |
         env:
-          PUID: 568
-          PGID: 568
           TZ: UTC
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/sonarr
           tag: develop-version-4.0.0.380
+        securityContext:
+          runAsUser: 1038
+          runAsGroup: 65538
         ingress:
           main:
             enabled: false
@@ -37,7 +38,7 @@ spec:
             command:
             - sh
             - -c
-            - chown -R 568:568 /config
+            - chown -R 1038:65538 /config
             image: busybox
             securityContext:
               runAsUser: 0
