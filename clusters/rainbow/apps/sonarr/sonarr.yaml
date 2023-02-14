@@ -32,18 +32,18 @@ spec:
         ingress:
           main:
             enabled: false
-        initContainers:
-          update-volume-permission:
-            command:
-            - sh
-            - -c
-            - chown -R 1038:65538 /config
-            image: busybox
-            securityContext:
-              runAsUser: 0
-            volumeMounts:
-            - mountPath: /config
-              name: config
+        #initContainers:
+        #  update-volume-permission:
+        #    command:
+        #    - sh
+        #    - -c
+        #    - chown -R 1038:65538 /config
+        #    image: busybox
+        #    securityContext:
+        #      runAsUser: 0
+        #    volumeMounts:
+        #    - mountPath: /config
+        #      name: config
         metrics:
           enabled: false
           exporter:
@@ -65,8 +65,12 @@ spec:
             scrapeTimeout: 1m
         persistence:
           config:
+          #  enabled: true
+          #  existingClaim: sonarr-config
             enabled: true
-            existingClaim: sonarr-config
+            ype: pvc
+            ccessMode: ReadWriteOnce
+            ize: 1Gi
           downloads:
             enabled: true
             mountPath: /media
