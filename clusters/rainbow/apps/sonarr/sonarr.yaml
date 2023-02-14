@@ -22,13 +22,14 @@ spec:
     helm:
       values: |
         env:
-          PUID: 1038
-          PGID: 65538
           TZ: UTC
         image:
           pullPolicy: IfNotPresent
-          repository: ghcr.io/linuxserver/sonarr
-          tag: develop-version-4.0.0.380
+          repository: ghcr.io/onedr0p/sonarr-develop
+          tag: 4.0.0.373
+        securityContext:
+          runAsUser: 1038
+          runAsGroup: 65538
         ingress:
           main:
             enabled: false
