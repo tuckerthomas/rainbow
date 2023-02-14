@@ -12,7 +12,7 @@ spec:
   # TODO: Check if sonarr gets postgres support https://github.com/Sonarr/Sonarr/pull/4999
   destination:
     server: https://kubernetes.default.svc
-    namespace: apps
+    namespace: vpn
 
   source:
     repoURL: https://k8s-at-home.com/charts
@@ -65,11 +65,8 @@ spec:
             scrapeTimeout: 1m
         persistence:
           config:
-          #  enabled: true
-          #  existingClaim: sonarr-config
-            type: pvc
-            accessMode: ReadWriteOnce
-            size: 1Gi
+            enabled: true
+            existingClaim: sonarr-config
           downloads:
             enabled: true
             mountPath: /media
