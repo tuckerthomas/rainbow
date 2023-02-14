@@ -21,6 +21,8 @@ spec:
     chart: sonarr
     helm:
       values: |
+        nodeSelector:
+          lan: 1Gi
         env:
           TZ: UTC
         image:
