@@ -73,14 +73,14 @@ spec:
             ize: 1Gi
           downloads:
             enabled: true
-            mountPath: /media
+            mountPath: /downloads
             type: custom
             volumeSpec:
               nfs:
-                path: /volume1/Media
+                path: /volume1/Media/downloads
                 server: 192.168.1.10
-          media:
-            enabled: false
+          tv:
+            enabled: true
             mountPath: /tv
             type: custom
             volumeSpec:
