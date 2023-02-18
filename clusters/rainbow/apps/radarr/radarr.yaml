@@ -65,8 +65,12 @@ spec:
             scrapeTimeout: 1m
         persistence:
           config:
+            #enabled: true
+            #existingClaim: radarr-config
             enabled: true
-            existingClaim: radarr-config
+            type: pvc
+            accessMode: ReadWriteOnce
+            size: 1Gi
           downloads:
             enabled: true
             mountPath: /downloads
