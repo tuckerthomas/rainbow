@@ -25,7 +25,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/onedr0p/prowlarr-develop
-          tag: 1.1.2.2453
+          tag: 1.2.2.2699
         ingress:
           main:
             enabled: false
