@@ -27,7 +27,7 @@ spec:
         env:
           PUID: 1038
           PGID: 65538
-          DELUG_LOGLEVEL: error
+          DELUGE_LOGLEVEL: error
           TZ: UTC
         image:
           pullPolicy: IfNotPresent
