@@ -28,7 +28,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/sonarr
-          tag: develop-4.0.0.383-ls406
+          tag: develop-4.0.0.401-ls421
         ingress:
           main:
             enabled: false
