@@ -63,8 +63,10 @@ spec:
                 value: wg0
               - name: FIREWALL
                 value: "off"
+              - name: DNS_ADDRESS
+                value: 10.64.0.1
               - name: DOT
-                value: "on"
+                value: "off"
               - name: SERVER_CITIES
                 value: Chicago IL
               - name: SERVER_HOSTNAMES
