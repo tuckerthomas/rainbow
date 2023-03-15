@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: sonarr
-  namespace: vpn
+  namespace: apps
 
 spec:
   entryPoints:
@@ -13,10 +13,10 @@ spec:
       services:
         - kind: Service
           name: sonarr
-          namespace: vpn
+          namespace: apps
           port: 8989
 
   tls:
-    secretName: vpn-apps-cert-prod
+    secretName: apps-cert-prod
     domains:
       - main: sonarr.tuckerthomas.com
