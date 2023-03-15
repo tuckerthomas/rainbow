@@ -6,5 +6,6 @@ resources:
   - cert-manager.yaml
   - pod-gateway.yaml
   - system-monitoring.yaml
+  - tigera-operator.yaml
   - traefik.yaml
   - vpn.yaml
