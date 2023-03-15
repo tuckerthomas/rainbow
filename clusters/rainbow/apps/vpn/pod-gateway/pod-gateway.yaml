@@ -50,7 +50,7 @@ spec:
             type: gluetun
             image:
               repository: ghcr.io/qdm12/gluetun
-              tag: pr-1268
+              tag: latest
             securityContext:
               capabilities:
                 add: ["NET_ADMIN"]
