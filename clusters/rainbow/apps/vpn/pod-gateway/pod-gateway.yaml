@@ -72,7 +72,7 @@ spec:
               - name: SERVER_HOSTNAMES
                 value: us231-wireguard
               - name: HTTP_PROXY
-                value: on
+                value: 'on'
               - name: LOG_LEVEL
                 value: debug
             envFrom:
