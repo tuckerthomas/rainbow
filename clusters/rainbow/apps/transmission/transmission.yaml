@@ -29,6 +29,8 @@ spec:
           PGID: 65538
           DELUG_LOGLEVEL: error
           TZ: UTC
+          USER: admin
+          PASS: iBEvFQGJchLhzHHKdr3WwhqjaTB9
           #TRANSMISSION_DOWNLOAD_DIR: /media/downloads/complete
           #TRANSMISSION_INCOMPLETE_DIR: /media/downloads/incomplete
           #TRANSMISSION_INCOMPLETE_DIR_ENABLED: false
