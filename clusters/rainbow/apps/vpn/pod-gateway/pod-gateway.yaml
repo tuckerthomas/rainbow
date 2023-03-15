@@ -68,7 +68,7 @@ spec:
               - name: SERVER_CITIES
                 value: Chicago IL
               - name: SERVER_HOSTNAMES
-                value: us-chi-wg-101
+                value: us231-wireguard
               - name: LOG_LEVEL
                 value: debug
             envFrom:
