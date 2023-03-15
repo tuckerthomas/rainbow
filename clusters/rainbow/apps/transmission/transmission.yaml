@@ -48,7 +48,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/transmission
-          tag: 4.0.1
+          tag: 4.0.1-r0-ls159
         ingress:
           main:
             enabled: false
@@ -98,16 +98,16 @@ spec:
             ports:
               utptcp:
                 enabled: true
-                port: 56688
+                port: 56670
                 protocol: TCP
-                targetPort: 56688
+                targetPort: 56670
             type: ClusterIP
           utpudp:
             enabled: true
             ports:
               utpudp:
                 enabled: true
-                port: 56688
+                port: 56670
                 protocol: UDP
-                targetPort: 56688
+                targetPort: 56670
             type: ClusterIP
