@@ -64,7 +64,7 @@ spec:
               - name: config-core
                 mountPath: /secrets/core.conf
                 subPath: core.conf
-              - name: deluge-auth
+              - name: auth
                 mountPath: /secrets/auth
                 subPath: auth
               - name: ltconfig
