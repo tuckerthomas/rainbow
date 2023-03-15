@@ -132,16 +132,16 @@ spec:
             ports:
               utptcp:
                 enabled: true
-                port: 56688
+                port: 56670
                 protocol: TCP
-                targetPort: 56688
+                targetPort: 56670
             type: ClusterIP
           utpudp:
             enabled: true
             ports:
               utpudp:
                 enabled: true
-                port: 56688
+                port: 56670
                 protocol: UDP
-                targetPort: 56688
+                targetPort: 56670
             type: ClusterIP

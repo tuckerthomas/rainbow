@@ -33,9 +33,9 @@ spec:
             IP: 10 # must be an integer between 2 and VXLAN_GATEWAY_FIRST_DYNAMIC_IP (20 by default)
             ports:
               - type: udp
-                port: 56688
+                port: 56670
               - type: tcp
-                port: 56688
+                port: 56670
         settings:
           NOT_ROUTED_TO_GATEWAY_CIDRS: 10.0.0.0/8 192.168.0.0/16
           IPTABLES_NFT: "yes"
@@ -66,9 +66,9 @@ spec:
               - name: DOT
                 value: "off"
               - name: SERVER_CITIES
-                value: Zurich
+                value: Chicago
               - name: SERVER_HOSTNAMES
-                value: ch8-wireguard
+                value: us-chi-wg-101
               - name: LOG_LEVEL
                 value: debug
             envFrom:
