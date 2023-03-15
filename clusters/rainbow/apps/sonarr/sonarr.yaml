@@ -12,7 +12,7 @@ spec:
   # TODO: Check if sonarr gets postgres support https://github.com/Sonarr/Sonarr/pull/4999
   destination:
     server: https://kubernetes.default.svc
-    namespace: vpn
+    namespace: apps
 
   source:
     repoURL: https://k8s-at-home.com/charts

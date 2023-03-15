@@ -5,7 +5,7 @@ metadata:
   annotations:
     nfs.io/storage-path: prowlarr
   name: prowlarr-config
-  namespace: vpn
+  namespace: apps
 spec:
   accessModes:
     - ReadWriteOnce
