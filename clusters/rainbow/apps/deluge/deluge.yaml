@@ -86,7 +86,7 @@ spec:
             type: secret
             name: deluge-auth
             mountPath: /secrets/auth
-            subPath: deluge-auth
+            subPath: auth
           ltconfig:
             enabled: true
             type: secret
