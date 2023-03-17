@@ -90,6 +90,7 @@ spec:
                 protocol: TCP
                 targetPort: 30000
             externalTrafficPolicy: Local
+            loadBalancerIP: 10.2.0.69
           utpudp:
             enabled: true
             type: LoadBalancer
@@ -102,3 +103,4 @@ spec:
                 protocol: UDP
                 targetPort: 30000
             externalTrafficPolicy: Local
+            loadBalancerIP: 10.2.0.69
