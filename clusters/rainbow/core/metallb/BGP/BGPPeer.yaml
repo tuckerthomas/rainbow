@@ -24,3 +24,6 @@ kind: BGPAdvertisement
 metadata:
   name: bgp-vpn-advertisement
   namespace: kube-system
+spec:
+  ipAddressPools:
+  - bgp-vpn-pool
