@@ -86,7 +86,7 @@ spec:
               utptcp:
                 enabled: true
                 port: 56670
-                protocol: UDP
+                protocol: TCP
                 targetPort: 56670
             externalTrafficPolicy: Local
           utpudp:
