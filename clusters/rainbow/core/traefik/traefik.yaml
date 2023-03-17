@@ -20,6 +20,8 @@ spec:
     chart: traefik
     helm:
       values: |
+        externalTrafficPolicy: Local
+        loadBalancerIP: 192.168.1.91
         ports:
           web:
             redirectTo: websecure
