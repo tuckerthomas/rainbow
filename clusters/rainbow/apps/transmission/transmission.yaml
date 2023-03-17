@@ -86,9 +86,9 @@ spec:
             ports:
               utptcp:
                 enabled: true
-                port: 30000
+                port: 56670
                 protocol: TCP
-                targetPort: 30000
+                targetPort: 56670
             externalTrafficPolicy: Local
             loadBalancerIP: 10.2.0.69
           utpudp:
@@ -99,8 +99,8 @@ spec:
             ports:
               utpudp:
                 enabled: true
-                port: 30000
+                port: 56670
                 protocol: UDP
-                targetPort: 30000
+                targetPort: 56670
             externalTrafficPolicy: Local
             loadBalancerIP: 10.2.0.69
