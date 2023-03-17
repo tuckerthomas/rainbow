@@ -86,9 +86,9 @@ spec:
             ports:
               utptcp:
                 enabled: true
-                port: 56670
+                port: 30000
                 protocol: TCP
-                targetPort: 56670
+                targetPort: 30000
             externalTrafficPolicy: Local
           utpudp:
             enabled: true
@@ -98,7 +98,7 @@ spec:
             ports:
               utpudp:
                 enabled: true
-                port: 56670
+                port: 30000
                 protocol: UDP
-                targetPort: 56670
+                targetPort: 30000
             externalTrafficPolicy: Local
