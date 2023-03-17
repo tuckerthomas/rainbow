@@ -2,7 +2,7 @@ apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:
   name: bgp-vpn-peer
-  namespace: metallb-system
+  namespace: kube-system
 spec:
   myASN: 64502
   peerASN: 64501
@@ -13,7 +13,7 @@ apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: bgp-vpn-pool
-  namespace: metallb-system
+  namespace: kube-system
 spec:
   addresses:
   - 10.2.0.10-10.2.0.250
@@ -23,4 +23,4 @@ apiVersion: metallb.io/v1beta1
 kind: BGPAdvertisement
 metadata:
   name: bgp-vpn-advertisement
-  namespace: metallb-system
+  namespace: kube-system
