@@ -20,6 +20,9 @@ spec:
     chart: traefik
     helm:
       values: |
+        providers:
+          kubernetesCRD:
+            allowExternalNameServices: true
         service:
           spec:
             externalTrafficPolicy: Local
