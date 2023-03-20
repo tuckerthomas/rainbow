@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gitea
+  namespace: kube-system
+spec:
+  type: ExternalName
+  ports:
+    - name: http
+      port: 4000
+      targetPort: 4000
+  externalName: 127.0.0.1
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gitea-ingress
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`gitea.tuckerthomas.com`)
+      kind: Rule
+      priority: 1
+      services:
+        - name: gitea
+          port: 4000
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: gitea.tuckerthomas.com
