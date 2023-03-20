@@ -18,6 +18,7 @@ spec:
     - client auth
   dnsNames:
     - "adguard.tuckerthomas.com"
+    - "gitea.tuckerthomas.com"
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer

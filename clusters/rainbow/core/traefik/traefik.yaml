@@ -17,6 +17,7 @@ spec:
     repoURL: https://helm.traefik.io/traefik
     targetRevision: 20.8.0
 
+    # External Names set for gitea
     chart: traefik
     helm:
       values: |
