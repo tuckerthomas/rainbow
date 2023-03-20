@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: gitea
-  namespace: kube-system
+  namespace: apps
 spec:
   type: ExternalName
   ports:
