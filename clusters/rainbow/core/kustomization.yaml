@@ -7,6 +7,7 @@ metadata:
 resources:
   #- argocd
   - cert-manager
+  - gitea
   #- kube-prometheus-stack
   - metallb
   - nfs-subdir-external-provisioner
