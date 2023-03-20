@@ -9,7 +9,7 @@ spec:
     - name: http
       port: 4000
       targetPort: 4000
-  ExternalName: 192.168.1.60
+  externalName: 192.168.1.60
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
