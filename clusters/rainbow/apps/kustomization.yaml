@@ -6,9 +6,7 @@ metadata:
 
 resources:
   - adguard-home
-  - deluge
   - prowlarr
   - radarr
   - sonarr
   - transmission
-  - vpn/pod-gateway
