@@ -26,7 +26,7 @@ spec:
           TZ: UTC
         image:
           pullPolicy: IfNotPresent
-          repository: ghcr.io/linuxserver/sonarr
+          repository: ghcr.io/linuxserver/prowlarr
           tag: develop-1.4.1.3258-ls102
         ingress:
           main:
