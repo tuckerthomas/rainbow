@@ -21,14 +21,13 @@ spec:
     helm:
       values: |
         env:
+          PUID: 1038
+          PGID: 65538
           TZ: UTC
         image:
           pullPolicy: IfNotPresent
-          repository: ghcr.io/onedr0p/radarr-develop
-          tag: 4.4.0.6882
-        securityContext:
-          runAsUser: 1038
-          runAsGroup: 65538
+          repository: ghcr.io/linuxserver/radarr
+          tag: develop-4.5.0.7106-ls96
         ingress:
           main:
             enabled: false
