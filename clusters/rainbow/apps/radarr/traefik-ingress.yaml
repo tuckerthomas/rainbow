@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: radarr
-  namespace: vpn
+  namespace: apps
 
 spec:
   entryPoints:
@@ -13,7 +13,7 @@ spec:
       services:
         - kind: Service
           name: radarr
-          namespace: vpn
+          namespace: apps
           port: 7878
 
   tls:
