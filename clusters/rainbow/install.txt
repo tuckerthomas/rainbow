@@ -1,3 +1,5 @@
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --cluster-cidr=10.1.0.0/16" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable servicelb --cluster-cidr=10.1.0.0/16" sh -
 
 change /boot/dietpi.txt INSTALL_K3S_EXEC to match above
+
+agent --server https://192.168.1.49:6443 --token <TOKEN>
