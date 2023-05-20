@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`sonarr.tuckerthomas.com`)
+    - match: Host(`sonarr.k8s.tuckerthomas.com`)
       kind: Rule
       services:
         - kind: Service
@@ -19,4 +19,4 @@ spec:
   tls:
     secretName: apps-cert-prod
     domains:
-      - main: sonarr.tuckerthomas.com
+      - main: sonarr.k8s.tuckerthomas.com

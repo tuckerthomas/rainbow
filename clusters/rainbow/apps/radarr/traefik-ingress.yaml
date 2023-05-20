@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`radarr.tuckerthomas.com`)
+    - match: Host(`radarr.k8s.tuckerthomas.com`)
       kind: Rule
       services:
         - kind: Service
@@ -19,4 +19,4 @@ spec:
   tls:
     secretName: apps-cert-prod
     domains:
-      - main: radarr.tuckerthomas.com
+      - main: radarr.k8s.tuckerthomas.com
