@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: sonarr
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: sonarr=ghcr.io/linuxserver/sonarr
+    argocd-image-updater.argoproj.io/sonarr.platforms: linux/arm64,linux/amd64
+    argocd-image-updater.argoproj.io/write-back-method: git
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
