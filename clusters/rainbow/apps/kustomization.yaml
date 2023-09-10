@@ -4,9 +4,10 @@ metadata:
   name: apps
   namespace: argocd
 
+# Disabling apps here
 resources:
-  - adguard-home
+#  - adguard-home
   - prowlarr
   - radarr
   - sonarr
-  - transmission
+#  - transmission

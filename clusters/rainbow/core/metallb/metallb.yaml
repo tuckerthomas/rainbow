@@ -15,6 +15,6 @@ spec:
 
   source:
     repoURL: https://metallb.github.io/metallb
-    targetRevision: 0.13.7
+    targetRevision: 0.13.11
 
     chart: metallb

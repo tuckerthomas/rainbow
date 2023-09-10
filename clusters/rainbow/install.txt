@@ -2,4 +2,4 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disabl
 
 change /boot/dietpi.txt INSTALL_K3S_EXEC to match above
 
-agent --server https://192.168.1.49:6443 --token <TOKEN>
+agent --server https://cyan.rainbow.tuckerthomas.com:6443 --token <TOKEN>

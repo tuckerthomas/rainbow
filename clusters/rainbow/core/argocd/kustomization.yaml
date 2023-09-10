@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - argocd-cmd-params-cm.yaml
   - argocd.yaml
-  - job-argocd-reboot.yaml
   - traefik-ingress.yaml

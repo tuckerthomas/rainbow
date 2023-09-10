@@ -7,10 +7,10 @@ metadata:
 resources:
   #- argocd
   - cert-manager
-  - gitea
+  #- gitea
   #- kube-prometheus-stack
   - metallb
   - nfs-subdir-external-provisioner
   - sealed-secrets
-  - tigera-operator
+  #- tigera-operator
   - traefik
