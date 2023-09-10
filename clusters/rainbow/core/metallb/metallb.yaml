@@ -11,7 +11,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: metallb-system
 
   source:
     repoURL: https://metallb.github.io/metallb
