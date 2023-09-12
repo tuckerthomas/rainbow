@@ -7,7 +7,7 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: sonarr=ghcr.io/linuxserver/sonarr
     argocd-image-updater.argoproj.io/sonarr.platforms: linux/arm64,linux/amd64
     argocd-image-updater.argoproj.io/sonarr.update-strategy: name
-    argocd-image-updater.argoproj.io/sonarr.allow-tags: regexp:^nightly
+    argocd-image-updater.argoproj.io/sonarr.allow-tags: regexp:^develop
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
