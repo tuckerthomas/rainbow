@@ -17,6 +17,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
+    - "tuckerthomas.com:"
     - "*.tuckerthomas.com"
   issuerRef:
     name: letsencrypt-prod
