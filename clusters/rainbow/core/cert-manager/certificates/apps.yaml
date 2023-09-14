@@ -17,8 +17,8 @@ spec:
     - server auth
     - client auth
   dnsNames:
-    - "tuckerthomas.com"
-    - "*.tuckerthomas.com"
+    - "k8s.tuckerthomas.com"
+    - "*.k8s.tuckerthomas.com"
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
