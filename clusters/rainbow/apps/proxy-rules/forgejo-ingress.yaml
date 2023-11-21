@@ -20,14 +20,14 @@ spec:
     domains:
       - main: forgejo.k8s.tuckerthomas.com
 ---
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   name: forgejo
-  namespace: apps
 spec:
+  type: ExternalName
   ports:
   - name: http
     port: 4000
-  type: ExternalName
-  externalName: cyan.rainbow.tuckerthomas.com
+    targetPort: 4000
+  externalName: localhost
