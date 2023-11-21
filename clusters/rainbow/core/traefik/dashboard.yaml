@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`traefik.tuckerthomas.com`)
+    - match: Host(`traefik.k8s.tuckerthomas.com`)
       kind: Rule
       services:
         - name: api@internal
