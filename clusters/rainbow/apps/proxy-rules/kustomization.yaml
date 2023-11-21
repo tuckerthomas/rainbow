@@ -6,3 +6,4 @@ resources:
   - forgejo-ingress.yaml
   - foundryvtt-ingress.yaml
   - piped-ingress.yaml
+  - nzb-ingress.yaml
