@@ -25,7 +25,7 @@ spec:
         - kind: Service
           name: piped
           namespace: apps
-          port: 80
+          port: 8080
   tls:
     secretName: apps-cert-prod
     domains:
