@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: piped
+  namespace: apps
+spec:
+  type: ExternalName
+  externalName: ruby.rainbow.tuckerthomas.com
+  ports:
+    - port: 8080
+      protocol: TCP
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: piped
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`piped.k8s.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: piped
+          namespace: apps
+          port: 80
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: piped.k8s.tuckerthomas.com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pipedapi
+  namespace: apps
+spec:
+  type: ExternalName
+  externalName: ruby.rainbow.tuckerthomas.com
+  ports:
+    - port: 8080
+      protocol: TCP
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pipedapi
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`pipedapi.k8s.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: pipedapi
+          namespace: apps
+          port: 8080
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: pipedapi.k8s.tuckerthomas.com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pipedproxy
+  namespace: apps
+spec:
+  type: ExternalName
+  externalName: ruby.rainbow.tuckerthomas.com
+  ports:
+    - port: 8080
+      protocol: TCP
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pipedproxy
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`pipedproxy.k8s.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: pipedproxy
+          namespace: apps
+          port: 8080
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: pipedproxy.k8s.tuckerthomas.com
