@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: foundryvtt
+spec:
+  type: ExternalName
+  externalName: 192.168.1.48
+  ports:
+    - port: 4000
+      protocol: tcp
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: foundryvtt
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`vtt.k8s.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: foundryvtt
+          namespace: apps
+          port: 4000
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: vtt.k8s.tuckerthomas.com
