@@ -5,9 +5,9 @@ metadata:
   namespace: apps
 spec:
   type: ExternalName
-  externalName: 192.168.1.48
+  externalName: 192.168.1.53
   ports:
-    - port: 4000
+    - port: 30000
       protocol: TCP
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -25,7 +25,7 @@ spec:
         - kind: Service
           name: foundryvtt
           namespace: apps
-          port: 4000
+          port: 30000
   tls:
     secretName: apps-cert-prod
     domains:
