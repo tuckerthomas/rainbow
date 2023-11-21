@@ -10,7 +10,7 @@ spec:
   project: default
 
   source:
-    repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow-flux
+    repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
     targetRevision: argo
     path: clusters/rainbow/core
 
