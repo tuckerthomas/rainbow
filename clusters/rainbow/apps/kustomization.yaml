@@ -8,6 +8,7 @@ metadata:
 resources:
 #  - adguard-home
   - prowlarr
+  - proxy-rules
   - radarr
   - sonarr
 #  - transmission
