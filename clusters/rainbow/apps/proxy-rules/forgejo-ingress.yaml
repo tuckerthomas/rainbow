@@ -1,0 +1,33 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: forgejo
+  namespace: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`forgejo.k8s.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: forgejo
+          namespace: apps
+          port: 4000
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: forgejo.k8s.tuckerthomas.com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forgejo
+  namespace: apps
+spec:
+  ports:
+  - name: http
+    port: 4000
+  type: ExternalName
+  externalName: cyan.rainbow.tuckerthomas.com
