@@ -5,7 +5,7 @@ metadata:
   namespace: apps
 spec:
   type: ExternalName
-  externalName: cyan.rainbow.tuckerthomas.com
+  externalName: blue.rainbow.tuckerthomas.com
   ports:
     - port: 8096
       protocol: TCP
