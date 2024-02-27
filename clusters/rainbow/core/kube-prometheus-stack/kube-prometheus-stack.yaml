@@ -25,7 +25,7 @@ spec:
           enabled: true
           path: /
           hosts:
-            - grafana.k8s.tuckerthomas.com
+            - alertmanager.k8s.tuckerthomas.com
           annotations:
             kubernetes.io/ingress.class: traefik
           labels: {}
@@ -41,7 +41,7 @@ spec:
           enabled: true
           path: /
           hosts:
-            - grafana.k8s.tuckerthomas.com
+            - prometheus.k8s.tuckerthomas.com
           annotations:
             kubernetes.io/ingress.class: traefik
           labels: {}
