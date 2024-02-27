@@ -1,0 +1,22 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana
+  namespace: apps
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`grafana.k8s.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: prometheus-grafana
+          namespace: system-monitoring
+          port: 80
+
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: grafana.k8s.tuckerthomas.com
