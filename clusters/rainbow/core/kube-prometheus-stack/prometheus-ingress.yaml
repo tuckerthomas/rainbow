@@ -14,7 +14,7 @@ spec:
         - kind: Service
           name: prometheus-kube-prometheus-prometheus
           namespace: system-monitoring
-          port: 9090
+          port: http-web
 
   tls:
     secretName: apps-cert-prod

@@ -14,7 +14,7 @@ spec:
         - kind: Service
           name: prometheus-grafana
           namespace: system-monitoring
-          port: 80
+          port: http-web
 
   tls:
     secretName: apps-cert-prod
