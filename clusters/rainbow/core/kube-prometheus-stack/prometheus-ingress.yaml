@@ -14,7 +14,7 @@ spec:
         - kind: Service
           name: prometheus-kube-prometheus-prometheus
           namespace: system-monitoring
-          port: 8080
+          port: 9090
 
   tls:
     secretName: apps-cert-prod
