@@ -8,7 +8,7 @@ resources:
   #- argocd
   - cert-manager
   #- gitea
-  #- kube-prometheus-stack
+  - kube-prometheus-stack
   - metallb
   - nfs-subdir-external-provisioner
   - sealed-secrets
