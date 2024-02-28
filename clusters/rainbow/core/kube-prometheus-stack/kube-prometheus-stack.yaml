@@ -25,27 +25,30 @@ spec:
     helm:
       valuesObject:
         namespaceOverride: "system-monitoring"
-        alertmanager.ingress:
-          enabled: true
-          path: /
-          hosts:
-            - alertmanager.k8s.tuckerthomas.com
-          annotations:
-            kubernetes.io/ingress.class: traefik
-          labels: {}
-        grafana.ingress:
-          enabled: true
-          path: /
-          hosts:
-            - grafana.k8s.tuckerthomas.com
-          annotations:
-            kubernetes.io/ingress.class: traefik
-          labels: {}
-        prometheus.ingress:
-          enabled: true
-          path: /
-          hosts:
-            - prometheus.k8s.tuckerthomas.com
-          annotations:
-            kubernetes.io/ingress.class: traefik
-          labels: {}
+        alertmanager:
+          ingress:
+            enabled: true
+            path: /
+            hosts:
+              - alertmanager.k8s.tuckerthomas.com
+            annotations:
+              kubernetes.io/ingress.class: traefik
+            labels: {}
+        grafana:
+          ingress:
+            enabled: true
+            path: /
+            hosts:
+              - grafana.k8s.tuckerthomas.com
+            annotations:
+              kubernetes.io/ingress.class: traefik
+            labels: {}
+        prometheus:
+          ingress:
+            enabled: true
+            path: /
+            hosts:
+              - prometheus.k8s.tuckerthomas.com
+            annotations:
+              kubernetes.io/ingress.class: traefik
+            labels: {}
