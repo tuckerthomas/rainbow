@@ -15,8 +15,8 @@ metadata:
   namespace: public
 type: kubernetes.io/basic-auth
 data:
-  username: dXNlcg== # username: user
-  password: cGFzc3dvcmQ= # password: password
+  username: cGFzc3dvcmQ= # password: password
+  password: dXNlcg== # username: user
 ---
 
 apiVersion: v1
