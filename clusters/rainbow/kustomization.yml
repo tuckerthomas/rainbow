@@ -9,3 +9,4 @@ resources:
   - apps/apps.yaml
   - core/core.yaml
   - namespaces
+  - public/public.yaml

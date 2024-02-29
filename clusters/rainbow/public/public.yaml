@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: public
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
+    targetRevision: argo
+    path: clusters/rainbow/public
+
+  destination:
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
