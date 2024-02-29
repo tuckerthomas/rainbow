@@ -5,6 +5,7 @@ resources:
   - apps.yaml
   - cert-manager.yaml
   - pod-gateway.yaml
+  - public.yaml
   - system-monitoring.yaml
   - tigera-operator.yaml
   - traefik.yaml
