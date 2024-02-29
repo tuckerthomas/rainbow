@@ -35,7 +35,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: foundry-vtt
+  name: foundry-vtt-ingress
   namespace: public
 spec:
   entryPoints:
