@@ -40,12 +40,12 @@ metadata:
 spec:
   entryPoints:
     - websecure
-  middlewares:
-    - name: foundry-auth
-      namespace: public
   routes:
     - match: Host(`vtt.tuckerthomas.com`)
       kind: Rule
+      middlewares:
+        - name: foundry-auth
+          namespace: public
       services:
         - kind: Service
           name: foundry-vtt
