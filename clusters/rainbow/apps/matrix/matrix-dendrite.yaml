@@ -29,3 +29,6 @@ spec:
         dendrite_config:
           global:
             server_name: "matrix.k8s.tuckerthomas.com"
+
+          client_api:
+            registration_shared_secret: "matrix.k8s.tuckerthomas.com"
