@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: matrix
+  namespace: argocd
+  # Add this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps
+
+  source:
+    repoURL: https://matrix-org.github.io/dendrite/
+    targetRevision: 0.14.0  # For Helm, this refers to the chart version.
+
+    chart: dendrite
+    helm:
+      valuesObject:
+        postgresql:
+          enabled: true # this installs Postgres
+          primary:
+            persistence:
+              size: 1Gi # defines the size for $PGDATA
+
+        dendrite_config:
+          global:
+            server_name: "matrix.k8s.tuckerthomas.com"

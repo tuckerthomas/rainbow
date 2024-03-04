@@ -1,0 +1,22 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: matrix
+  namespace: apps
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`matrix.k8s.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: matrix
+          namespace: apps
+          port: 7878
+
+  tls:
+    secretName: apps-cert-prod
+    domains:
+      - main: matrix.k8s.tuckerthomas.com
