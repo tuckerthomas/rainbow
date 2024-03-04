@@ -12,7 +12,7 @@ spec:
       kind: Rule
       services:
         - kind: Service
-          name: matrix
+          name: matrix-dendrite
           namespace: apps
           port: 8008
 
