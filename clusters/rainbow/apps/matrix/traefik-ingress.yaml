@@ -14,7 +14,7 @@ spec:
         - kind: Service
           name: matrix
           namespace: apps
-          port: 7878
+          port: 8008
 
   tls:
     secretName: apps-cert-prod
