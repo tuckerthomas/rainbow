@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: matrix
+  name: matrix-dendrite
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
