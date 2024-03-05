@@ -38,7 +38,7 @@ spec:
               #
               enabled: true
               enableHttpGet: false
-              urlPrefix: https://matrix-dendrite.apps.svc.cluster.local:8008/webhook/
+              urlPrefix: https://example.com/webhook/
               #userIdPrefix: _webhooks_
               allowJsTransformationFunctions: false
               waitForComplete: false
@@ -83,7 +83,7 @@ spec:
             logging:
               # (Optional) Logging settings. You can have a severity debug,info,warn,error
               #
-              level: info
+              level: debug
               colorize: true
               json: false
               timestampFormat: HH:mm:ss:SSS
