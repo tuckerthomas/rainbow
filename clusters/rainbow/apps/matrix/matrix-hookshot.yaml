@@ -14,8 +14,8 @@ spec:
     namespace: apps
 
   source:
-    repoURL: https://matrix-org.github.io/hookshot/
-    targetRevision: 0.13.5 # For Helm, this refers to the chart version.
+    repoURL: https://matrix-org.github.io/matrix-hookshot
+    targetRevision: 0.1.13 # For Helm, this refers to the chart version.
 
     chart: hookshot
     helm:
