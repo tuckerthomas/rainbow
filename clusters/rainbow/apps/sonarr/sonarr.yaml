@@ -25,7 +25,7 @@ spec:
 
     chart: sonarr
     helm:
-      values: |
+      valuesObject:
         env:
           PUID: 1038
           PGID: 65538
@@ -94,12 +94,8 @@ spec:
                 server: 192.168.1.10
         service:
           main:
-            annotations:
-              metallb.universe.tf/loadBalancerIPs: 192.168.1.100
             ports:
               http:
                 port: 8989
                 targetPort: 8989
             type: NodePort
-        
-        

@@ -24,7 +24,7 @@ spec:
 
     chart: radarr
     helm:
-      values: |
+      valuesObject:
         env:
           PUID: 1038
           PGID: 65538

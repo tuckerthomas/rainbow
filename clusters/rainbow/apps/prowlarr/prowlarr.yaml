@@ -24,7 +24,7 @@ spec:
 
     chart: prowlarr
     helm:
-      values: |
+      valuesObject:
         env:
           PUID: 1038
           PGID: 65538
