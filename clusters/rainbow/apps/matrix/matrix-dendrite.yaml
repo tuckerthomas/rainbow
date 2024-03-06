@@ -15,7 +15,7 @@ spec:
 
   source:
     repoURL: https://matrix-org.github.io/dendrite/
-    targetRevision: 0.14.0 # For Helm, this refers to the chart version.
+    targetRevision: 0.13.5 # For Helm, this refers to the chart version.
 
     chart: dendrite
 
