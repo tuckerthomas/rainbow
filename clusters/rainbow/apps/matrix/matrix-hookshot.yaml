@@ -23,7 +23,7 @@ spec:
         ingress:
           webhook:
             # -- Enable ingress for webhook
-            enabled: false
+            enabled: true
             # -- Ingress class name for webhook ingress
             #className: ""
             # -- Annotations for webhook ingress
