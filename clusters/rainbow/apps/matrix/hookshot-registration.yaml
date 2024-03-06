@@ -1,21 +1,22 @@
-id: matrix-hookshot # This can be anything, but must be unique within your homeserver
-as_token: matrixhookshot # This again can be a random string
-hs_token: matrixhookshot # ..as can this
+id: matrix-hookshot
+as_token: matrixhookshot
+hs_token: matrixhookshot
 namespaces:
   rooms: []
-  users: # In the following, foobar is your homeserver's domain
-    - regex: "@_github_.*:foobar"
+  # In the following, foobar is your homeserver's domain
+  users: 
+    - regex: "@_github_.*:matrix.k8s.tuckerthomas.com"
       exclusive: true
-    - regex: "@_gitlab_.*:foobar"
+    - regex: "@_gitlab_.*:matrix.k8s.tuckerthomas.com"
       exclusive: true
-    - regex: "@_jira_.*:foobar"
+    - regex: "@_jira_.*:matrix.k8s.tuckerthomas.com"
       exclusive: true
-    - regex: "@_webhooks_.*:foobar" # Where _webhooks_ is set by userIdPrefix in config.yml
+    - regex: "@_webhooks_.*:matrix.k8s.tuckerthomas.com" # Where _webhooks_ is set by userIdPrefix in config.yml
       exclusive: true
-    - regex: "@feeds:foobar" # Matches the localpart of all serviceBots in config.yml
+    - regex: "@feeds:matrix.k8s.tuckerthomas.com" # Matches the localpart of all serviceBots in config.yml
       exclusive: true
   aliases:
-    - regex: "#github_.+:foobar" # Where foobar is your homeserver's domain
+    - regex: "#github_.+:matrix.k8s.tuckerthomas.com" # Where foobar is your homeserver's domain
       exclusive: true
 
 sender_localpart: hookshot
