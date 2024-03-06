@@ -25,12 +25,16 @@ spec:
             # -- Enable ingress for webhook
             enabled: true
             # -- Ingress class name for webhook ingress
-            className: ""
+            #className: ""
             # -- Annotations for webhook ingress
             annotations: {}
             # -- Host configuration for webhook ingress
             hosts:
-              - matrix.k8s.tuckerthomas.com
+              - host: webhook-hookshot.matrix.k8s.tuckerthomas.com
+                paths:
+                - path: /
+                  pathType: Prefix
+                  port: 9000
             # -- TLS configuration for webhook ingress
             tls: []
 
@@ -38,12 +42,16 @@ spec:
             # -- Enable ingress for appservice
             enabled: true
             # -- Ingress class name for appservice ingress
-            className: ""
+            #className: ""
             # -- Annotations for appservice ingress
             annotations: {}
             # -- Host configuration for appservice ingress
             hosts:
-              - appservice.matrix.k8s.tuckerthomas.com
+              - host: hookshot.matrix.k8s.tuckerthomas.com
+                paths:
+                - path: /
+                  pathType: Prefix
+                  port: 9002
             # -- TLS configuration for appservice ingress
             tls: []
 
