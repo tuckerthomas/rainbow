@@ -170,15 +170,12 @@ spec:
                 bindAddress: 0.0.0.0
                 resources:
                   - webhooks
+                  - widgets
               - port: 9001
                 bindAddress: 127.0.0.1
                 resources:
                   - metrics
                   - provisioning
-              - port: 9002
-                bindAddress: 0.0.0.0
-                resources:
-                  - widgets
           registration:
             id: matrix-hookshot # This can be anything, but must be unique within your homeserver
             as_token: matrixhookshot # This again can be a random string
