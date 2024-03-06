@@ -4,7 +4,7 @@ metadata:
   name: am-config
   namespace: system-monitoring
   labels:
-    alertmanagerConfig: example
+    alertmanagerConfig: prometheus-kube-prometheus-alertmanager
 spec:
   route:
     groupBy: ['job']
