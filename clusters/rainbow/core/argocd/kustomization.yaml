@@ -1,7 +1,10 @@
----
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: argocd
 resources:
-  - argocd-cmd-params-cm.yaml
-  - argocd.yaml
-  - traefik-ingress.yaml
+- traefik-ingress.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.7/manifests/install.yaml
+
+patches:
+  - path: overlays/production/argocd-cmd-params-cm.yaml

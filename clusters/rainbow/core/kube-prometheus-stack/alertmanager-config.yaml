@@ -15,4 +15,4 @@ spec:
   receivers:
   - name: 'webhook'
     webhookConfigs:
-    - url: 'http://example.com/webhook'
+    - url: 'http://matrix.k8s.tuckerthomas.com/webhook'
