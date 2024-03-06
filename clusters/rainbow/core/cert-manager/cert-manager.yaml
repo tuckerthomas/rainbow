@@ -15,7 +15,7 @@ spec:
 
   source:
     repoURL: https://charts.jetstack.io
-    targetRevision: 1.13.0
+    targetRevision: 1.14.3
 
     chart: cert-manager
     helm:
