@@ -11,8 +11,8 @@ spec:
     groupWait: 30s
     groupInterval: 5m
     repeatInterval: 12h
-    receiver: 'webhook'
+    receiver: 'hookshot'
   receivers:
-  - name: 'webhook'
+  - name: 'hookshot'
     webhookConfigs:
-    - url: 'http://matrix.k8s.tuckerthomas.com/webhook'
+    - url: 'http://hookshot.matrix.k8s.tuckerthomas.com/webhook'
