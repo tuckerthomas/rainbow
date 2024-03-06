@@ -15,11 +15,25 @@ spec:
 
   source:
     repoURL: https://matrix-org.github.io/dendrite/
-    targetRevision: 0.13.5 # For Helm, this refers to the chart version.
+    targetRevision: 0.13.6 # For Helm, this refers to the chart version.
 
     chart: dendrite
+
     helm:
       valuesObject:
+        extraVolumes:
+          - name: hookshot-config-vlm
+            configMap:
+              # Provide the name of the ConfigMap containing the files you want
+              # to add to the container
+              name: hookshot-registration-cm
+
+        # -- Configure additional mount points volumes in the Dendrite Pod
+        extraVolumeMounts:
+          - name: hookshot-config-vlm
+            mountPath: /data/appservice-config
+            
+
         postgresql:
           enabled: true # this installs Postgres
           primary:
@@ -33,3 +47,12 @@ spec:
 
           client_api:
             registration_shared_secret: "matrix.k8s.tuckerthomas.com"
+          
+          app_service_api:
+            # -- Disable the validation of TLS certificates of appservices. This is
+            # not recommended in production since it may allow appservice traffic
+            # to be sent to an insecure endpoint.
+            disable_tls_validation: false
+            # -- Appservice config files to load on startup. (**NOTE**: This is overriden by Helm, if a folder `./appservices/` exists)
+            config_files:
+              - /data/appservice-config/hookshot-registration.yaml

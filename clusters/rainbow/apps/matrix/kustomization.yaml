@@ -5,3 +5,11 @@ resources:
   - matrix-dendrite.yaml
   - matrix-hookshot.yaml
   - traefik-ingress.yaml
+
+configMapGenerator:
+  - name: hookshot-registration-cm
+    namespace: apps
+    options:
+      disableNameSuffixHash: true
+    files:
+      - hookshot-registration.yaml
