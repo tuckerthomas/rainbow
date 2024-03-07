@@ -27,7 +27,8 @@ spec:
             # -- Ingress class name for webhook ingress
             #className: ""
             # -- Annotations for webhook ingress
-            annotations: {}
+            annotations:
+              kubernetes.io/ingress.class: traefik
             # -- Host configuration for webhook ingress
             hosts:
               - host: hookshot.matrix.k8s.tuckerthomas.com
@@ -44,7 +45,8 @@ spec:
             # -- Ingress class name for appservice ingress
             #className: ""
             # -- Annotations for appservice ingress
-            annotations: {}
+            annotations:
+              kubernetes.io/ingress.class: traefik
             # -- Host configuration for appservice ingress
             hosts:
               - host: hookshot.matrix.k8s.tuckerthomas.com
