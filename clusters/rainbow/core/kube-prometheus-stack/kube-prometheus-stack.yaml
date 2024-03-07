@@ -19,7 +19,7 @@ spec:
 
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 56.13.1
+    targetRevision: 56.21.2
   
     chart: kube-prometheus-stack
     helm:
@@ -78,7 +78,7 @@ spec:
               - alertmanager.k8s.tuckerthomas.com
             annotations:
               kubernetes.io/ingress.class: traefik
-              traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+              traefik.ingress.kubernetes.io/router.entrypoints: websecure
             labels: {}
         grafana:
           ingress:
@@ -88,7 +88,7 @@ spec:
               - grafana.k8s.tuckerthomas.com
             annotations:
               kubernetes.io/ingress.class: traefik
-              traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+              traefik.ingress.kubernetes.io/router.entrypoints: websecure
             labels: {}
         prometheus:
           ingress:
@@ -98,5 +98,5 @@ spec:
               - prometheus.k8s.tuckerthomas.com
             annotations:
               kubernetes.io/ingress.class: traefik
-              traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+              traefik.ingress.kubernetes.io/router.entrypoints: websecure
             labels: {}
