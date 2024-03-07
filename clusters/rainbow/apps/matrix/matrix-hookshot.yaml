@@ -32,7 +32,7 @@ spec:
             hosts:
               - host: hookshot.matrix.k8s.tuckerthomas.com
                 paths:
-                - path: /webhook/
+                - path: /webhook
                   pathType: Prefix
                   port: 9000
             # -- TLS configuration for webhook ingress
@@ -73,7 +73,7 @@ spec:
               #
               enabled: true
               enableHttpGet: false
-              urlPrefix: https://hookshot.matrix.k8s.tuckerthomas.com/webhook/
+              urlPrefix: https://hookshot.matrix.k8s.tuckerthomas.com/webhook
               userIdPrefix: _webhooks_
               allowJsTransformationFunctions: false
               waitForComplete: false
