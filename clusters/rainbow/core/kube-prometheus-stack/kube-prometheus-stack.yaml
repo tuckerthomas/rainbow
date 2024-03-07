@@ -26,10 +26,18 @@ spec:
       valuesObject:
         namespaceOverride: "system-monitoring"
         alertmanager:
-          alertmanagerSpec:
-            alertmanagerConfigSelector:
-              matchLabels:
-                alertmanagerConfig: config
+          config:
+            route:
+              receiver: 'hookshot'
+            receivers:
+            - name: 'hookshot'
+              webhookConfigs:
+              - url: 'http://hookshot.matrix.k8s.tuckerthomas.com/webhook'
+          # More routes for later
+          #alertmanagerSpec:
+          #  alertmanagerConfigSelector:
+          #    matchLabels:
+          #      alertmanagerConfig: config
           ingress:
             enabled: true
             path: /

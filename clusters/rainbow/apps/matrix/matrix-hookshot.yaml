@@ -183,18 +183,18 @@ spec:
             namespaces:
               rooms: []
               users: # In the following, foobar is your homeserver's domain
-                - regex: "@_github_.*:foobar"
+                - regex: "@_github_.*:matrix.k8s.tuckerthomas.com"
                   exclusive: true
-                - regex: "@_gitlab_.*:foobar"
+                - regex: "@_gitlab_.*:matrix.k8s.tuckerthomas.com"
                   exclusive: true
-                - regex: "@_jira_.*:foobar"
+                - regex: "@_jira_.*:matrix.k8s.tuckerthomas.com"
                   exclusive: true
-                - regex: "@_webhooks_.*:foobar" # Where _webhooks_ is set by userIdPrefix in config.yml
+                - regex: "@_webhooks_.*:matrix.k8s.tuckerthomas.com" # Where _webhooks_ is set by userIdPrefix in config.yml
                   exclusive: true
-                - regex: "@feeds:foobar" # Matches the localpart of all serviceBots in config.yml
+                - regex: "@feeds:matrix.k8s.tuckerthomas.com" # Matches the localpart of all serviceBots in config.yml
                   exclusive: true
               aliases:
-                - regex: "#github_.+:foobar" # Where foobar is your homeserver's domain
+                - regex: "#github_.+:matrix.k8s.tuckerthomas.com" # Where foobar is your homeserver's domain
                   exclusive: true
             sender_localpart: hookshot
             url: "http://matrix-hookshot-appservice.apps.svc.cluster.local:9002"
