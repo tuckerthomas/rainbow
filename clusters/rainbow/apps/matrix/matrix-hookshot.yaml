@@ -75,7 +75,7 @@ spec:
               #
               enabled: true
               enableHttpGet: false
-              urlPrefix: http://matrix-hookshot.apps.svc.cluster.local:9000
+              urlPrefix: http://matrix-hookshot.apps.svc.cluster.local:9000/webhook
               userIdPrefix: _webhooks_
               allowJsTransformationFunctions: false
               waitForComplete: false
