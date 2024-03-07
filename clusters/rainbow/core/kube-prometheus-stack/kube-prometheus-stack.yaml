@@ -28,9 +28,8 @@ spec:
         alertmanager:
           alertmanagerSpec:
             alertmanagerConfigSelector:
-                alertmanagerConfigSelector:
-                  matchLabels:
-                    alertmanagerConfig: config
+              matchLabels:
+                alertmanagerConfig: config
           ingress:
             enabled: true
             path: /
