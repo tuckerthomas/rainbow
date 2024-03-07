@@ -91,6 +91,11 @@ spec:
               traefik.ingress.kubernetes.io/router.entrypoints: websecure
             labels: {}
         prometheus:
+          prometheusSpec:
+            additionalScrapeConfigs:
+              - job_name: opnsense
+                static_configs:
+                  - targets: ["192.168.1.1:9100"]
           ingress:
             enabled: true
             path: /
