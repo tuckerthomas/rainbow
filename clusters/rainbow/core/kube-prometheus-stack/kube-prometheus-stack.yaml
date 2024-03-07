@@ -63,7 +63,7 @@ spec:
             receivers:
               - name: 'hookshot'
                 webhook_configs:
-                  - url: 'http://hookshot.matrix.k8s.tuckerthomas.com/webhook'
+                  - url: 'http://matrix-hookshot.apps.svc.cluster.local:9000/webhook'
             templates:
             - '/etc/alertmanager/config/*.tmpl'
           # More routes for later
