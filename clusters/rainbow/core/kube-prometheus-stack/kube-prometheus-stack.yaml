@@ -26,6 +26,11 @@ spec:
       valuesObject:
         namespaceOverride: "system-monitoring"
         alertmanager:
+          alertmanagerSpec:
+            alertmanagerConfigSelector:
+                alertmanagerConfigSelector:
+                  matchLabels:
+                    alertmanagerConfig: config
           ingress:
             enabled: true
             path: /
