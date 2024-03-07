@@ -59,10 +59,10 @@ spec:
               repeat_interval: 12h
               receiver: 'hookshot'
               routes:
-              - receiver: 'hookshot'
+                - receiver: 'hookshot'
             receivers:
               - name: 'hookshot'
-                webhookConfigs:
+                webhook_configs:
                   - url: 'http://hookshot.matrix.k8s.tuckerthomas.com/webhook'
             templates:
             - '/etc/alertmanager/config/*.tmpl'
