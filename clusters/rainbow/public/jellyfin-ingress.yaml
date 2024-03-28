@@ -43,9 +43,9 @@ spec:
   routes:
     - match: Host(`jellyfin.tuckerthomas.com`)
       kind: Rule
-      middlewares:
-        - name: jellyfin-auth
-          namespace: public
+      #middlewares:
+      #  - name: jellyfin-auth
+      #    namespace: public
       services:
         - kind: Service
           name: jellyfin
