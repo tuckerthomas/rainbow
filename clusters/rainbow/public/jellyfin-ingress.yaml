@@ -28,7 +28,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`vtt.tuckerthomas.com`)
+    - match: Host(`jellyfin.tuckerthomas.com`)
       kind: Rule
       middlewares:
         - name: jellyfin-auth
