@@ -5,6 +5,5 @@ resources:
   - coder-ingress.yaml
   - forgejo-ingress.yaml
   - foundryvtt-ingress.yaml
-  - jellyfin-ingress.yaml
   - piped-ingress.yaml
   - nzb-ingress.yaml
