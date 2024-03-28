@@ -1,0 +1,44 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: jellyfin-auth
+  namespace: public
+spec:
+  basicAuth:
+    secret: jellyfin-conn-info
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jellyfin-conn-info
+  namespace: public
+type: kubernetes.io/basic-auth
+data:
+  username: amVsbHlmaW4=
+  password: Q3JlbWUwLUNob3AtTHVja2luZXNz
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jellyfin-ingress
+  namespace: public
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`vtt.tuckerthomas.com`)
+      kind: Rule
+      middlewares:
+        - name: jellyfin-auth
+          namespace: public
+      services:
+        - kind: Service
+          name: jellyfin
+          namespace: apps
+          port: 8096
+  tls:
+    secretName: public-cert-prod
+    domains:
+      - main: jellyfin.tuckerthomas.com
