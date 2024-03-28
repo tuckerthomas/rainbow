@@ -49,7 +49,7 @@ spec:
       services:
         - kind: Service
           name: jellyfin
-          namespace: apps
+          namespace: public
           port: 8096
   tls:
     secretName: public-cert-prod
