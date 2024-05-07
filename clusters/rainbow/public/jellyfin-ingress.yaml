@@ -26,7 +26,7 @@ metadata:
   namespace: public
 spec:
   type: ExternalName
-  externalName: cyan.rainbow.tuckerthomas.com
+  externalName: orange.rainbow.tuckerthomas.com
   ports:
     - port: 8096
       protocol: TCP
