@@ -26,7 +26,7 @@ metadata:
   namespace: public
 spec:
   type: ExternalName
-  externalName: ruby.rainbow.tuckerthomas.com
+  externalName: cyan.rainbow.tuckerthomas.com
   ports:
     - port: 8096
       protocol: TCP
