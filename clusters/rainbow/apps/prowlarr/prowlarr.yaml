@@ -4,10 +4,9 @@ metadata:
   name: prowlarr
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: prowlarr=ghcr.io/linuxserver/prowlarr
+    argocd-image-updater.argoproj.io/image-list: prowlarr=ghcr.io/linuxserver/prowlarr:nightly
     argocd-image-updater.argoproj.io/prowlarr.platforms: linux/arm64,linux/amd64
-    argocd-image-updater.argoproj.io/prowlarr.update-strategy: alphabetical
-    argocd-image-updater.argoproj.io/prowlarr.allow-tags: regexp:\d_[a-zA-Z]+_nightly
+    argocd-image-updater.argoproj.io/prowlarr.update-strategy: digest
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
