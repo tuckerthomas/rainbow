@@ -17,6 +17,19 @@ type: kubernetes.io/basic-auth
 data:
   username: amVsbHlmaW4=
   password: Q3JlbWUwLUNob3AtTHVja2luZXNz
+#---
+#
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: jellyfin
+#  namespace: public
+#spec:
+#  type: ExternalName
+#  externalName: orange.rainbow.tuckerthomas.com
+#  ports:
+#    - port: 8096
+#      protocol: TCP
 ---
 
 apiVersion: v1
@@ -25,11 +38,14 @@ metadata:
   name: jellyfin
   namespace: public
 spec:
-  type: ExternalName
-  externalName: orange.rainbow.tuckerthomas.com
+  selector:
+    app.kubernetes.io/name: jellyfin
   ports:
-    - port: 8096
+    - name: http
       protocol: TCP
+      port: 8096
+  externalIPs:
+    - 192.168.1.52
 ---
 
 apiVersion: traefik.io/v1alpha1
