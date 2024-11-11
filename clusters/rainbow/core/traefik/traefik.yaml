@@ -15,7 +15,7 @@ spec:
 
   source:
     repoURL: https://helm.traefik.io/traefik
-    targetRevision: 31.1.1
+    targetRevision: 33.0.0
 
     # External Names set for gitea
     chart: traefik
