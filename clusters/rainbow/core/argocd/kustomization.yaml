@@ -5,7 +5,7 @@ namespace: argocd
 
 resources:
 - traefik-ingress.yaml
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.12.1/manifests/install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v3.0.1/manifests/install.yaml
 
 patches:
   - path: overlays/production/argocd-cmd-params-cm.yaml
