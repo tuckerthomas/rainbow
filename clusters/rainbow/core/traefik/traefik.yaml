@@ -21,6 +21,10 @@ spec:
     chart: traefik
     helm:
       valuesObject:
+        logs:
+          access:
+            enabled: true
+            addInternals: true
         providers:
           kubernetesCRD:
             allowExternalNameServices: true
