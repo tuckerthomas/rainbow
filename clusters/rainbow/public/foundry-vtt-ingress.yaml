@@ -55,3 +55,41 @@ spec:
     secretName: public-cert-prod
     domains:
       - main: vtt.tuckerthomas.com
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: foundry-vtt-2
+  namespace: public
+spec:
+  type: ExternalName
+  externalName: orange.rainbow.tuckerthomas.com
+  ports:
+    - port: 30000
+      protocol: TCP
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: foundry-vtt-ingress-2
+  namespace: public
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`vtt2.tuckerthomas.com`)
+      kind: Rule
+      middlewares:
+        - name: foundry-auth
+          namespace: public
+      services:
+        - kind: Service
+          name: foundry-vtt2
+          namespace: public
+          port: 30000
+  tls:
+    secretName: public-cert-prod
+    domains:
+      - main: vtt2.tuckerthomas.com
