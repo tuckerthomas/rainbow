@@ -13,5 +13,5 @@ resources:
   - metallb
   - nfs-subdir-external-provisioner
   - sealed-secrets
-  #- tigera-operator
+  - tigera-operator
   - traefik
