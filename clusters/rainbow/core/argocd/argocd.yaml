@@ -20,7 +20,5 @@ spec:
     chart: argo-cd
 
     helm:
-      valuesObject:
-        configs:
-          params:
-            server.insecure: true
+      valueFiles:
+      - values.yaml

@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- traefik-ingress.yaml
-- https://raw.githubusercontent.com/argoproj/argo-cd/v3.2.0/manifests/install.yaml
+  - argocd.yaml
+  - traefik-ingress.yaml
 
-patches:
-  - path: overlays/production/argocd-cmd-params-cm.yaml
+#patches:
+#  - path: overlays/production/argocd-cmd-params-cm.yaml
