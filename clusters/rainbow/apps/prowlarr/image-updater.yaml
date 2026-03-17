@@ -11,4 +11,6 @@ spec:
           imageName: prowlarr=ghcr.io/linuxserver/prowlarr:nightly
           commonUpdateSettings:
             updateStrategy: digest
-            platforms: linux/arm64,linux/amd64
+            platforms:
+            - linux/arm64
+            - linux/amd64
