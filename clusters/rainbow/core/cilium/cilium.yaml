@@ -14,16 +14,16 @@ spec:
     namespace: kube-system
 
   source:
-    - repoURL: oci://quay.io/cilium/charts/cilium
-      targetRevision: 1.19.1
-      chart: cilium
-      helm:
-        valueFiles:
-        - $rainbow/core/cilium/values.yaml
-    - repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
-      targetRevision: argo
-      path: clusters/rainbow
-      ref: rainbow
+  - repoURL: oci://quay.io/cilium/charts/cilium
+    targetRevision: 1.19.1
+    chart: cilium
+    helm:
+      valueFiles:
+      - $rainbow/core/cilium/values.yaml
+  - repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
+    targetRevision: argo
+    path: clusters/rainbow
+    ref: rainbow
 
   syncPolicy:
     automated:
