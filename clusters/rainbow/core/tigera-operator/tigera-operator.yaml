@@ -18,4 +18,9 @@ spec:
     targetRevision: 3.31.4
 
     chart: tigera-operator
+
+    helm:
+      valueFiles:
+      - values.yaml
+
         
