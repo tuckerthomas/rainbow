@@ -1,0 +1,25 @@
+ipam:
+  # -- Configure IP Address Management mode.
+  # ref: https://docs.cilium.io/en/stable/network/concepts/ipam/
+  mode: "cluster-pool"
+  operator:
+    # @schema
+    # type: [array, string]
+    # @schema
+    # -- IPv4 CIDR list range to delegate to individual nodes for IPAM.
+    clusterPoolIPv4PodCIDRList: ["10.1.0.0/16"]
+    # -- IPv4 CIDR mask size to delegate to individual nodes for IPAM.
+    clusterPoolIPv4MaskSize: 24
+    # @schema
+    # type: [array, string]
+    # @schema
+    # -- IPv6 CIDR list range to delegate to individual nodes for IPAM.
+    clusterPoolIPv6PodCIDRList: ["fd12:3456:789a:1::/64"]
+    # -- IPv6 CIDR mask size to delegate to individual nodes for IPAM.
+    clusterPoolIPv6MaskSize: 120
+
+encryption:
+  # -- Enable transparent network encryption.
+  enabled: true
+  # -- Encryption method. Can be one of ipsec, wireguard or ztunnel.
+  type: wireguard

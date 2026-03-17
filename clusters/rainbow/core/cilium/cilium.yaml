@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sealed-secrets
+  name: tigera-operator
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
@@ -11,21 +11,21 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
-  
+    namespace: tigera-operator
+
+  source:
+    repoURL: https://projectcalico.docs.tigera.io/charts
+    targetRevision: 3.31.4
+
+    chart: tigera-operator
+
+    helm:
+      valueFiles:
+      - values.yaml
+
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - ServerSideApply=true
-
-  source:
-    repoURL: https://bitnami-labs.github.io/sealed-secrets
-    targetRevision: 2.18.4
-
-    chart: sealed-secrets
-    helm:
-      values: |
-        fullnameOverride: sealed-secrets-controller
-        

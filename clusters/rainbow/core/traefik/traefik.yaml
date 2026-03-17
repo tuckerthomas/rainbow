@@ -13,6 +13,13 @@ spec:
     server: https://kubernetes.default.svc
     namespace: kube-system
 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+
   source:
     repoURL: https://helm.traefik.io/traefik
     targetRevision: 39.0.5

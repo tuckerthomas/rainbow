@@ -8,10 +8,11 @@ resources:
   - argocd
   - cert-manager
   - coredns
+  - cilium
   #- gitea
   - kube-prometheus-stack
   - metallb
   - nfs-subdir-external-provisioner
   - sealed-secrets
-  - tigera-operator
+  #- tigera-operator
   - traefik

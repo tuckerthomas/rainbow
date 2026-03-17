@@ -13,6 +13,13 @@ spec:
     server: https://kubernetes.default.svc
     namespace: kube-system
 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+
   source:
     repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
     targetRevision: 4.0.18
