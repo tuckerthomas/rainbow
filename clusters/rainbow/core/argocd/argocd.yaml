@@ -13,15 +13,18 @@ spec:
     server: https://kubernetes.default.svc
     namespace: argocd
 
-  source:
-    repoURL: https://argoproj.github.io/argo-helm
+  sources:
+  - repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 9.4.11
 
     chart: argo-cd
 
     helm:
       valueFiles:
-      - values.yaml
+      - $rainbow/clusters/rainbow/core/argocd/values.yaml
+  - repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
+    targetRevision: argo
+    ref: rainbow
   
   syncPolicy:
     automated:

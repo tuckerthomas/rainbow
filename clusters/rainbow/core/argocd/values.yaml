@@ -9,3 +9,6 @@ server:
   ingress:
     enabled: true
     ingressClassName: argocd
+
+env:
+  GRPC_ENABLE_TXT_SERVICE_CONFIG: false
