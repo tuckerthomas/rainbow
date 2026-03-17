@@ -19,10 +19,10 @@ spec:
     chart: cilium
     helm:
       valueFiles:
-      - $rainbow/core/cilium/values.yaml
+      - $rainbow/values.yaml
   - repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
     targetRevision: argo
-    path: clusters/rainbow
+    path: clusters/rainbow/core/cilium
     ref: rainbow
 
   syncPolicy:
