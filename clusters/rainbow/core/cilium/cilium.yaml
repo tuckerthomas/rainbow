@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: tigera-operator
+  name: cilium
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
@@ -11,13 +11,13 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: tigera-operator
+    namespace: kube-system
 
   source:
-    repoURL: https://projectcalico.docs.tigera.io/charts
-    targetRevision: 3.31.4
+    repoURL: oci://quay.io/cilium/charts/cilium
+    targetRevision: 1.19.1
 
-    chart: tigera-operator
+    chart: cilium
 
     helm:
       valueFiles:
