@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
   - config-pvc.yaml
   - prowlarr.yaml
+  - image-updater.yaml
   - traefik-ingress.yaml

@@ -1,0 +1,14 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: prowlarr-updater
+  namespace: argocd
+spec:
+  applicationRefs:
+    - namePattern: prowlarr
+      images:
+        - alias: prowlarr
+          imageName: prowlarr=ghcr.io/linuxserver/prowlarr:nightly
+          commonUpdateSettings:
+            updateStrategy: digest
+            platforms: linux/arm64,linux/amd64
