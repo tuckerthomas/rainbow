@@ -7,6 +7,9 @@ metadata:
 spec:
   # Configures Calico networking.
   calicoNetwork:
+    linuxDataplane: BPF
+    bpfNetworkBootstrap: Enabled
+    kubeProxyManagement: Enabled
     # Note: The ipPools section cannot be modified post-install.
     ipPools:
     - blockSize: 26

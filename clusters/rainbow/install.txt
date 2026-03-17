@@ -1,4 +1,18 @@
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable servicelb --cluster-cidr=10.1.0.0/16" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable servicelb,traefik --cluster-cidr=10.1.0.0/16" sh -
+
+installed nodes without extra commands
+
+url -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://orange.rainbow.tuckerthomas.com:6443 --token <REDACTED>" sh -s -
+
+ExecStart=/usr/local/bin/k3s \
+    server \
+        '--flannel-backend=none' \
+        '--disable-network-policy' \
+        '--disable' \
+        'servicelb,traefik' \
+        '--cluster-cidr=10.1.0.0/16' \
+        '--resolv-conf=/etc/k3s-resolv.conf'
+
 
 change /boot/dietpi.txt INSTALL_K3S_EXEC to match above
 
