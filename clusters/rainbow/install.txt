@@ -1,8 +1,8 @@
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable servicelb,traefik --cluster-cidr=10.1.0.0/16 --service-cidr=10.2.0.0/16" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable servicelb,traefik --cluster-cidr=10.1.0.0/16,fd12:3456:789a:1::/64 --service-cidr=10.2.0.0/16,fd12:3456:789a:2::/64" sh -
 
 installed nodes without extra commands
 
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://orange.rainbow.tuckerthomas.com:6443 --token K10edb979e509dad7bb7853030786188073c83b34e77900eedcd8904200c73e42e7::server:b3efdf4a9bbe84ca4fda4a38165f44ae" sh -s -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://orange.rainbow.tuckerthomas.com:6443 --token K100577d2dce92ca0f75214cedb8aaf7890eb72ac2341f23a846e305cfdf759be4e::server:65c5e56fc54592149b5c6973221f8b6e" sh -s -
 
 ExecStart=/usr/local/bin/k3s \
     server \

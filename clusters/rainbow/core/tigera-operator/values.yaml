@@ -5,10 +5,21 @@ installation:
     linuxDataplane: BPF
     bpfNetworkBootstrap: Enabled
     kubeProxyManagement: Enabled
+    nodeAddressAutodetectionV4:
+      cidrs:
+        - '192.168.1.0/24'
+    nodeAddressAutodetectionV6:
+      cidrs:
+        - '2601:408:c100:6585::/64'
     # Note: The ipPools section cannot be modified post-install.
     ipPools:
     - blockSize: 26
       cidr: 10.1.0.0/16
       encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
+    - blockSize: 122
+      cidr: fd12:3456:789a:1::/64
+      encapsulation: None
       natOutgoing: Enabled
       nodeSelector: all()
