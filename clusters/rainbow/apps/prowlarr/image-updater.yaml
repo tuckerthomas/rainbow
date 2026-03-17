@@ -8,7 +8,7 @@ spec:
     - namePattern: prowlarr
       images:
         - alias: prowlarr
-          imageName: prowlarr=ghcr.io/linuxserver/prowlarr:nightly
+          imageName: ghcr.io/linuxserver/prowlarr:nightly
           commonUpdateSettings:
             updateStrategy: digest
             platforms:
