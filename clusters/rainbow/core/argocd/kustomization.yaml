@@ -6,6 +6,7 @@ namespace: argocd
 resources:
   - argocd.yaml
   - traefik-ingress.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/config/install.yaml
 
 #patches:
 #  - path: overlays/production/argocd-cmd-params-cm.yaml
