@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: kube-system
 
-  source:
+  sources:
   - repoURL: oci://quay.io/cilium/charts/cilium
     targetRevision: 1.19.1
     chart: cilium
