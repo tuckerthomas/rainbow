@@ -34,7 +34,7 @@ spec:
           main:
             enabled: false
         initContainers:
-          update-volume-permission:
+          update-config-permission:
             command:
             - sh
             - -c
@@ -45,7 +45,7 @@ spec:
             volumeMounts:
             - mountPath: /config
               name: config
-          update-volume-permission:
+          update-media-permission:
             command:
             - sh
             - -c
