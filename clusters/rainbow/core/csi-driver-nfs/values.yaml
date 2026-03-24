@@ -1,0 +1,24 @@
+storageClasses:
+  - name: nfs-pink-ephemeral
+    annotations:
+      storageclass.kubernetes.io/is-default-class: "true"
+    parameters:
+      server: pink.rainbow.tuckerthomas.com
+      share: /volume1/rainbow
+      # subDir:
+      # mountPermissions: "0"
+      # csi.storage.k8s.io/provisioner-secret is only needed for providing mountOptions in DeleteVolume
+      # csi.storage.k8s.io/provisioner-secret-name: "mount-options"
+      # csi.storage.k8s.io/provisioner-secret-namespace: "default"
+    reclaimPolicy: Delete
+    volumeBindingMode: Immediate
+    mountOptions:
+      - nfsvers=4.1
+  - name: nfs-pink-new
+    parameters:
+      server: pink.rainbow.tuckerthomas.com
+      share: /volume1/rainbow
+    reclaimPolicy: Retain
+    volumeBindingMode: Immediate
+    mountOptions:
+      - nfsvers=4.1

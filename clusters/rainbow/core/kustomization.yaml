@@ -9,6 +9,7 @@ resources:
   - cert-manager
   - coredns
   - cilium
+  - csi-driver-nfs
   #- gitea
   - kube-prometheus-stack
   - metallb
