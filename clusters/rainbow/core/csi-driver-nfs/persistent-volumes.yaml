@@ -5,7 +5,6 @@ metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
   name: pv-rainbow-nfs
-  namespace: apps
 spec:
   capacity:
     storage: 2Gi
@@ -31,7 +30,6 @@ metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
   name: pv-media-nfs
-  namespace: apps
 spec:
   capacity:
     storage: 2Gi
