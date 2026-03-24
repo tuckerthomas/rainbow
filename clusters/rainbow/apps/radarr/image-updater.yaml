@@ -1,0 +1,16 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: radarr-updater
+  namespace: argocd
+spec:
+  applicationRefs:
+    - namePattern: radarr
+      images:
+        - alias: radarr
+          imageName: ghcr.io/linuxserver/radarr:nightly
+          commonUpdateSettings:
+            updateStrategy: digest
+            platforms:
+            - linux/arm64
+            - linux/amd64

@@ -3,10 +3,6 @@ kind: Application
 metadata:
   name: prowlarr
   namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: prowlarr=ghcr.io/linuxserver/prowlarr:nightly
-    argocd-image-updater.argoproj.io/prowlarr.platforms: linux/arm64,linux/amd64
-    argocd-image-updater.argoproj.io/prowlarr.update-strategy: digest
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -31,7 +27,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/prowlarr
-          tag: develop-1.4.1.3258-ls102
+          tag:  nightly-2.3.4.5308-ls226
         ingress:
           main:
             enabled: false

@@ -3,10 +3,6 @@ kind: Application
 metadata:
   name: sonarr
   namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: sonarr=ghcr.io/linuxserver/sonarr:latest
-    argocd-image-updater.argoproj.io/sonarr.platforms: linux/arm64,linux/amd64
-    argocd-image-updater.argoproj.io/sonarr.update-strategy: digest
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -32,7 +28,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/sonarr
-          tag: develop-4.0.0.492-ls474
+          tag: 4.0.17.2952-ls305
         ingress:
           main:
             enabled: false
@@ -69,12 +65,8 @@ spec:
             scrapeTimeout: 1m
         persistence:
           config:
-          #  enabled: true
-          #  existingClaim: sonarr-config
             enabled: true
-            ype: pvc
-            ccessMode: ReadWriteOnce
-            ize: 1Gi
+            existingClaim: sonarr-config
           downloads:
             enabled: true
             mountPath: /downloads

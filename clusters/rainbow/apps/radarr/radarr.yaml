@@ -3,10 +3,6 @@ kind: Application
 metadata:
   name: radarr
   namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: radarr=ghcr.io/linuxserver/radarr:latest
-    argocd-image-updater.argoproj.io/radarr.platforms: linux/arm64,linux/amd64
-    argocd-image-updater.argoproj.io/radarr.update-strategy: digest
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -31,7 +27,7 @@ spec:
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/radarr
-          tag: develop-4.5.0.7106-ls96
+          tag: nightly-6.1.1.10317-ls29
         ingress:
           main:
             enabled: false
@@ -68,12 +64,8 @@ spec:
             scrapeTimeout: 1m
         persistence:
           config:
-            #enabled: true
-            #existingClaim: radarr-config
             enabled: true
-            type: pvc
-            accessMode: ReadWriteOnce
-            size: 1Gi
+            existingClaim: radarr-config
           downloads:
             enabled: true
             mountPath: /downloads

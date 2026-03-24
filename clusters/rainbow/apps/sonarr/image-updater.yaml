@@ -1,0 +1,16 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: sonarr-updater
+  namespace: argocd
+spec:
+  applicationRefs:
+    - namePattern: sonarr
+      images:
+        - alias: sonarr
+          imageName: ghcr.io/linuxserver/sonarr:nightly
+          commonUpdateSettings:
+            updateStrategy: digest
+            platforms:
+            - linux/arm64
+            - linux/amd64
