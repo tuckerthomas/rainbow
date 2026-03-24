@@ -25,6 +25,10 @@ spec:
           PUID: 1038
           PGID: 65538
           TZ: UTC
+        securityContext:
+          runAsUser: 1038
+          runAsGroup: 65538
+          fsGroup: 65538
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/sonarr
