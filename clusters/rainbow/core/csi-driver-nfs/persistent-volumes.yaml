@@ -23,3 +23,4 @@ spec:
     volumeAttributes:
       server: pink.rainbow.tuckerthomas.com
       share: /volume1/rainbow
+      subDir: radarr
