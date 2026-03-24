@@ -22,3 +22,11 @@ storageClasses:
     volumeBindingMode: Immediate
     mountOptions:
       - nfsvers=4.1
+  #- name: nfs-pink-media
+  #  parameters:
+  #    server: pink.rainbow.tuckerthomas.com
+  #    share: /volume1/Media
+  #  reclaimPolicy: Retain
+  #  volumeBindingMode: Immediate
+  #  mountOptions:
+  #    - nfsvers=4.1
