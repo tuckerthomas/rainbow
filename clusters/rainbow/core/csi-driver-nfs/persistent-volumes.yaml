@@ -11,7 +11,8 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: nfs-csi
+  # Must match with pvc and storage class
+  storageClassName: nfs-pink-new
   mountOptions:
     - nfsvers=4.1
   csi:
@@ -22,28 +23,3 @@ spec:
     volumeAttributes:
       server: pink.rainbow.tuckerthomas.com
       share: /volume1/rainbow
-
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  annotations:
-    pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
-  name: pv-media-nfs
-spec:
-  capacity:
-    storage: 2Gi
-  accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: nfs-csi
-  mountOptions:
-    - nfsvers=4.1
-  csi:
-    driver: nfs.csi.k8s.io
-    # volumeHandle format: {nfs-server-address}#{share-name}#{sub-dir-name}
-    # make sure this value is unique for every share in the cluster
-    volumeHandle: pink.rainbow.tuckerthomas.com/media
-    volumeAttributes:
-      server: pink.rainbow.tuckerthomas.com
-      share: /volume1/Media
