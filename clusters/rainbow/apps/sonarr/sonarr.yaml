@@ -77,7 +77,7 @@ spec:
                 server: 192.168.1.10
           tv:
             enabled: true
-            mountPath: /tv
+            mountPath: /home/abc/tv
             type: custom
             volumeSpec:
               nfs:
