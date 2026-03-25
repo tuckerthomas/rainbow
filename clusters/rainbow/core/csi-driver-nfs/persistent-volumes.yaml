@@ -4,23 +4,128 @@ kind: PersistentVolume
 metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
-  name: pv-rainbow-nfs
+  name: pv-media-nfs-tv
 spec:
   capacity:
-    storage: 2Gi
+    # Pretty sure NFS CSI driver ignores this >.>
+    storage: 1Ti
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   # Must match with pvc and storage class
-  storageClassName: nfs-pink-new
+  storageClassName: nfs-pink-media
   mountOptions:
     - nfsvers=4.1
   csi:
     driver: nfs.csi.k8s.io
     # volumeHandle format: {nfs-server-address}#{share-name}#{sub-dir-name}
     # make sure this value is unique for every share in the cluster
-    volumeHandle: pink.rainbow.tuckerthomas.com/rainbow
+    volumeHandle: pink.rainbow.tuckerthomas.com#media#tv
     volumeAttributes:
       server: pink.rainbow.tuckerthomas.com
-      share: /volume1/rainbow
-      subDir: radarr
+      share: /volume1/Media
+      subDir: tv
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-nfs-tv
+  namespace: apps
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-pink-media
+  volumeName: pv-media-nfs-tv
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Ti
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
+  name: pv-media-nfs-movies
+spec:
+  capacity:
+    # Pretty sure NFS CSI driver ignores this >.>
+    storage: 1Ti
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  # Must match with pvc and storage class
+  storageClassName: nfs-pink-media
+  mountOptions:
+    - nfsvers=4.1
+  csi:
+    driver: nfs.csi.k8s.io
+    # volumeHandle format: {nfs-server-address}#{share-name}#{sub-dir-name}
+    # make sure this value is unique for every share in the cluster
+    volumeHandle: pink.rainbow.tuckerthomas.com#media#movies
+    volumeAttributes:
+      server: pink.rainbow.tuckerthomas.com
+      share: /volume1/Media
+      subDir: movies
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-nfs-movies
+  namespace: apps
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-pink-media
+  volumeName: pv-media-nfs-movies
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Ti
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
+  name: pv-media-nfs-downloads
+spec:
+  capacity:
+    # Pretty sure NFS CSI driver ignores this >.>
+    storage: 1Ti
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  # Must match with pvc and storage class
+  storageClassName: nfs-pink-media
+  mountOptions:
+    - nfsvers=4.1
+  csi:
+    driver: nfs.csi.k8s.io
+    # volumeHandle format: {nfs-server-address}#{share-name}#{sub-dir-name}
+    # make sure this value is unique for every share in the cluster
+    volumeHandle: pink.rainbow.tuckerthomas.com#media#downloads
+    volumeAttributes:
+      server: pink.rainbow.tuckerthomas.com
+      share: /volume1/Media
+      subDir: downloads
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-nfs-downloads
+  namespace: apps
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-pink-media
+  volumeName: pv-media-nfs-downloads
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Ti
