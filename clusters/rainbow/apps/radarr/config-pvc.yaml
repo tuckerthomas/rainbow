@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: radarr
+  name: radarr-config
   namespace: apps
 spec:
   accessModes:

@@ -2,7 +2,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disabl
 
 installed nodes without extra commands
 
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://orange.rainbow.tuckerthomas.com:6443 --token K10b5e5bdda820c7cb39398bff2f7bb463e06a5366a1e30bf42af6f7a386e27670a::server:5c3a7903f18fdfcc830d95878d646be1" sh -s -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://green.rainbow.tuckerthomas.com:6443 --token REDACTED" sh -s -
 
 ExecStart=/usr/local/bin/k3s \
     server \

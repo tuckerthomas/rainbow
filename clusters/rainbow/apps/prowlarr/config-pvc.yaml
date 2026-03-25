@@ -1,15 +1,40 @@
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 metadata:
   annotations:
-    nfs.io/storage-path: prowlarr
+    pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
+  name: pv-rainbow-nfs-prowlarr
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  # Must match with pvc and storage class, otherwise utilizes default
+  storageClassName: nfs-pink-new
+  mountOptions:
+    - nfsvers=4.1
+  csi:
+    driver: nfs.csi.k8s.io
+    # volumeHandle format: {nfs-server-address}#{share-name}#{sub-dir-name}
+    # make sure this value is unique for every share in the cluster
+    volumeHandle: pink.rainbow.tuckerthomas.com/rainbow
+    volumeAttributes:
+      server: pink.rainbow.tuckerthomas.com
+      share: /volume1/rainbow
+      subDir: prowlarr
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
   name: prowlarr-config
   namespace: apps
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-pink
+    - ReadWriteMany
+  storageClassName: nfs-pink-new
+  volumeName: pv-rainbow-nfs-prowlarr
   volumeMode: Filesystem
   resources:
     requests:
