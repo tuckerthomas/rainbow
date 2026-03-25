@@ -33,18 +33,18 @@ spec:
         ingress:
           main:
             enabled: false
-        initContainers:
-          update-config-permission:
-            command:
-            - sh
-            - -c
-            - chown -R 1038:65538 /config
-            image: busybox
-            securityContext:
-              runAsUser: 0
-            volumeMounts:
-            - mountPath: /config
-              name: config
+        #initContainers:
+        #  update-config-permission:
+        #    command:
+        #    - sh
+        #    - -c
+        #    - chown -R 1038:65538 /config
+        #    image: busybox
+        #    securityContext:
+        #      runAsUser: 0
+        #    volumeMounts:
+        #    - mountPath: /config
+        #      name: config
           #update-media-permission:
           #  command:
           #  - sh
@@ -90,7 +90,7 @@ spec:
             #    server: 192.168.1.10
           movies:
             enabled: true
-            mountPath: /config/movies
+            mountPath: /movies
             existingClaim: media-nfs-movies
             #type: custom
             #volumeSpec:
