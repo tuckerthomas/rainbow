@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
-  name: pv-rainbow-nfs
+  name: pv-rainbow-nfs-radarr
 spec:
   capacity:
     storage: 1Gi
@@ -34,7 +34,7 @@ spec:
   accessModes:
     - ReadWriteMany
   storageClassName: nfs-pink-new
-  volumeName: pv-rainbow-nfs
+  volumeName: pv-rainbow-nfs-radarr
   volumeMode: Filesystem
   resources:
     requests:
