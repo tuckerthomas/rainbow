@@ -74,19 +74,11 @@ spec:
           downloads:
             enabled: true
             mountPath: /downloads
-            type: custom
-            volumeSpec:
-              nfs:
-                path: /volume1/Media/downloads
-                server: 192.168.1.10
+            existingClaim: media-nfs-downloads
           tv:
             enabled: true
-            mountPath: /home/abc/tv
-            type: custom
-            volumeSpec:
-              nfs:
-                path: /volume1/Media/tv
-                server: 192.168.1.10
+            mountPath: /tv
+            existingClaim: media-nfs-tv
         service:
           main:
             ports:
