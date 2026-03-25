@@ -45,17 +45,17 @@ spec:
             volumeMounts:
             - mountPath: /config
               name: config
-          update-media-permission:
-            command:
-            - sh
-            - -c
-            - chown -R 1038:65538 /movies
-            image: busybox
-            securityContext:
-              runAsUser: 0
-            volumeMounts:
-            - mountPath: /movies
-              name: movies
+          #update-media-permission:
+          #  command:
+          #  - sh
+          #  - -c
+          #  - chown -R 1038:65538 /movies
+          #  image: busybox
+          #  securityContext:
+          #    runAsUser: 0
+          #  volumeMounts:
+          #  - mountPath: /movies
+          #    name: movies
         metrics:
           enabled: false
           exporter:
@@ -90,7 +90,7 @@ spec:
             #    server: 192.168.1.10
           movies:
             enabled: true
-            mountPath: /movies
+            mountPath: /config/movies
             existingClaim: media-nfs-movies
             #type: custom
             #volumeSpec:
