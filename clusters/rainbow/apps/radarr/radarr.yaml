@@ -31,8 +31,9 @@ spec:
           PUID: 1038
           PGID: 65538
           TZ: UTC
-        securityContext:
-          fsGroup: 65538
+        # Check chart documentation
+        #securityContext:
+        #  fsGroup: 65538
         image:
           pullPolicy: IfNotPresent
           repository: ghcr.io/linuxserver/radarr
