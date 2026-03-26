@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+  # Add this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: system-monitoring
+
+  # OCI is not supported yet in the sources key? Shrug. Swapping to git for now.
+  sources:
+  - repoURL: https://grafana-community.github.io/helm-charts
+    targetRevision: 9.2.1
+    chart: loki
+    helm:
+      valueFiles:
+      - $rainbow/clusters/rainbow/core/loki/values.yaml
+  - repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
+    targetRevision: argo
+    ref: rainbow
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
