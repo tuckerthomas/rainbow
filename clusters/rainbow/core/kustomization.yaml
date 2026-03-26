@@ -12,6 +12,7 @@ resources:
   - csi-driver-nfs
   #- gitea
   - kube-prometheus-stack
+  - loki
   - metallb
   - nfs-subdir-external-provisioner
   - sealed-secrets
