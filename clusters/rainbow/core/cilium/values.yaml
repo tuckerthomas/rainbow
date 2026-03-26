@@ -21,5 +21,8 @@ ipam:
 encryption:
   # -- Enable transparent network encryption.
   enabled: true
+  # -- Enable Node to Node encryption
+  nodeEncryption: true
   # -- Encryption method. Can be one of ipsec, wireguard or ztunnel.
   type: wireguard
+  
