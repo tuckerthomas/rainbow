@@ -9,8 +9,10 @@ spec:
   selector:
     app: anubis
   ports:
-    - port: 8080 # port that will be externally exposed on the load balancer
+    - protocol: TCP
+      port: 8080 # port that will be externally exposed on the load balancer
       targetPort: 8080 # pod's port for internal routing
+      name: anubis
 
 ---
 apiVersion: traefik.io/v1alpha1
