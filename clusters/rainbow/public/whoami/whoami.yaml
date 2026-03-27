@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami
+  namespace: public # Or your target namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: whoami
+  template:
+    metadata:
+      labels:
+        app: whoami
+    spec:
+      containers:
+      - name: whoami
+        image: traefik/whoami:v1.10 # Using a specific version is recommended
+        ports:
+        - name: web
+          containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-svc # Name the service, e.g., whoami-svc
+  namespace: public
+spec:
+  selector:
+    app: whoami # Matches the labels on the Deployment's pods
+  ports:
+  - name: web
+    port: 80
+    targetPort: 80
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: whoami
+  namespace: public
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`whoami.k8s.tuckerthomas.com`)
+      kind: Rule
+      middlewares:
+        - name: anubis-auth
+      services:
+        - kind: Service
+          name: whoami-svc
+          port: 80
+
+  tls:
+    secretName: public-cert-prod
+    domains:
+      - main: whoami.k8s.tuckerthomas.com
