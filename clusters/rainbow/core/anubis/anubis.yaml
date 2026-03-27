@@ -4,6 +4,9 @@ kind: Pod
 metadata:
   name: anubis
   namespace: kube-system # Pod is a namespaced a resource
+  labels:
+    # For service selector
+    app: anubis
 spec:
   containers:
     - name: anubis
