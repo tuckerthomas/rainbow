@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
 
 resources:
+  - anubis
   - argocd
   - cert-manager
   - coredns

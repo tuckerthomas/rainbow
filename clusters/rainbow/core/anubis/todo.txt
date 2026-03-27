@@ -1,0 +1,22 @@
+Create pod, service and middleware for anubis
+- Check into loadbalancing and replicas
+
+Example pod spec:
+https://anubis.techaro.lol/docs/admin/environments/kubernetes/
+
+Example traefik spec:
+https://anubis.techaro.lol/docs/admin/environments/traefik
+
+Setup using forward auth using the trafik spec above:
+# Anubis middleware
+- traefik.http.middlewares.anubis.forwardauth.address=http://anubis:8080/.within.website/x/cmd/anubis/api/check
+
+
+TODO:
+- Create key
+    kubectl create secret generic anubis-key \
+  --namespace default \
+  --from-literal=ED25519_PRIVATE_KEY_HEX=$(openssl rand -hex 32)
+- Create pod
+- Create service
+- Create forward auth for Traefik
