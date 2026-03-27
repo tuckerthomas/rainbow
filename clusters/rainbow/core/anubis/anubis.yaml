@@ -24,11 +24,20 @@ spec:
         - name: "SERVE_ROBOTS_TXT"
           value: "true"
         - name: "TARGET"
-          value: "http://localhost:5000"
+          value: " "
         - name: "OG_PASSTHROUGH"
           value: "true"
         - name: "OG_EXPIRY_TIME"
           value: "24h"
+        # Specifies which domains Anubis is allowed to redirect to.
+        - name: "REDIRECT_DOMAINS"
+          value: "tuckerthomas.com"
+        # Should be the full external URL for Anubis (including scheme)
+        - name: "PUBLIC_URL"
+          value: "https://anubis.tuckerthomas.com"
+        # Should match your domain for proper cookie scoping
+        - name: "COOKIE_DOMAIN"
+          value: "tuckerthomas.com"
       resources:
         limits:
           cpu: 750m
