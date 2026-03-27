@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: anubis
-  namespace: kube-system # Pod is a namespaced a resource
+  namespace: public # Pod is a namespaced a resource
   labels:
     # For service selector
     app: anubis
@@ -62,3 +62,53 @@ spec:
             - ALL
         seccompProfile:
           type: RuntimeDefault
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: anubis
+  namespace: public # Service is a namespaced resource
+spec:
+  type: ClusterIP
+  selector:
+    app: anubis
+  ports:
+    - protocol: TCP
+      port: 8080 # port that will be externally exposed on the load balancer
+      targetPort: 8080 # pod's port for internal routing
+      name: anubis
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: anubis
+  namespace: public
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`anubis.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: anubis
+          namespace: public
+          port: 8080
+  tls:
+    secretName: public-cert-prod
+    domains:
+      - main: anubis.tuckerthomas.com
+
+---
+# Forward authentication to example.com
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: anubis-auth
+  namespace: public
+spec:
+  forwardAuth:
+    address: http://anubis.public.svc.cluster.local:8080/.within.website/x/cmd/anubis/api/check
+    trustForwardHeader: true

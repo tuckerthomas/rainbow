@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 
 resources:
-  - anubis.yaml
+  - anubis
   - foundry-vtt-ingress.yaml
   - jellyfin-ingress.yaml
   - whoami
