@@ -1,0 +1,21 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: anubis
+  namespace: public
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`anubis.tuckerthomas.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: anubis
+          namespace: kube-system
+          port: 8080
+  tls:
+    secretName: public-cert-prod
+    domains:
+      - main: anubis.tuckerthomas.com
