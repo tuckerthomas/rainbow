@@ -14,8 +14,7 @@ spec:
       imagePullPolicy: Always
       ports:
       - protocol: TCP
-        port: 8080
-        targetPort: 8080
+        containerPort: 8080
         name: anubis
       env:
         - name: "BIND"
