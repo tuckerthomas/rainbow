@@ -70,5 +70,5 @@ metadata:
   namespace: public
 spec:
   forwardAuth:
-    address: http://anubis.kube-system.svc.cluster.local/.within.website/x/cmd/anubis/api/check
+    address: http://anubis.kube-system.svc.cluster.local:8080/.within.website/x/cmd/anubis/api/check
     trustForwardHeader: true
