@@ -54,7 +54,7 @@ metadata:
   name: anubis
   namespace: kube-system # Service is a namespaced resource
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: anubis
   ports:
