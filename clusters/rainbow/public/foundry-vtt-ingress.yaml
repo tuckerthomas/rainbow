@@ -44,6 +44,8 @@ spec:
     - match: Host(`vtt.tuckerthomas.com`)
       kind: Rule
       middlewares:
+        - name: anubis-auth
+          namespace: public
         - name: foundry-auth
           namespace: public
       services:
@@ -82,6 +84,8 @@ spec:
     - match: Host(`vtt2.tuckerthomas.com`)
       kind: Rule
       middlewares:
+        - name: anubis-auth
+          namespace: public
         - name: foundry-auth
           namespace: public
       services:
