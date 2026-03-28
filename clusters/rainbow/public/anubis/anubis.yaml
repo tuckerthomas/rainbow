@@ -45,6 +45,8 @@ spec:
         # Should match your domain for proper cookie scoping
         - name: "COOKIE_DOMAIN"
           value: "tuckerthomas.com"
+        - name: "REDIRECT_DOMAINS"
+          value: "*.tuckerthomas.com, *.k8s.tuckerthomas.com"
       resources:
         limits:
           cpu: 750m
@@ -83,7 +85,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: anubis
+  name: anubis-ingress
   namespace: public
 spec:
   entryPoints:
