@@ -59,9 +59,9 @@ spec:
   routes:
     - match: Host(`jellyfin.tuckerthomas.com`)
       kind: Rule
-      #middlewares:
-      #  - name: anubis-auth
-      #    namespace: public
+      middlewares:
+        - name: anubis-auth
+          namespace: public
         #- name: jellyfin-auth
         #  namespace: public
       services:
