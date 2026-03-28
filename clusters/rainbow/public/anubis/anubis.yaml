@@ -32,6 +32,8 @@ spec:
           value: "true"
         - name: "TARGET"
           value: " "
+        - name: "POLICY_FNAME"
+          value: "/data/cfg/botPolicy.yaml"
         - name: "OG_PASSTHROUGH"
           value: "true"
         - name: "OG_EXPIRY_TIME"
@@ -47,6 +49,9 @@ spec:
           value: "tuckerthomas.com"
         - name: "REDIRECT_DOMAINS"
           value: "*.tuckerthomas.com, *.k8s.tuckerthomas.com"
+      volumeMounts:
+      - name: anubis-config
+        mountPath: /data/cfg
       resources:
         limits:
           cpu: 750m
@@ -64,6 +69,11 @@ spec:
             - ALL
         seccompProfile:
           type: RuntimeDefault
+  # Pod volumes
+  volumes:
+  - name: anubis-config
+    configMap:
+      name: anubis-config
 
 ---
 apiVersion: v1
