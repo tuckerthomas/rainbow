@@ -40,15 +40,13 @@ spec:
           value: "24h"
         # Specifies which domains Anubis is allowed to redirect to.
         - name: "REDIRECT_DOMAINS"
-          value: "tuckerthomas.com"
+          value: "*.tuckerthomas.com, *.k8s.tuckerthomas.com"
         # Should be the full external URL for Anubis (including scheme)
         - name: "PUBLIC_URL"
           value: "https://anubis.tuckerthomas.com"
         # Should match your domain for proper cookie scoping
         - name: "COOKIE_DOMAIN"
           value: "tuckerthomas.com"
-        - name: "REDIRECT_DOMAINS"
-          value: "*.tuckerthomas.com, *.k8s.tuckerthomas.com"
       volumeMounts:
       - name: anubis-config
         mountPath: /data/cfg

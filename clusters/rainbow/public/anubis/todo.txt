@@ -13,10 +13,10 @@ Setup using forward auth using the trafik spec above:
 
 
 TODO:
-- Create key
+- DONE Create key
     kubectl create secret generic anubis-key \
   --namespace default \
   --from-literal=ED25519_PRIVATE_KEY_HEX=$(openssl rand -hex 32)
-- Create pod
-- Create service
-- Create forward auth for Traefik
+- DONE Create pod
+- DONE Create service
+- DONE Create forward auth for Traefik
