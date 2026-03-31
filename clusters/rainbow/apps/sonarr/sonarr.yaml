@@ -29,9 +29,24 @@ spec:
     helm:
       valuesObject:
         env:
-          PUID: 1038
-          PGID: 65538
-          TZ: UTC
+        - name: PUID
+          value: 1038
+        - name: PGID
+          value: 65538
+        - name: TZ
+          value: UTC
+        - name: SONARR__POSTGRES__HOST
+          value: cnpg-cluster-rw.apps.svc.cluster.local
+        - name: SONARR__POSTGRES__USER
+          valueFrom:
+            secretKeyRef:
+              name: cnpg-cluster-app
+              key: user
+        - name: SONARR__POSTGRES__PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: cnpg-cluster-app
+              key: password
         # Check chart documentation
         #securityContext:
         #  runAsUser: 1038

@@ -11,7 +11,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: cnpg-database
+    namespace: apps
 
   sources:
   - repoURL: https://cloudnative-pg.github.io/charts
