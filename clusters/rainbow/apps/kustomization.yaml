@@ -8,8 +8,8 @@ metadata:
 resources:
 #  - adguard-home
   - matrix
+  - postgres
   - prowlarr
   - proxy-rules
   - radarr
   - sonarr
-#  - transmission
