@@ -4,6 +4,8 @@ kind: Kustomization
 resources:
   - apps.yaml
   - cert-manager.yaml
+  - cloudnative-pg.yaml
+  - metallb.yaml
   - pod-gateway.yaml
   - public.yaml
   - system-monitoring.yaml
