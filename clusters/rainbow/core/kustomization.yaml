@@ -7,8 +7,9 @@ metadata:
 resources:
   - argocd
   - cert-manager
-  - coredns
   - cilium
+  - cloudnative-pg
+  - coredns
   - csi-driver-nfs
   #- gitea
   - kube-prometheus-stack
