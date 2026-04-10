@@ -9,6 +9,5 @@ resources:
   - pod-gateway.yaml
   - public.yaml
   - system-monitoring.yaml
-  - tigera-operator.yaml
   - traefik.yaml
   - vpn.yaml
