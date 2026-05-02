@@ -12,9 +12,22 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
 
-  source:
-    repoURL: https://coredns.github.io/helm
-    targetRevision: 1.28.2
+  sources:
+  - repoURL: https://coredns.github.io/helm
+    targetRevision: 1.45.2
 
     chart: coredns
+    helm:
+      valueFiles:
+      - $rainbow/clusters/rainbow/core/coredns/values.yaml
+  - repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
+    targetRevision: argo
+    ref: rainbow
