@@ -2,6 +2,7 @@ service:
  ipFamilyPolicy: "SingleStack"
 
 servers:
-- plugins:
+- zones:
+  plugins:
   - name: forward
     parameters: . 192.168.1.48 192.168.1.54 /etc/resolv.conf
