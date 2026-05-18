@@ -164,6 +164,8 @@ data:
       #   "description": >-
       #     Anubis is a Web AI Firewall Utility that helps you fight the bots
       #     away so that you can maintain uptime at work!
+      override:
+        og:title: "Anubis Challenge"
 
     # By default, send HTTP 200 back to clients that either get issued a challenge
     # or a denial. This seems weird, but this is load-bearing due to the fact that
