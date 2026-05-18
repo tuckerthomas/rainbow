@@ -171,7 +171,8 @@ data:
     # will stop sending requests once they get it.
     status_codes:
       CHALLENGE: 200
-      DENY: 200
+      DENY: 403
+    # Adjusted so that traefik forward auth actually declines the connection
 
     # Anubis can store temporary data in one of a few backends. See the storage
     # backends section of the docs for more information:
