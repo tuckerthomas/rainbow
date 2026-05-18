@@ -150,7 +150,7 @@ data:
       # caching metadata for multiple http hosts at once.
       considerHost: false
       # How long cached OpenGraph metadata should last in memory
-      ttl: 24h
+      ttl: 0
       # # If set, return these opengraph values instead of looking them up with
       # # the target service.
       # #
