@@ -99,7 +99,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`anubis.tuckerthomas.com`)
+    - match: Host(`anubis.tuckerthomas.com`) && PathPrefix(`/.within.website`)
       kind: Rule
       services:
         - kind: Service
