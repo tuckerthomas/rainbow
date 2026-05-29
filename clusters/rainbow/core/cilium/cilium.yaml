@@ -16,7 +16,7 @@ spec:
   # OCI is not supported yet in the sources key? Shrug. Swapping to git for now.
   sources:
   - repoURL: https://helm.cilium.io/
-    targetRevision: 1.19.1
+    targetRevision: 1.19.4
     chart: cilium
     helm:
       valueFiles:
