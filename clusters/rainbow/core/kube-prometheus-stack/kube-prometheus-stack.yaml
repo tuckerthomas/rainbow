@@ -81,13 +81,20 @@ spec:
               traefik.ingress.kubernetes.io/router.entrypoints: websecure
             labels: {}
         grafana:
+          forceDeployDatasources: true
+          additionalDataSources:
+            - name: Loki
+              type: loki
+              access: proxy
+              url: http://loki.system-monitoring.svc.cluster.local:3100
+              editable: true
           ingress:
             enabled: true
             path: /
             hosts:
               - grafana.k8s.tuckerthomas.com
             annotations:
-              kubernetes.io/ingress.class: traefik
+              kubernetes.io.ingress.class: traefik
               traefik.ingress.kubernetes.io/router.entrypoints: websecure
             labels: {}
         prometheus:
