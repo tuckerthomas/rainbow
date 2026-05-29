@@ -5,6 +5,25 @@ commonLabels:
 loki:
   storage:
     type: ""
+  # 2. Assign the local-path provisioner to the components requiring disk space
+  write:
+    persistence:
+      enabled: true
+      size: 10Gi
+      storageClass: "local-path"  # <-- Explicitly sets the provisioner
+
+  read:
+    persistence:
+      enabled: true
+      size: 10Gi
+      storageClass: "local-path"
+
+  backend:
+    persistence:
+      enabled: true
+      size: 10Gi
+      storageClass: "local-path"
+
   frontend:
     tail_proxy_url: ""
   commonConfig:
