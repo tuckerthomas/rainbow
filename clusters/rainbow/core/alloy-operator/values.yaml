@@ -1,0 +1,36 @@
+# Operator deployment
+replicaCount: 1
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+
+# Cluster-wide RBAC (needed for pod/node discovery across all namespaces)
+rbac:
+  create: true
+  createClusterRoles: true
+
+# Only deploy the main Alloy CRD (not PodLogs)
+crds:
+  deployAlloyCRD: true
+  deployPodLogsCRD: false
+
+# Manage Alloy instances in all namespaces
+namespaces: []
+ownNamespaceOnly: false
+
+# Security
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+podSecurityContext:
+  runAsNonRoot: true
+
+serviceAccount:
+  create: true
+  automount: true

@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
 
 resources:
+  - alloy-operator
   - argocd
   - cert-manager
   - cilium
