@@ -20,7 +20,6 @@ loki:
           period: 24h
   ingester:
     chunk_encoding: snappy
-    autoforget_unhealthy: true
   tracing:
     enabled: true
   querier:
