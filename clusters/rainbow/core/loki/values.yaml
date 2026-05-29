@@ -55,12 +55,17 @@ singleBinary:
     - name: GOMEMLIMIT
       value: 3750MiB
 
+chunksCache:
+  enabled: false
+
 resultsCache:
   enabled: false
 
-chunksCache:
-  # default is 500MB, with limited memory keep this smaller
-  writebackSizeLimit: 10MB
+#
+#chunksCache:
+#  # default is 500MB, with limited memory keep this smaller
+#  writebackSizeLimit: 10MB
+
 
 # Disable minio for storage
 minio:
