@@ -28,12 +28,16 @@ spec:
     # --- RIVER CONFIG ---
     configMap:
       content: |
-        // Discover all pods for container logs
+        // Discover pods on the same node as this Alloy instance
         discovery.kubernetes "pods" {
           role = "pod"
+          selectors {
+            role = "pod"
+            field = "spec.nodeName=" + coalesce(sys.env("HOSTNAME"), constants.hostname)
+          }
         }
 
-        // Relabel: attach k8s metadata as Loki labels + construct file paths
+        // Relabel: attach k8s metadata as Loki labels
         discovery.relabel "pod_logs" {
           targets = discovery.kubernetes.pods.targets
 
@@ -53,12 +57,7 @@ spec:
             source_labels = ["__meta_kubernetes_pod_label_app_kubernetes_io_name"]
             target_label  = "app"
           }
-          rule {
-            source_labels = ["__meta_kubernetes_pod_uid", "__meta_kubernetes_pod_container_name"]
-            separator     = "/"
-            replacement   = "/var/log/pods/*$1/*.log"
-            target_label  = "__path__"
-          }
+ 
           rule {
             source_labels = ["__meta_kubernetes_pod_container_id"]
             target_label  = "container_runtime"
@@ -76,7 +75,7 @@ spec:
         // Collect systemd journal entries from each node
         loki.source.journal "journal" {
           path       = "/var/log/journal"
-          labels     = { host = "host.label" }
+          labels     = { host = constants.hostname }
           forward_to = [loki.write.loki.receiver]
         }
 
