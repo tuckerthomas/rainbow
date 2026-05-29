@@ -7,16 +7,22 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  source:
-    repoURL: https://grafana.github.io/helm-charts
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: system-monitoring
+
+  sources:
+  - repoURL: https://grafana.github.io/helm-charts
     targetRevision: 0.5.7
     chart: alloy-operator
     helm:
       valueFiles:
       - $rainbow/clusters/rainbow/core/alloy-operator/values.yaml
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: system-monitoring
+  - repoURL: http://cyan.rainbow.tuckerthomas.com:4000/tuckerthomas/rainbow
+    targetRevision: argo
+    ref: rainbow
+  
   syncPolicy:
     automated:
       prune: true
