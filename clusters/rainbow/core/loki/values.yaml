@@ -5,6 +5,8 @@ commonLabels:
 loki:
   storage:
     type: ""
+  frontend:
+    tail_proxy_url: ""
   commonConfig:
     replication_factor: 1
   schemaConfig:
