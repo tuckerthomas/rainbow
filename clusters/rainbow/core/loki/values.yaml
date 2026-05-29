@@ -28,6 +28,8 @@ loki:
   limits_config:
     allow_structured_metadata: true
     volume_enabled: true
+  service:
+    publishNotReadyAddresses: true
 
 #gateway:
 #  ingress:
