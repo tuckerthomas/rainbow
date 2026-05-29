@@ -87,6 +87,8 @@ spec:
               type: loki
               access: proxy
               url: http://loki.system-monitoring.svc.cluster.local:3100
+              jsonData:
+                defaultOrgId: "tenant1"
               editable: true
           ingress:
             enabled: true
