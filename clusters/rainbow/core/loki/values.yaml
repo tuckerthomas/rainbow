@@ -19,14 +19,6 @@ loki:
   ingester:
     chunk_encoding: snappy
     autoforget_unhealthy: true
-    ring:
-      heartbeat_timeout: 1m
-    lifecycler:
-      heartbeat_period: 30s
-      unregister_on_shutdown: true
-      join_after: 15s
-      min_ready_duration: 30s
-      suppress_errors: true
   tracing:
     enabled: true
   querier:
