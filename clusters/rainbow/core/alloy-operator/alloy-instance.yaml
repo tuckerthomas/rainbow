@@ -28,12 +28,12 @@ spec:
     # --- RIVER CONFIG ---
     configMap:
       content: |
-        # Discover all pods for container logs
+        // Discover all pods for container logs
         discovery.kubernetes "pods" {
           role = "pod"
         }
 
-        # Relabel: attach k8s metadata as Loki labels + construct file paths
+        // Relabel: attach k8s metadata as Loki labels + construct file paths
         discovery.relabel "pod_logs" {
           targets = discovery.kubernetes.pods.targets
 
@@ -67,24 +67,20 @@ spec:
           }
         }
 
-        # Collect pod/container logs
+        // Collect pod/container logs
         loki.source.kubernetes "pod_logs" {
           targets    = discovery.relabel.pod_logs.output
           forward_to = [loki.write.loki.receiver]
         }
 
-        # Collect systemd journal entries from each node
-        loki.source.journald "journal" {
-          journal {
-            path = "/var/log/journal"
-          }
-          labels {
-            host = "host.label"
-          }
+        // Collect systemd journal entries from each node
+        loki.source.journal "journal" {
+          path       = "/var/log/journal"
+          labels     = { host = "host.label" }
           forward_to = [loki.write.loki.receiver]
         }
 
-        # Ship all logs to Loki
+        // Ship all logs to Loki
         loki.write "loki" {
           endpoint {
             url = "http://loki-headless.system-monitoring.svc.cluster.local:3100/loki/api/v1/push"
