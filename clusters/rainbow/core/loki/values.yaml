@@ -1,8 +1,10 @@
 ---
 commonLabels:
-  labelA: valueA
-  labelA: valueB
+  environment: rainbow
+  team: platform
 loki:
+  storage:
+    type: ""
   commonConfig:
     replication_factor: 1
   schemaConfig:
