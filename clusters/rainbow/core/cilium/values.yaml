@@ -18,6 +18,10 @@ ipam:
     # -- IPv6 CIDR mask size to delegate to individual nodes for IPAM.
     #clusterPoolIPv6MaskSize: 120
 
+hostFirewall:
+  # -- Enables the enforcement of host policies in the eBPF datapath.
+  enabled: true
+
 encryption:
   # -- Enable transparent network encryption.
   enabled: true
