@@ -30,7 +30,7 @@ ipam:
     # -- IPv6 CIDR list range to delegate to individual nodes for IPAM.
     clusterPoolIPv6PodCIDRList: ["fd12:3456:1::/56"]
     # -- IPv6 CIDR mask size to delegate to individual nodes for IPAM.
-    clusterPoolIPv6MaskSize: 120
+    clusterPoolIPv6MaskSize: 64
 
 hostFirewall:
   # -- Enables the enforcement of host policies in the eBPF datapath.
