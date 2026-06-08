@@ -6,6 +6,12 @@ ingressController:
 gatewayAPI:
   enabled: false
 
+# Explicitly enable ipv6
+ipv4:
+  enabled: true
+ipv6:
+  enabled: true
+
 ipam:
   # -- Configure IP Address Management mode.
   # ref: https://docs.cilium.io/en/stable/network/concepts/ipam/
