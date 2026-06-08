@@ -1,3 +1,11 @@
+# Disabling due to issue with rpi4
+# https://github.com/envoyproxy/envoy/issues/23339
+l7Proxy: false
+ingressController:
+  enabled: false
+gatewayAPI:
+  enabled: false
+
 ipam:
   # -- Configure IP Address Management mode.
   # ref: https://docs.cilium.io/en/stable/network/concepts/ipam/
