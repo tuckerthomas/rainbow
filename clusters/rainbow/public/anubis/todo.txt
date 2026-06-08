@@ -15,7 +15,7 @@ Setup using forward auth using the trafik spec above:
 TODO:
 - DONE Create key
     kubectl create secret generic anubis-key \
-  --namespace default \
+  --namespace public \
   --from-literal=ED25519_PRIVATE_KEY_HEX=$(openssl rand -hex 32)
 - DONE Create pod
 - DONE Create service

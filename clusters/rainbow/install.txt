@@ -1,9 +1,10 @@
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable servicelb,traefik --cluster-cidr=10.1.0.0/16,fd12:3456:789a:1::/64 --service-cidr=10.2.0.0/16,fd12:3456:789a:2::/64" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable servicelb,traefik --cluster-cidr=10.1.0.0/16,fd12:3456:1::/56 --service-cidr=10.2.0.0/16,fd12:3456:2::/112" sh -
 
 installed nodes without extra commands
 
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://green.rainbow.tuckerthomas.com:6443 --token REDACTED" sh -s -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://blue.rainbow.tuckerthomas.com:6443 --token <REDACTED>" sh -s -
 
+# Verfication
 ExecStart=/usr/local/bin/k3s \
     server \
         '--flannel-backend=none' \
@@ -17,3 +18,15 @@ ExecStart=/usr/local/bin/k3s \
 change /boot/dietpi.txt INSTALL_K3S_EXEC to match above
 
 agent --server https://cyan.rainbow.tuckerthomas.com:6443 --token <TOKEN>
+
+# cloudflare-api-token.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-api-token
+  namespace: cert-manager
+type: Opaque
+stringData:
+  api-token: <REDACTED>
+
+kubeseal -f cloudflare-api-token.yaml --format yaml -w cloudflare-api-token-sealed.yaml
