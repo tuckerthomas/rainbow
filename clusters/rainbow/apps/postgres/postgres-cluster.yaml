@@ -26,9 +26,10 @@ spec:
     targetRevision: argo
     ref: rainbow
   
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - ServerSideApply=true
+  # Temp disable to move files from backup
+  #syncPolicy:
+  #  automated:
+  #    prune: true
+  #    selfHeal: true
+  #  syncOptions:
+  #    - ServerSideApply=true

@@ -1,7 +1,8 @@
 storageClasses:
   - name: nfs-pink-ephemeral
-    annotations:
-      storageclass.kubernetes.io/is-default-class: "true"
+    # Rather use local path provisioning for temp workloads/non-configured.
+    #annotations:
+    #  storageclass.kubernetes.io/is-default-class: "true"
     parameters:
       server: pink.rainbow.tuckerthomas.com
       share: /volume1/rainbow
@@ -27,6 +28,16 @@ storageClasses:
     parameters:
       server: pink.rainbow.tuckerthomas.com
       share: /volume1/Media
+    reclaimPolicy: Retain
+    volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    mountOptions:
+      - nfsvers=4.1
+  - name: nfs-pink-cluster-temp
+    parameters:
+      server: pink.rainbow.tuckerthomas.com
+      share: /volume1/rainbow
+      subDir: postgres-data
     reclaimPolicy: Retain
     volumeBindingMode: Immediate
     allowVolumeExpansion: true

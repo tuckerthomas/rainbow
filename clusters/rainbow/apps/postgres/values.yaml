@@ -4,6 +4,8 @@ version:
   postgresql: "18"
 cluster:
   instances: 1
+  storage:
+    storageClass: "nfs-pink-cluster-temp"
 backups:
   enabled: false
 databases:
