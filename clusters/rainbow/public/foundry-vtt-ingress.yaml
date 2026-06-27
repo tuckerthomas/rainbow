@@ -97,3 +97,43 @@ spec:
     secretName: public-cert-prod
     domains:
       - main: vtt2.tuckerthomas.com
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: foundry-vttnew
+  namespace: public
+spec:
+  type: ExternalName
+  externalName: magenta.rainbow.tuckerthomas.com
+  ports:
+    - port: 30002
+      protocol: TCP
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: foundry-vtt-ingress-new
+  namespace: public
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`vttnew.tuckerthomas.com`)
+      kind: Rule
+      middlewares:
+        - name: anubis-auth
+          namespace: public
+        - name: foundry-auth
+          namespace: public
+      services:
+        - kind: Service
+          name: foundry-vttnew
+          namespace: public
+          port: 30002
+  tls:
+    secretName: public-cert-prod
+    domains:
+      - main: vttnew.tuckerthomas.com
