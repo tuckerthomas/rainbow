@@ -10,7 +10,6 @@ spec:
         - alias: radarr
           imageName: ghcr.io/linuxserver/radarr:nightly
           commonUpdateSettings:
-            forceUpdate: true
             updateStrategy: digest
             platforms:
             - linux/arm64

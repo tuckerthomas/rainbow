@@ -8,9 +8,8 @@ spec:
     - namePattern: sonarr
       images:
         - alias: sonarr
-          imageName: ghcr.io/linuxserver/sonarr:nightly
+          imageName: ghcr.io/linuxserver/sonarr:develop
           commonUpdateSettings:
-            forceUpdate: true
             updateStrategy: digest
             platforms:
             - linux/arm64
