@@ -10,6 +10,7 @@ spec:
         - alias: sonarr
           imageName: ghcr.io/linuxserver/sonarr:nightly
           commonUpdateSettings:
+            forceUpdate: true
             updateStrategy: digest
             platforms:
             - linux/arm64

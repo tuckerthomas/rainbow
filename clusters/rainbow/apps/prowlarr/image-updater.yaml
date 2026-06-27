@@ -10,6 +10,7 @@ spec:
         - alias: prowlarr
           imageName: ghcr.io/linuxserver/prowlarr:nightly
           commonUpdateSettings:
+            forceUpdate: true
             updateStrategy: digest
             platforms:
             - linux/arm64
