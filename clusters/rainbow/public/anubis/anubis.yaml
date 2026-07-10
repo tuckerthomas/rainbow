@@ -122,5 +122,6 @@ spec:
   forwardAuth:
     address: http://anubis.public.svc.cluster.local:8080/.within.website/x/cmd/anubis/api/check
     # Traefik complains if this isnt explicitly set
-    trustForwardHeader: false
+    # We must have this to receive the headers from external trafficepolicy according to google ai
+    trustForwardHeader: true
     maxResponseBodySize: 1048576
