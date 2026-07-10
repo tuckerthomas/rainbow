@@ -57,6 +57,7 @@ spec:
               advertisedPort: 443
             forwardedHeaders:
               insecure: false # Automatically strips fake headers from untrusted external clients
-            middlewares:
-              # Needs the @kubernetescrd to locate the resource apparently
-              - traefik-hsts-headers@kubernetescrd
+            http:
+              middlewares:
+                # Needs the @kubernetescrd to locate the resource apparently
+                - traefik-hsts-headers@kubernetescrd
