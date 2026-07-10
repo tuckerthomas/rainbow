@@ -54,4 +54,5 @@ spec:
           websecure:
             http3:
               enabled: true
+              advertisedPort: 443
         
