@@ -121,4 +121,5 @@ metadata:
 spec:
   forwardAuth:
     address: http://anubis.public.svc.cluster.local:8080/.within.website/x/cmd/anubis/api/check
-    trustForwardHeader: true
+    #trustForwardHeader: true
+    maxResponseBodySize: 1048576
