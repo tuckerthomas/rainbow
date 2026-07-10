@@ -30,7 +30,7 @@ spec:
     chart: traefik
     helm:
       valuesObject:
-        accessLogs:
+        accessLog:
           enabled: true
           addInternals: true
         providers:
