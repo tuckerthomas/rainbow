@@ -7,5 +7,6 @@ metadata:
 resources:
   - anubis
   - foundry-vtt-ingress.yaml
+  - headscale-ingress.yaml
   - jellyfin-ingress.yaml
   - whoami
