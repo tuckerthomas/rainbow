@@ -9,8 +9,10 @@ spec:
   ports:
     - port: 30001
       protocol: TCP
+      name: headscale-tcp
     - port: 30001
       protocol: UDP
+      name: headscale-udp
 ---
 
 apiVersion: traefik.io/v1alpha1
