@@ -24,7 +24,7 @@ spec:
 
   source:
     repoURL: https://helm.traefik.io/traefik
-    targetRevision: 40.2.0
+    targetRevision: 41.0.2
 
     # External Names set for gitea
     chart: traefik
@@ -38,6 +38,7 @@ spec:
           kubernetesCRD:
             allowExternalNameServices: true
         service:
+          single: false
           spec:
             externalTrafficPolicy: Local
             loadBalancerIP: 192.168.1.95
@@ -52,3 +53,6 @@ spec:
                   permanent: true
           websecure:
             port: 443
+            http3:
+              enabled: true
+        
