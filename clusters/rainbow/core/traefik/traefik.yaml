@@ -60,4 +60,4 @@ spec:
             http:
               middlewares:
                 # Needs the @kubernetescrd to locate the resource apparently
-                - traefik-hsts-headers@kubernetescrd
+                - kube-system-hsts-headers@kubernetescrd
